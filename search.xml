@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>https://ifmvo.github.io/2017/02/24/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>https://ifmvo.github.io/2017/02/19/goods/</url>
+      <content type="html"><![CDATA[<p><strong><a href="https://zeroc.com/" target="_blank" rel="external">zero ice</a></strong><br>一个RPC框架，跨平台<br>What is Ice?<br>Ice is a comprehensive RPC framework with support for C++, C#, Java, JavaScript, Python, and more.</p>
+<p><strong><a href="https://github.com/getlantern/lantern" target="_blank" rel="external">lantern</a></strong><br>翻墙 科学上网</p>
+<p><strong><a href="http://gudong.name/2016/04/07/checkstyle.html" target="_blank" rel="external">CheckStyle</a></strong><br> AndroidStudio 检查代码规范的插件</p>
+<p><strong><a href="https://github.com/skylot/jadx" target="_blank" rel="external">jadx</a></strong><br>一个 Android 反编译神器, 不同于常见的 dex2jar, 这个反编译器生成代码的 try/catch 次数更少, View也不再是数字 id 了, 可读性更高</p>
+<p><strong><a href="https://github.com/importre/android-selector-intellij-plugin" target="_blank" rel="external">android-selector</a></strong><br>可以根据指定颜色生成 Selector Drawable 的插件</p>
+<p><strong><a href="http://blog.avlyun.com/show/%E3%80%8Asv%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%E3%80%8B/" target="_blank" rel="external">Smali Viewer</a></strong><br>sv 是一款免费 APK 分析软件, 对你感兴趣的 APP 分析看看它们都用了些什么, 对你学习借鉴有一定帮助</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>https://ifmvo.github.io/2017/02/19/ice_network/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>https://ifmvo.github.io/2017/02/19/What%20i%20did%20/</url>
+      <content type="html"><![CDATA[<p>##1、利用github打造csdn博客的专属域名</p>
+<p>##2、写博客</p>
+<p>##3、熟练使用Ubuntu开发</p>
+<p>##4、Android技术提升</p>
+<p>##5、git熟练运用</p>
+<p>##6、开始学习iOS</p>
+<p>##7、和女朋友互相见家长</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[快速搭建博客，分分钟的事儿]]></title>
+      <url>https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/</url>
+      <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>程序员刚完成入门，到了迅速成长阶段，为了能够尽快步入大神行列，总想学者别人写个博客，不为别的，就是为了能在学完之后不会左耳进右耳冒，以后还记得曾经学过这么个东西，技术类的博客平台有很多：csdn、简书…. 但是总觉得这种平台的门槛有点低，是个人就能在上面写几笔，终究没有自己搭建的博客好用、上档次。下面就介绍一个好用、上档次的方法：</p>
+<h3 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h3><p>什么是Hexo？快速、简洁且高效的博客框架.这是Hexo官网对自己的描述。</p>
+<p>超快速度：Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</p>
+<p>支持 Markdown: Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p>
+<p>一键部署: 只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。</p>
+<p>丰富的插件: Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装Node.js，依次执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl https://raw.github.com/creationix/nvm/master/install.sh | sh</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</div></pre></td></tr></table></figure>
+<p>安装完成后，<figure class="highlight plain"><figcaption><span>Node.js。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">nvm install stable</div></pre></td></tr></table></figure></p>
+<p>开始安装Hexo，如果你网速不好，这可能是个漫长的过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
+<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，会自动新建 xxx 文件夹，xxx 文件夹就是你的网站喽。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init xxx</div><div class="line">cd xxx</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>现在在当前文件夹下执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure></p>
+<p>然后在浏览器地址栏输入：</p>
+<p><a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
+<p>回车后是不是已经可以看到你的博客了。</p>
+<h3 id="添加主题"><a href="#添加主题" class="headerlink" title="添加主题"></a>添加主题</h3>]]></content>
+      
+        
+        <tags>
+            
+            <tag> 轻松搭建博客 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[如何学习js]]></title>
+      <url>https://ifmvo.github.io/2017/01/23/how_learn%20_js/</url>
+      <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文不是我自己写作，只是我在网上看到一篇文章，读起来有趣的很，这篇文章的作者绝对是写文章的好手，作者根据自己学习js的经验得出一些心得分享给大家，下面就是他的这篇文章，好好欣赏吧。</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>首先要说明的是，咱现在不是高手，最多还是一个半桶水，算是入了JS的门</p>
+<p>谈不上经验，都是一些教训</p>
+<p>这个时候有人要说，“靠，你丫半桶水，凭啥教我们”。您先别急着骂，先听我说</p>
+<p>你叫一个大学生去教小学数学，不见得比一个初中生教得好。因为大学生早已经过了那个阶段，都忘记自己怎么走过来的了。而对于初中生，刚好走过那个阶 段，对自己怎么走过来的还记忆犹新，或者还有一些自己的总结。比如，很多高手觉得那本犀牛书入门很好，他们觉得太简单了，但以我的经验来看，它不是入门的 最好选择</p>
+<p>先说说学js的条件<br>论条件，咱是文科生，大学专业工商管理，和计算机毛关系都没；有人说英语，读了四年大学，很遗憾，咱还四级没混过；就咱这条件都学得乐呵呵的，您还等啥</p>
+<p>当然学习JS也是有门槛的，就是你的html和css至少还比较熟练，您不能连<body>这东东是干啥的都不知道就开始上JS了，学乘除前，学好加减法总是有益无害的</body></p>
+<p>再说几点忠告<br>1，不要着急看一些复杂网页效果的代码，这样除了打击你自信心，什么也学不到。没达到一定的武功水平，割了小JJ也学不会葵花宝典的<br>2，别急着加技术交流QQ群，加牛人QQ。如果你找张三丰交流武功，你上去第一句问“丰哥，where is 丹田？”，你会被他一掌劈死的<br>3，看网上什么多少天精通JS，啥啥啥从入门到精通，这种教程直接跳过吧，太多的事实证明，以一种浮躁的心态去做任何事都会以失败而告终<br>4，千万别去弄啥电脑培训，花了钱和时间不说，关键是学不到东西。本来你买两本好书自学3个月能学会的，他们硬是能折腾你两年</p>
+<p>推荐几本好书<br>“超毛，你丫吹了半天牛B，还是没说怎么学啊”<br>呵呵，我也没啥特别的办法，只是推荐几本好书。推荐的书，得按先后顺序看。别第一本没看完，就急着上第二本，并不是每次“穿越”都能成功的</p>
+<p>第一阶段：《JavaScript DOM编程艺术》<br>看这本书之前，请先确认您对Javascript有个基本的了解，应该知道if else之类的语法，如果不懂，先去看看我第二阶段推荐的Javascript高级程序设计的前三章，记住看三章就别往下看了，回到《JavaScript DOM编程艺术》这本书上来。<br>学习Javascript用《JavaScript DOM编程艺术》来入门最好不过了，老老实实看两遍，看完了你就会对JS有一个大概的了解，整本书都围绕着一个网页效果例子展开，你跟着老老实实敲一篇，敲完之后，你会发现这个效果不是常在网页中看到么，发现自己也能做出来网上的效果了，嘿嘿，小有成就感吧<br>《JavaScript DOM编程艺术》下载地址</p>
+<p>第二阶段：《JavaScript高级程序设计》<br>有的书是用来成为经典的，比如犀牛书；还有些书是用来超越经典的，显然这本书就是这种。书中章章经典，由浅入深，其中第6章，关于JS面向对象的解说，没有教程出其右<br>如果有一场满分100分的JS考试，看了《JavaScript DOM编程艺术》能让你拿到20分，那么看完这本书，你就能拿到60分以上了，学完后，你会成就感倍增的，相信我（至少看两遍，推荐三篇，跟着书上的代码一行行的敲）<br>这本书强烈推荐购买，写的太TMD牛逼了，给你带来的价值超过百倍千倍<br>这本书最新的是第三版，貌似就是前些日子出来的，我看的是第二版，第三版相对第二版变动不大，添加了几章内容，价格目前相差10元左右</p>
+<p>接下来，恭喜你可以下山了，这个时候可以自己做一些事情了</p>
+<p>你可以去Ferris这个教程看看他写的这些效果，看看源代码，怎么样，是不是觉得有一部分很简单了，尝试着跟着他写一写这些效果吧，点这里<br>学技术闭门造车是行不通的，适当的加一两个QQ群交流（注重质量），常去论坛（蓝色理想，CSDN）逛逛，你会经常有些小收获的<br>再有就是看看前辈这些牛人前辈们分享的文章，它会让你的学习事半功倍的，这里是热心人收集的国内一些牛人的博客，个人网站，点这里</p>
+<p>第三阶段：《JavaScript语言精粹》和《高性能JavaScript》<br>接下来两本书《JavaScript语言精粹》和《高性能JavaScript》算是JS高级教程的补充，里面有一些内容和JS高级教程重复了，两本书可以同时看，都不厚，可以对前面所学的有一个很好的加强和巩固<br>《JavaScript语言精粹》下载地址<br>《高性能JavaScript》下载地址</p>
+<p>第四阶段：《JavaScript DOM高级程序设计》和《JavaScript设计模式》<br>在吃透了前面所说的书之后，接下来两本书的顺序已经无关紧要了，《JavaScript DOM高级程序设计》（注意和《JavaScript 高级程序设计》相区别）和《JavaScript设计模式》，这两本都是重量级的书，能让你的JS技术上一个新的台阶；这两本书前者主修炼外功，后者主修 炼内功，有点想乾坤大挪移和九阳神功的关系；<br>《JavaScript DOM高级程序设计》 首先教你搭建一个类似JQuery的额工具函数库，然后通过讲解几个实际中经常遇到的几个应用例子，会让初学者受益匪浅<br>《JavaScript设计模式》主要讲Javascript的设计模式，说实话，翻译的质量很一般，有些生硬，但已经基本不影响你的学习，看代码完全可以理解出自己的意思<br>这两本书出来一段时间了，可能买不着了，提供下载地址<br>《JavaScript DOM高级程序设计》下载地址，注意有三部分需要下载<br>《JavaScript设计模式》下载地址</p>
+<p>最后想说的<br>不安逸，不浮躁。任何学习都不是一蹴而就的，牛B就是一个学习积累的过程，别指望两三个月，你的水平就多么厉害。倚天屠龙记里面的武功最牛B的是张三丰，而不是张无忌。<br>任何工作都需要多种技能，别忽略了html,css等其他知识的学习。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>由于我是在知乎上看到的文章，发帖的人应该也是粘过来的，所以我也不清楚出处是哪里，请勿转发。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Git 命令大全]]></title>
+      <url>https://ifmvo.github.io/2016/12/25/git/</url>
+      <content type="html"><![CDATA[<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">git init</td>
+<td style="text-align:center">初始化仓库</td>
+</tr>
+<tr>
+<td style="text-align:left">git status</td>
+<td style="text-align:center">查看状态</td>
+</tr>
+<tr>
+<td style="text-align:left">git add</td>
+<td style="text-align:center">修改添加到缓存</td>
+</tr>
+<tr>
+<td style="text-align:left">git log</td>
+<td style="text-align:center">查看日志</td>
+</tr>
+<tr>
+<td style="text-align:left">git brach</td>
+<td style="text-align:center">查看分支列表</td>
+</tr>
+<tr>
+<td style="text-align:left">git branch a</td>
+<td style="text-align:center">从当前分支另外再新建一个分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git checkout a</td>
+<td style="text-align:center">切换到a分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git checkout -b a</td>
+<td style="text-align:center">新建并切换（git branch a   +   git checkout a）</td>
+</tr>
+<tr>
+<td style="text-align:left">git branch -d</td>
+<td style="text-align:center">删除分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git branch -D</td>
+<td style="text-align:center">强制删除分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git tag v1.0</td>
+<td style="text-align:center">将当前分支新建一个标签</td>
+</tr>
+<tr>
+<td style="text-align:left">git tag -d <tagname></tagname></td>
+<td style="text-align:center">删除tag</td>
+</tr>
+<tr>
+<td style="text-align:left">git checkout v1.0</td>
+<td style="text-align:center">切换到v1.0标签</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash</td>
+<td style="text-align:center">将当前的修改暂存起来 （git add 过的也可以）</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash list</td>
+<td style="text-align:center">查看缓存列表</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash apply</td>
+<td style="text-align:center">恢复暂存</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash drop</td>
+<td style="text-align:center">删除暂存</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash pop</td>
+<td style="text-align:center">恢复并删除（git stash apply  +  git stash drop）</td>
+</tr>
+<tr>
+<td style="text-align:left">git merge develop</td>
+<td style="text-align:center">将develop 分支合并到当前分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git push origin –delete <branchname></branchname></td>
+<td style="text-align:center">删除远程分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git push origin –delete <tagname></tagname></td>
+<td style="text-align:center">删除远程tag</td>
+</tr>
+<tr>
+<td style="text-align:left">git remote show origin</td>
+<td style="text-align:center">查看远程和本地的详细状态</td>
+</tr>
+</tbody>
+</table>
+<h3 id="GitFlow-Git工作流"><a href="#GitFlow-Git工作流" class="headerlink" title="GitFlow(Git工作流)"></a>GitFlow(Git工作流)</h3><p>一般开发来说,大部分情况下都会拥有两个分支    master    和    develop,他们的职责分别是:</p>
+<p>master:永远处在即将发布(production-ready)状态<br>develop:最新的开发状态</p>
+<p>确切的说master、develop分支大部分情况下都会保持一致,只有在上线前的测试阶段develop比master的代码要多,一旦测试没问题,准备发布了,这时候会将develop合并到master上。</p>
+<p>但是我们发布之后又会进行下一版本的功能开发,开发中间可能又会遇到需要紧急修复bug,一个功能开发完成之后突然需求变动了等情况,所以GitFlow除了以上master和develop两个主要分支以外,还提出了以下三个辅助分支:</p>
+<p>feature:开发新功能的分支,基于develop,    完成后merge回develop<br>release:准备要发布版本的分支,用来修复bug,基于develop,完成后    merge回develop和master<br>hotfix:修复master上的问题,    等不及release版本就必须马上上线.基于master,完成后merge回master和develop</p>
+<p>什么意思呢?</p>
+<p>举个例子,假设我们已经有master和develop两个分支了,这个时候我们准备做一个功能A,第一步我们要做的,就是基于develop分支新建个分支:</p>
+<p>git branch feature/A看到了吧,其实就是一个规范,规定了所有开发的功能分支都以feature为前缀。但是这个时候做着做着发现线上有一个紧急的bug需要修复,那赶紧停下手头的工作,立刻切换到master分支,然后再此基础上新建一个分支:</p>
+<p>git    branch    hotfix/B代表新建了一个紧急修复分支,修复完成之后直接合并到develop和master,然后发布。然后再切回我们的feature/A分支继续着我们的开发,如果开发完了,那么合并回develop分支,然后在develop分支属于测试环境,跟后端对接并且测试的差不多了,感觉可以发布到正式环境了,这个时候再新建一个release分支:</p>
+<p>git branch release/1.0这个时候所有的api、数据等都是正式环境,然后在这个分支上进行最后的测试,发现bug直接进行修改,直到测试ok达到了发布的标准,最后把该分支合并到develop和master然后进行发布。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+</search>
