@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/</loc>
+    
+    <lastmod>2017-02-25T03:05:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ifmvo.github.io/2016/12/25/git/</loc>
     
     <lastmod>2017-02-24T23:40:28.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://ifmvo.github.io/2017/01/23/how_learn%20_js/</loc>
     
     <lastmod>2017-02-24T23:19:52.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/</loc>
-    
-    <lastmod>2017-02-24T23:14:05.000Z</lastmod>
     
   </url>
   
