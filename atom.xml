@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>陈铭卓的博客</title>
+  <subtitle>总结今天干了什么</subtitle>
+  <link href="/atom.xml" rel="self"/>
   
+  <link href="https://ifmvo.github.io/"/>
+  <updated>2017-02-24T15:38:07.000Z</updated>
+  <id>https://ifmvo.github.io/</id>
   
+  <author>
+    <name>陈铭卓</name>
     
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>https://ifmvo.github.io/2017/02/24/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://ifmvo.github.io/2017/02/24/hello-world/"/>
+    <id>https://ifmvo.github.io/2017/02/24/hello-world/</id>
+    <published>2017-02-24T15:38:07.000Z</published>
+    <updated>2017-02-24T15:38:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -16,36 +32,62 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
-      
-        
-    </entry>
     
-    <entry>
-      <title></title>
-      <url>https://ifmvo.github.io/2017/02/19/goods/</url>
-      <content type="html"><![CDATA[<p><strong><a href="https://zeroc.com/" target="_blank" rel="external">zero ice</a></strong><br>一个RPC框架，跨平台<br>What is Ice?<br>Ice is a comprehensive RPC framework with support for C++, C#, Java, JavaScript, Python, and more.</p>
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://ifmvo.github.io/2017/02/19/goods/"/>
+    <id>https://ifmvo.github.io/2017/02/19/goods/</id>
+    <published>2017-02-19T05:56:29.000Z</published>
+    <updated>2017-02-19T05:56:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong><a href="https://zeroc.com/" target="_blank" rel="external">zero ice</a></strong><br>一个RPC框架，跨平台<br>What is Ice?<br>Ice is a comprehensive RPC framework with support for C++, C#, Java, JavaScript, Python, and more.</p>
 <p><strong><a href="https://github.com/getlantern/lantern" target="_blank" rel="external">lantern</a></strong><br>翻墙 科学上网</p>
 <p><strong><a href="http://gudong.name/2016/04/07/checkstyle.html" target="_blank" rel="external">CheckStyle</a></strong><br> AndroidStudio 检查代码规范的插件</p>
 <p><strong><a href="https://github.com/skylot/jadx" target="_blank" rel="external">jadx</a></strong><br>一个 Android 反编译神器, 不同于常见的 dex2jar, 这个反编译器生成代码的 try/catch 次数更少, View也不再是数字 id 了, 可读性更高</p>
 <p><strong><a href="https://github.com/importre/android-selector-intellij-plugin" target="_blank" rel="external">android-selector</a></strong><br>可以根据指定颜色生成 Selector Drawable 的插件</p>
 <p><strong><a href="http://blog.avlyun.com/show/%E3%80%8Asv%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%E3%80%8B/" target="_blank" rel="external">Smali Viewer</a></strong><br>sv 是一款免费 APK 分析软件, 对你感兴趣的 APP 分析看看它们都用了些什么, 对你学习借鉴有一定帮助</p>
 ]]></content>
-      
-        
-    </entry>
     
-    <entry>
-      <title></title>
-      <url>https://ifmvo.github.io/2017/02/19/ice_network/</url>
-      <content type="html"></content>
-      
-        
-    </entry>
+    <summary type="html">
     
-    <entry>
-      <title></title>
-      <url>https://ifmvo.github.io/2017/02/19/What%20i%20did%20/</url>
-      <content type="html"><![CDATA[<p>##1、利用github打造csdn博客的专属域名</p>
+      &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://zeroc.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;zero ice&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;一个RPC框架，跨平台&lt;br&gt;What is Ice?&lt;br&gt;Ice is a comp
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://ifmvo.github.io/2017/02/19/ice_network/"/>
+    <id>https://ifmvo.github.io/2017/02/19/ice_network/</id>
+    <published>2017-02-19T05:56:29.000Z</published>
+    <updated>2017-02-19T05:56:29.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://ifmvo.github.io/2017/02/19/What%20i%20did%20/"/>
+    <id>https://ifmvo.github.io/2017/02/19/What i did /</id>
+    <published>2017-02-19T05:56:28.000Z</published>
+    <updated>2017-02-19T05:56:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>##1、利用github打造csdn博客的专属域名</p>
 <p>##2、写博客</p>
 <p>##3、熟练使用Ubuntu开发</p>
 <p>##4、Android技术提升</p>
@@ -53,14 +95,30 @@
 <p>##6、开始学习iOS</p>
 <p>##7、和女朋友互相见家长</p>
 ]]></content>
-      
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[快速搭建博客，分分钟的事儿]]></title>
-      <url>https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/</url>
-      <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>程序员刚完成入门，到了迅速成长阶段，为了能够尽快步入大神行列，总想学者别人写个博客，不为别的，就是为了能在学完之后不会左耳进右耳冒，以后还记得曾经学过这么个东西，技术类的博客平台有很多：csdn、简书…. 但是总觉得这种平台的门槛有点低，是个人就能在上面写几笔，终究没有自己搭建的博客好用、上档次。下面就介绍一个好用、上档次的方法：</p>
+    <summary type="html">
+    
+      &lt;p&gt;##1、利用github打造csdn博客的专属域名&lt;/p&gt;
+&lt;p&gt;##2、写博客&lt;/p&gt;
+&lt;p&gt;##3、熟练使用Ubuntu开发&lt;/p&gt;
+&lt;p&gt;##4、Android技术提升&lt;/p&gt;
+&lt;p&gt;##5、git熟练运用&lt;/p&gt;
+&lt;p&gt;##6、开始学习iOS&lt;/p&gt;
+&lt;p&gt;##7、
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>快速搭建博客，分分钟的事儿</title>
+    <link href="https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/"/>
+    <id>https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/</id>
+    <published>2017-01-23T16:00:00.000Z</published>
+    <updated>2017-02-24T23:14:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>程序员刚完成入门，到了迅速成长阶段，为了能够尽快步入大神行列，总想学者别人写个博客，不为别的，就是为了能在学完之后不会左耳进右耳冒，以后还记得曾经学过这么个东西，技术类的博客平台有很多：csdn、简书…. 但是总觉得这种平台的门槛有点低，是个人就能在上面写几笔，终究没有自己搭建的博客好用、上档次。下面就介绍一个好用、上档次的方法：</p>
 <h3 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h3><p>什么是Hexo？快速、简洁且高效的博客框架.这是Hexo官网对自己的描述。</p>
 <p>超快速度：Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</p>
 <p>支持 Markdown: Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p>
@@ -76,20 +134,26 @@
 <p><a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
 <p>回车后是不是已经可以看到你的博客了。</p>
 <h3 id="添加主题"><a href="#添加主题" class="headerlink" title="添加主题"></a>添加主题</h3>]]></content>
-      
-        
-        <tags>
-            
-            <tag> 轻松搭建博客 </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[如何学习js]]></title>
-      <url>https://ifmvo.github.io/2017/01/23/how_learn%20_js/</url>
-      <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文不是我自己写作，只是我在网上看到一篇文章，读起来有趣的很，这篇文章的作者绝对是写文章的好手，作者根据自己学习js的经验得出一些心得分享给大家，下面就是他的这篇文章，好好欣赏吧。</p>
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;程序员刚完成入门，到了迅速成长阶段，为了能够尽快步入大神行列，总想学者别人写个博客，不为别的，就是为了能在学完之后不会左耳进右耳冒，以后还记
+    
+    </summary>
+    
+    
+      <category term="轻松搭建博客" scheme="https://ifmvo.github.io/tags/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何学习js</title>
+    <link href="https://ifmvo.github.io/2017/01/23/how_learn%20_js/"/>
+    <id>https://ifmvo.github.io/2017/01/23/how_learn _js/</id>
+    <published>2017-01-22T16:00:00.000Z</published>
+    <updated>2017-02-24T23:19:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文不是我自己写作，只是我在网上看到一篇文章，读起来有趣的很，这篇文章的作者绝对是写文章的好手，作者根据自己学习js的经验得出一些心得分享给大家，下面就是他的这篇文章，好好欣赏吧。</p>
 <h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>首先要说明的是，咱现在不是高手，最多还是一个半桶水，算是入了JS的门</p>
 <p>谈不上经验，都是一些教训</p>
 <p>这个时候有人要说，“靠，你丫半桶水，凭啥教我们”。您先别急着骂，先听我说</p>
@@ -107,20 +171,26 @@
 <p>最后想说的<br>不安逸，不浮躁。任何学习都不是一蹴而就的，牛B就是一个学习积累的过程，别指望两三个月，你的水平就多么厉害。倚天屠龙记里面的武功最牛B的是张三丰，而不是张无忌。<br>任何工作都需要多种技能，别忽略了html,css等其他知识的学习。</p>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>由于我是在知乎上看到的文章，发帖的人应该也是粘过来的，所以我也不清楚出处是哪里，请勿转发。</p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> js </tag>
-            
-        </tags>
-        
-    </entry>
     
-    <entry>
-      <title><![CDATA[Git 命令大全]]></title>
-      <url>https://ifmvo.github.io/2016/12/25/git/</url>
-      <content type="html"><![CDATA[<table>
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;本文不是我自己写作，只是我在网上看到一篇文章，读起来有趣的很，这篇文章的作者绝对是写文章的好手，作者根据自己学习js的经验得出一些心得分享给
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://ifmvo.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 命令大全</title>
+    <link href="https://ifmvo.github.io/2016/12/25/git/"/>
+    <id>https://ifmvo.github.io/2016/12/25/git/</id>
+    <published>2016-12-24T16:00:00.000Z</published>
+    <updated>2017-02-24T23:40:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<table>
 <thead>
 <tr>
 <th style="text-align:left">命令</th>
@@ -229,16 +299,25 @@
 <p>git    branch    hotfix/B代表新建了一个紧急修复分支,修复完成之后直接合并到develop和master,然后发布。然后再切回我们的feature/A分支继续着我们的开发,如果开发完了,那么合并回develop分支,然后在develop分支属于测试环境,跟后端对接并且测试的差不多了,感觉可以发布到正式环境了,这个时候再新建一个release分支:</p>
 <p>git branch release/1.0这个时候所有的api、数据等都是正式环境,然后在这个分支上进行最后的测试,发现bug直接进行修改,直到测试ok达到了发布的标准,最后把该分支合并到develop和master然后进行发布。</p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> Git </tag>
-            
-        </tags>
-        
-    </entry>
     
+    <summary type="html">
+    
+      &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;命令&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-a
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="https://ifmvo.github.io/tags/Git/"/>
+    
+  </entry>
   
-  
-</search>
+</feed>
