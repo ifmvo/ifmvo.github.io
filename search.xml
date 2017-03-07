@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title><![CDATA[快速搭建博客，分分钟的事儿]]></title>
+      <title><![CDATA[hexo 搭建博客]]></title>
       <url>https://ifmvo.github.io/2017/01/24/blog_by_hexo/</url>
       <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>程序员刚完成入门，到了迅速成长阶段，为了能够尽快步入大神行列，总想学者别人写个博客，不为别的，就是为了能在学完之后不会左耳进右耳冒，以后还记得曾经学过这么个东西，技术类的博客平台有很多：csdn、简书…. 但是总觉得这种平台的门槛有点低，是个人就能在上面写几笔，终究没有自己搭建的博客好用、上档次。下面就介绍一个好用、上档次的方法：</p>
 <h3 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h3><p>什么是Hexo？快速、简洁且高效的博客框架.这是Hexo官网对自己的描述。</p>
@@ -26,7 +26,7 @@
         
         <tags>
             
-            <tag> 轻松搭建博客 </tag>
+            <tag> 搭建博客 </tag>
             
         </tags>
         
