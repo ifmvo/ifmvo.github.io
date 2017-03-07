@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ifmvo.github.io/"/>
-  <updated>2017-02-24T15:38:07.000Z</updated>
+  <updated>2017-02-25T03:05:06.000Z</updated>
   <id>https://ifmvo.github.io/</id>
   
   <author>
@@ -16,105 +16,9 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://ifmvo.github.io/2017/02/24/hello-world/"/>
-    <id>https://ifmvo.github.io/2017/02/24/hello-world/</id>
-    <published>2017-02-24T15:38:07.000Z</published>
-    <updated>2017-02-24T15:38:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://ifmvo.github.io/2017/02/19/goods/"/>
-    <id>https://ifmvo.github.io/2017/02/19/goods/</id>
-    <published>2017-02-19T05:56:29.000Z</published>
-    <updated>2017-02-19T05:56:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong><a href="https://zeroc.com/" target="_blank" rel="external">zero ice</a></strong><br>一个RPC框架，跨平台<br>What is Ice?<br>Ice is a comprehensive RPC framework with support for C++, C#, Java, JavaScript, Python, and more.</p>
-<p><strong><a href="https://github.com/getlantern/lantern" target="_blank" rel="external">lantern</a></strong><br>翻墙 科学上网</p>
-<p><strong><a href="http://gudong.name/2016/04/07/checkstyle.html" target="_blank" rel="external">CheckStyle</a></strong><br> AndroidStudio 检查代码规范的插件</p>
-<p><strong><a href="https://github.com/skylot/jadx" target="_blank" rel="external">jadx</a></strong><br>一个 Android 反编译神器, 不同于常见的 dex2jar, 这个反编译器生成代码的 try/catch 次数更少, View也不再是数字 id 了, 可读性更高</p>
-<p><strong><a href="https://github.com/importre/android-selector-intellij-plugin" target="_blank" rel="external">android-selector</a></strong><br>可以根据指定颜色生成 Selector Drawable 的插件</p>
-<p><strong><a href="http://blog.avlyun.com/show/%E3%80%8Asv%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%E3%80%8B/" target="_blank" rel="external">Smali Viewer</a></strong><br>sv 是一款免费 APK 分析软件, 对你感兴趣的 APP 分析看看它们都用了些什么, 对你学习借鉴有一定帮助</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://zeroc.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;zero ice&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;一个RPC框架，跨平台&lt;br&gt;What is Ice?&lt;br&gt;Ice is a comp
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://ifmvo.github.io/2017/02/19/ice_network/"/>
-    <id>https://ifmvo.github.io/2017/02/19/ice_network/</id>
-    <published>2017-02-19T05:56:29.000Z</published>
-    <updated>2017-02-19T05:56:29.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://ifmvo.github.io/2017/02/19/What%20i%20did%20/"/>
-    <id>https://ifmvo.github.io/2017/02/19/What i did /</id>
-    <published>2017-02-19T05:56:28.000Z</published>
-    <updated>2017-02-19T05:56:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>##1、利用github打造csdn博客的专属域名</p>
-<p>##2、写博客</p>
-<p>##3、熟练使用Ubuntu开发</p>
-<p>##4、Android技术提升</p>
-<p>##5、git熟练运用</p>
-<p>##6、开始学习iOS</p>
-<p>##7、和女朋友互相见家长</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;##1、利用github打造csdn博客的专属域名&lt;/p&gt;
-&lt;p&gt;##2、写博客&lt;/p&gt;
-&lt;p&gt;##3、熟练使用Ubuntu开发&lt;/p&gt;
-&lt;p&gt;##4、Android技术提升&lt;/p&gt;
-&lt;p&gt;##5、git熟练运用&lt;/p&gt;
-&lt;p&gt;##6、开始学习iOS&lt;/p&gt;
-&lt;p&gt;##7、
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>快速搭建博客，分分钟的事儿</title>
-    <link href="https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/"/>
-    <id>https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/</id>
+    <link href="https://ifmvo.github.io/2017/01/24/blog_by_hexo/"/>
+    <id>https://ifmvo.github.io/2017/01/24/blog_by_hexo/</id>
     <published>2017-01-23T16:00:00.000Z</published>
     <updated>2017-02-25T03:05:06.000Z</updated>
     
@@ -148,8 +52,8 @@
   
   <entry>
     <title>如何学习js</title>
-    <link href="https://ifmvo.github.io/2017/01/23/how_learn%20_js/"/>
-    <id>https://ifmvo.github.io/2017/01/23/how_learn _js/</id>
+    <link href="https://ifmvo.github.io/2017/01/23/how_learn_js/"/>
+    <id>https://ifmvo.github.io/2017/01/23/how_learn_js/</id>
     <published>2017-01-22T16:00:00.000Z</published>
     <updated>2017-02-24T23:19:52.000Z</updated>
     
@@ -185,8 +89,8 @@
   
   <entry>
     <title>Git 命令大全</title>
-    <link href="https://ifmvo.github.io/2016/12/25/git/"/>
-    <id>https://ifmvo.github.io/2016/12/25/git/</id>
+    <link href="https://ifmvo.github.io/2016/12/25/git_common_cmd/"/>
+    <id>https://ifmvo.github.io/2016/12/25/git_common_cmd/</id>
     <published>2016-12-24T16:00:00.000Z</published>
     <updated>2017-02-24T23:40:28.000Z</updated>
     

@@ -4,12 +4,45 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | 陈铭卓的博客</title>
+    <title>Git 命令大全 | 陈铭卓的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="陈铭卓">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="命令
+描述
+
+
+
+
+git init
+初始化仓库
+
+
+git status
+查看状态
+
+
+git add
+修改添加到缓存
+
+
+git log
+查看日志
+
+
+git brach
+查看分支列表
+
+
+git branch a
+从当前分支另外再新建一个分支
+
+
+git checkout a
+切换到a分支
+
+">
     
     
     
@@ -60,15 +93,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/24/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2016/12/25/git_common_cmd/" title="Git 命令大全" itemprop="url">Git 命令大全</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://ifmvo.github.io" title="陈铭卓">陈铭卓</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-02-24T15:38:07.000Z" itemprop="datePublished">2017-02-24</time>
-    更新日期:<time datetime="2017-02-24T15:38:07.000Z" itemprop="dateModified">2017-02-24</time>
+    <time datetime="2016-12-24T16:00:00.000Z" itemprop="datePublished">2016-12-25</time>
+    更新日期:<time datetime="2017-02-24T23:40:28.000Z" itemprop="dateModified">2017-02-25</time>
     
   </p>
 </header>
@@ -77,28 +110,132 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitFlow-Git工作流"><span class="toc-number">1.</span> <span class="toc-text">GitFlow(Git工作流)</span></a></li></ol>
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">git init</td>
+<td style="text-align:center">初始化仓库</td>
+</tr>
+<tr>
+<td style="text-align:left">git status</td>
+<td style="text-align:center">查看状态</td>
+</tr>
+<tr>
+<td style="text-align:left">git add</td>
+<td style="text-align:center">修改添加到缓存</td>
+</tr>
+<tr>
+<td style="text-align:left">git log</td>
+<td style="text-align:center">查看日志</td>
+</tr>
+<tr>
+<td style="text-align:left">git brach</td>
+<td style="text-align:center">查看分支列表</td>
+</tr>
+<tr>
+<td style="text-align:left">git branch a</td>
+<td style="text-align:center">从当前分支另外再新建一个分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git checkout a</td>
+<td style="text-align:center">切换到a分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git checkout -b a</td>
+<td style="text-align:center">新建并切换（git branch a   +   git checkout a）</td>
+</tr>
+<tr>
+<td style="text-align:left">git branch -d</td>
+<td style="text-align:center">删除分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git branch -D</td>
+<td style="text-align:center">强制删除分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git tag v1.0</td>
+<td style="text-align:center">将当前分支新建一个标签</td>
+</tr>
+<tr>
+<td style="text-align:left">git tag -d <tagname></tagname></td>
+<td style="text-align:center">删除tag</td>
+</tr>
+<tr>
+<td style="text-align:left">git checkout v1.0</td>
+<td style="text-align:center">切换到v1.0标签</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash</td>
+<td style="text-align:center">将当前的修改暂存起来 （git add 过的也可以）</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash list</td>
+<td style="text-align:center">查看缓存列表</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash apply</td>
+<td style="text-align:center">恢复暂存</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash drop</td>
+<td style="text-align:center">删除暂存</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash pop</td>
+<td style="text-align:center">恢复并删除（git stash apply  +  git stash drop）</td>
+</tr>
+<tr>
+<td style="text-align:left">git merge develop</td>
+<td style="text-align:center">将develop 分支合并到当前分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git push origin –delete <branchname></branchname></td>
+<td style="text-align:center">删除远程分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git push origin –delete <tagname></tagname></td>
+<td style="text-align:center">删除远程tag</td>
+</tr>
+<tr>
+<td style="text-align:left">git remote show origin</td>
+<td style="text-align:center">查看远程和本地的详细状态</td>
+</tr>
+</tbody>
+</table>
+<h3 id="GitFlow-Git工作流"><a href="#GitFlow-Git工作流" class="headerlink" title="GitFlow(Git工作流)"></a>GitFlow(Git工作流)</h3><p>一般开发来说,大部分情况下都会拥有两个分支    master    和    develop,他们的职责分别是:</p>
+<p>master:永远处在即将发布(production-ready)状态<br>develop:最新的开发状态</p>
+<p>确切的说master、develop分支大部分情况下都会保持一致,只有在上线前的测试阶段develop比master的代码要多,一旦测试没问题,准备发布了,这时候会将develop合并到master上。</p>
+<p>但是我们发布之后又会进行下一版本的功能开发,开发中间可能又会遇到需要紧急修复bug,一个功能开发完成之后突然需求变动了等情况,所以GitFlow除了以上master和develop两个主要分支以外,还提出了以下三个辅助分支:</p>
+<p>feature:开发新功能的分支,基于develop,    完成后merge回develop<br>release:准备要发布版本的分支,用来修复bug,基于develop,完成后    merge回develop和master<br>hotfix:修复master上的问题,    等不及release版本就必须马上上线.基于master,完成后merge回master和develop</p>
+<p>什么意思呢?</p>
+<p>举个例子,假设我们已经有master和develop两个分支了,这个时候我们准备做一个功能A,第一步我们要做的,就是基于develop分支新建个分支:</p>
+<p>git branch feature/A看到了吧,其实就是一个规范,规定了所有开发的功能分支都以feature为前缀。但是这个时候做着做着发现线上有一个紧急的bug需要修复,那赶紧停下手头的工作,立刻切换到master分支,然后再此基础上新建一个分支:</p>
+<p>git    branch    hotfix/B代表新建了一个紧急修复分支,修复完成之后直接合并到develop和master,然后发布。然后再切回我们的feature/A分支继续着我们的开发,如果开发完了,那么合并回develop分支,然后在develop分支属于测试环境,跟后端对接并且测试的差不多了,感觉可以发布到正式环境了,这个时候再新建一个release分支:</p>
+<p>git branch release/1.0这个时候所有的api、数据等都是正式环境,然后在这个分支上进行最后的测试,发现bug直接进行修改,直到测试ok达到了发布的标准,最后把该分支合并到develop和master然后进行发布。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Git/">Git</a>
+  </div>
 
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="https://ifmvo.github.io/2017/02/24/hello-world/" data-title="Hello World | 陈铭卓的博客" data-tsina="null" class="share clearfix">
+  <div data-url="https://ifmvo.github.io/2016/12/25/git_common_cmd/" data-title="Git 命令大全 | 陈铭卓的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -107,14 +244,14 @@
 	
 <nav class="article-nav clearfix">
  
-
-<div class="next">
-<a href="/2017/02/19/goods/"  title="">
- <strong>NEXT:</strong><br/> 
- <span>(no title)
-</span>
+ <div class="prev" >
+ <a href="/2017/01/23/how_learn_js/" title="如何学习js">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  如何学习js</span>
 </a>
 </div>
+
 
 </nav>
 
@@ -128,7 +265,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitFlow-Git工作流"><span class="toc-number">1.</span> <span class="toc-text">GitFlow(Git工作流)</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -164,7 +301,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 
