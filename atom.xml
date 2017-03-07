@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>陈铭卓的博客</title>
-  <subtitle>总结今天干了什么</subtitle>
+  <subtitle>总结今天干了啥</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ifmvo.github.io/"/>
