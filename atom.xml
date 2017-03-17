@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ifmvo.github.io/"/>
-  <updated>2017-03-17T11:41:30.000Z</updated>
+  <updated>2017-03-17T12:21:10.000Z</updated>
   <id>https://ifmvo.github.io/</id>
   
   <author>
@@ -16,61 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://ifmvo.github.io/2017/03/17/thinking_in_java/"/>
-    <id>https://ifmvo.github.io/2017/03/17/thinking_in_java/</id>
-    <published>2017-03-17T11:41:30.000Z</published>
-    <updated>2017-03-17T11:41:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
-<li><p>“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”<br>是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。</p>
-</li>
-<li><p>事实上,多线程最主要的一个用途就是构建一个“反应灵敏”的用户界面。</p>
-</li>
-<li><p>线程机制多少降低了一些计算效率,但无论程序的设计,资源的均衡,还是用户操作的方便性,都从中获得了巨大的利益。当然,如果本来就安装了多块 CPU,那么操作系统能够自行决定为不同的 CPU 分配哪些线程,程序的总体运行速度也会变得更快(所有这些都要求操作系统以及应用程序的支持)。多线程和多任务是充分发挥多处理机系统能力的一种最有效的方式。</p>
-</li>
-<li><p>CPU 处理一个现有线程集的顺序是不确定的——除非我们亲自介入,并用 Thread 的 setPriority()方法调整它们的优先级。</p>
-</li>
-<li>普通对象对于垃圾收集来说是一种“公平竞赛”,但线程却并非如此。每个线程都会“注册”自己,所以某处实际存在着对它的一个引用。这样一来,<br>垃圾收集器便只好对它“瞠目以对”了。</li>
-</ul>
-<blockquote>
-<p>个人理解：普通的对象比线程更容易被回收，原因是线程的引用会被存起来。</p>
-</blockquote>
-<ul>
-<li>若某样东西有一个 Runnable 接口,实际只是意味着它有一个 run()方法,但不存在与之相关的任何特殊东<br>西——它不具有任何天生的线程处理能力,这与那些从 Thread 继承的类是不同的。</li>
-</ul>
-<h3 id="Java-如何共享资源"><a href="#Java-如何共享资源" class="headerlink" title="Java 如何共享资源"></a>Java 如何共享资源</h3><ul>
-<li><p>对一种特殊的资源——对象中的内存——Java 提供了内建的机制来防止它们的冲突。由于我们通常将数据元<br>素设为从属于 private(私有)类,然后只通过方法访问那些内存,所以只需将一个特定的方法设为<br>synchronized(同步的),便可有效地防止冲突。<strong><em>在任何时刻,只可有一个线程调用特定对象的一个<br>synchronized 方法</em></strong> (尽管那个线程可以调用多个对象的同步方法)</p>
-</li>
-<li><p>如果只同步其中的一个方法,那么另一个就可以自<br>由忽视对象的锁定,并可无碍地调用。所以必须记住一个重要的规则:对于 <strong><em>访问某个关键共享资源的所有方<br>法,都必须把它们设为 synchronized</em></strong> ,否则就不能正常地工作。</p>
-</li>
-<li><p>要访问共享资源的每一部分代码都必须封装到一个适当的同步块里。</p>
-</li>
-</ul>
-<blockquote>
-<p>在能进入同步块之前,必须在 synchObject 上取得锁。如果已有其他线程取得了这把锁,块便不能进入,必<br>须等候那把锁被释放</p>
-</blockquote>
-<h3 id="synchronized-同步的效率"><a href="#synchronized-同步的效率" class="headerlink" title="synchronized 同步的效率"></a>synchronized 同步的效率</h3><ul>
-<li>由于要为同样的数据编写两个方法,所以无论如何都不会给人留下效率很高的印象。看来似乎更好的一种做<br>法是将所有方法都设为自动同步,并完全消除 synchronized 关键字(当然,含有 synchronized run()的例<br>子显示出这样做是很不通的)。但它也揭示出获取一把锁并非一种“廉价”方案——为一次方法调用付出的<br>代价(进入和退出方法,不执行方法主体)至少要累加到四倍,而且根据我们的具体现方案,这一代价还有<br>可能变得更高。所以假如已知一个方法不会造成冲突,最明智的做法便是撤消其中的 synchronized 关键字。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;多线程&quot;&gt;&lt;a href=&quot;#多线程&quot; class=&quot;headerlink&quot; title=&quot;多线程&quot;&gt;&lt;/a&gt;多线程&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>真理</title>
+    <title>道理</title>
     <link href="https://ifmvo.github.io/2017/03/17/beautiful/"/>
     <id>https://ifmvo.github.io/2017/03/17/beautiful/</id>
     <published>2017-03-16T16:00:00.000Z</published>
-    <updated>2017-03-17T11:44:45.000Z</updated>
+    <updated>2017-03-17T12:21:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>如果“从零开始”，用什么设计架构的问题属于想得太多做得太少的问题。</p>
 <p>从零开始意味着一个项目的主要技术难点是基本功能实现。当每一个功能都需要考虑如何做到的时候，我觉得一般人都没办法考虑如何做好。</p>
@@ -87,7 +37,7 @@
     </summary>
     
     
-      <category term="真理" scheme="https://ifmvo.github.io/tags/%E7%9C%9F%E7%90%86/"/>
+      <category term="道理" scheme="https://ifmvo.github.io/tags/%E9%81%93%E7%90%86/"/>
     
   </entry>
   
@@ -96,7 +46,7 @@
     <link href="https://ifmvo.github.io/2017/03/17/case_interview/"/>
     <id>https://ifmvo.github.io/2017/03/17/case_interview/</id>
     <published>2017-03-16T16:00:00.000Z</published>
-    <updated>2017-03-17T01:01:49.000Z</updated>
+    <updated>2017-03-17T12:22:15.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="关于中间件的描述"><a href="#关于中间件的描述" class="headerlink" title="关于中间件的描述"></a>关于中间件的描述</h3><blockquote>
 <ul>
@@ -123,48 +73,28 @@
   </entry>
   
   <entry>
-    <title>ICE For Android</title>
-    <link href="https://ifmvo.github.io/2017/03/16/ice_network/"/>
-    <id>https://ifmvo.github.io/2017/03/16/ice_network/</id>
-    <published>2017-03-15T16:00:00.000Z</published>
-    <updated>2017-03-17T11:41:30.000Z</updated>
+    <title>资源</title>
+    <link href="https://ifmvo.github.io/2017/03/17/goods/"/>
+    <id>https://ifmvo.github.io/2017/03/17/goods/</id>
+    <published>2017-03-16T16:00:00.000Z</published>
+    <updated>2017-03-17T12:21:54.000Z</updated>
     
-    <content type="html"><![CDATA[<p>由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。</p>
-<p>其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使用，并没有为你提供什么封装好的网络请求库，所以完全由自己从零开始一步一步进行封装，这对于一个刚刚入门的我来说着实不易。</p>
-<hr>
-<h2 id="ICE为何物？"><a href="#ICE为何物？" class="headerlink" title="ICE为何物？"></a>ICE为何物？</h2><center><br><img src="http://img.blog.csdn.net/20170316191751952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWZtdm8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="network"><br></center>
-
-
-<p><code>ZeroC ICE</code> 是 <code>ZeroC</code> 公司的 <code>ICE（Internet Communications Engine）</code>中间件平台。对于客户端和服务端程序的开发提供了很大的便利。</p>
-<p><strong>官网自己的描述：</strong></p>
-<ul>
-<li>灵活</li>
-<li>安全、稳定</li>
-<li>快速</li>
-<li>多语言多平台<code>（Develop in C++, C#, Java, JavaScript, Objective-C, PHP, Python, and Ruby. Deploy on Linux, macOS, Windows, Android, and iOS.）</code></li>
-</ul>
-<p>目前稳定版本为 3.6 ， 3.7 版本正在持续开发。</p>
-<hr>
-<h2 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h2><p>无论是 <code>Linux</code> <code>Window</code> 还是 <code>Mac</code> 安装步骤都是很方便的，只要按照官方文档使用几个命令就可以了。请参考<a href="https://doc.zeroc.com/" target="_blank" rel="external">官方文档</a></p>
-<center><br><img src="http://img.blog.csdn.net/20170316203105409?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWZtdm8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br></center>
-
-
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>我对 Android 中使用 ICE <strong><em>网络请求部分进行简单封装</em></strong>,可以提供参考.</p>
-<h3 id="调用接口姿势"><a href="#调用接口姿势" class="headerlink" title="调用接口姿势:"></a>调用接口姿势:</h3><p>实现传统 Callback 回调方式<br><figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">IceClient</span><span class="selector-class">.getUsers</span>(<span class="string">"ifmvo"</span>, <span class="string">"123456"</span>, new IceClient.Callback&lt;String&gt;() &#123;</div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onStart() &#123;</div><div class="line">                <span class="comment">// showLoading();</span></div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onFailure(String msg) &#123;</div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showErrorMsg();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"链接异常信息"</span> + msg);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            @<span class="selector-tag">Override</span></div><div class="line">            <span class="selector-tag">public</span> <span class="selector-tag">void</span> <span class="selector-tag">onSuccess</span>(String result) &#123;</div><div class="line"></div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showResult();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"返回成功信息"</span> + result);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
-<h3 id="添加接口方式"><a href="#添加接口方式" class="headerlink" title="添加接口方式:"></a>添加接口方式:</h3><p>//IceClient.java<br><figure class="highlight aspectj"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 定义的借口就可以这样写</div><div class="line"> * <span class="doctag">@param</span> username 参数</div><div class="line"> * <span class="doctag">@param</span> password 参数</div><div class="line"> * <span class="doctag">@param</span> callback 回调</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">getUsers</span><span class="params">(String username, String password, <span class="keyword">final</span> Callback callback)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (requestPre(callback) != OK) <span class="keyword">return</span> ;</div><div class="line"></div><div class="line">    helloPrx.begin_getUsers(username, password, <span class="keyword">new</span> Callback_Hello_getUsers() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">response</span><span class="params">(<span class="keyword">int</span> ret, String message)</span> </span>&#123;</div><div class="line">            handleSuccess(message, callback);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">exception</span><span class="params">(LocalException e)</span> </span>&#123;</div><div class="line">            handleException(callback, e);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>github 链接:<br><figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/ifmvo/</span>ICEAndroidDemo</div></pre></td></tr></table></figure></p>
-<p>下载 demo 后，进入目录 <code>ice-demos/java/Android</code> 下就是 <code>Android</code> 的 <code>demo</code> 了</p>
+    <content type="html"><![CDATA[<p><strong><a href="https://zeroc.com/" target="_blank" rel="external">zero ice</a></strong><br>一个RPC框架，跨平台<br>What is Ice?<br>Ice is a comprehensive RPC framework with support for C++, C#, Java, JavaScript, Python, and more.</p>
+<p><strong><a href="https://github.com/getlantern/lantern" target="_blank" rel="external">lantern</a></strong><br>翻墙 科学上网</p>
+<p><strong><a href="http://gudong.name/2016/04/07/checkstyle.html" target="_blank" rel="external">CheckStyle</a></strong><br> AndroidStudio 检查代码规范的插件</p>
+<p><strong><a href="https://github.com/skylot/jadx" target="_blank" rel="external">jadx</a></strong><br>一个 Android 反编译神器, 不同于常见的 dex2jar, 这个反编译器生成代码的 try/catch 次数更少, View也不再是数字 id 了, 可读性更高</p>
+<p><strong><a href="https://github.com/importre/android-selector-intellij-plugin" target="_blank" rel="external">android-selector</a></strong><br>可以根据指定颜色生成 Selector Drawable 的插件</p>
+<p><strong><a href="http://blog.avlyun.com/show/%E3%80%8Asv%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%E3%80%8B/" target="_blank" rel="external">Smali Viewer</a></strong><br>sv 是一款免费 APK 分析软件, 对你感兴趣的 APP 分析看看它们都用了些什么, 对你学习借鉴有一定帮助</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。&lt;/p&gt;
-&lt;p&gt;其实我之前也没有听说个 ICE 这个东西，Google 后发现 
+      &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://zeroc.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;zero ice&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;一个RPC框架，跨平台&lt;br&gt;What is Ice?&lt;br&gt;Ice is a comp
     
     </summary>
     
     
-      <category term="ICE" scheme="https://ifmvo.github.io/tags/ICE/"/>
+      <category term="资源" scheme="https://ifmvo.github.io/tags/%E8%B5%84%E6%BA%90/"/>
     
   </entry>
   
@@ -173,7 +103,7 @@
     <link href="https://ifmvo.github.io/2017/03/16/markdown/"/>
     <id>https://ifmvo.github.io/2017/03/16/markdown/</id>
     <published>2017-03-15T16:00:00.000Z</published>
-    <updated>2017-03-16T13:54:13.000Z</updated>
+    <updated>2017-03-17T12:28:39.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="欢迎使用Markdown编辑器写博客"><a href="#欢迎使用Markdown编辑器写博客" class="headerlink" title="欢迎使用Markdown编辑器写博客"></a>欢迎使用Markdown编辑器写博客</h1><p>本Markdown编辑器使用<a href="https://github.com/benweet/stackedit" target="_blank" rel="external">StackEdit</a>修改而来，用它写博客，将会带来全新的体验哦：</p>
 <ul>
@@ -313,26 +243,100 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://ifmvo.github.io/2017/03/07/goods/"/>
-    <id>https://ifmvo.github.io/2017/03/07/goods/</id>
-    <published>2017-03-07T05:34:24.000Z</published>
-    <updated>2017-03-07T05:34:24.000Z</updated>
+    <title>ICE For Android</title>
+    <link href="https://ifmvo.github.io/2017/03/16/ice_network/"/>
+    <id>https://ifmvo.github.io/2017/03/16/ice_network/</id>
+    <published>2017-03-15T16:00:00.000Z</published>
+    <updated>2017-03-17T12:22:30.000Z</updated>
     
-    <content type="html"><![CDATA[<p><strong><a href="https://zeroc.com/" target="_blank" rel="external">zero ice</a></strong><br>一个RPC框架，跨平台<br>What is Ice?<br>Ice is a comprehensive RPC framework with support for C++, C#, Java, JavaScript, Python, and more.</p>
-<p><strong><a href="https://github.com/getlantern/lantern" target="_blank" rel="external">lantern</a></strong><br>翻墙 科学上网</p>
-<p><strong><a href="http://gudong.name/2016/04/07/checkstyle.html" target="_blank" rel="external">CheckStyle</a></strong><br> AndroidStudio 检查代码规范的插件</p>
-<p><strong><a href="https://github.com/skylot/jadx" target="_blank" rel="external">jadx</a></strong><br>一个 Android 反编译神器, 不同于常见的 dex2jar, 这个反编译器生成代码的 try/catch 次数更少, View也不再是数字 id 了, 可读性更高</p>
-<p><strong><a href="https://github.com/importre/android-selector-intellij-plugin" target="_blank" rel="external">android-selector</a></strong><br>可以根据指定颜色生成 Selector Drawable 的插件</p>
-<p><strong><a href="http://blog.avlyun.com/show/%E3%80%8Asv%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%E3%80%8B/" target="_blank" rel="external">Smali Viewer</a></strong><br>sv 是一款免费 APK 分析软件, 对你感兴趣的 APP 分析看看它们都用了些什么, 对你学习借鉴有一定帮助</p>
+    <content type="html"><![CDATA[<p>由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。</p>
+<p>其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使用，并没有为你提供什么封装好的网络请求库，所以完全由自己从零开始一步一步进行封装，这对于一个刚刚入门的我来说着实不易。</p>
+<hr>
+<h2 id="ICE为何物？"><a href="#ICE为何物？" class="headerlink" title="ICE为何物？"></a>ICE为何物？</h2><center><br><img src="http://img.blog.csdn.net/20170316191751952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWZtdm8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="network"><br></center>
+
+
+<p><code>ZeroC ICE</code> 是 <code>ZeroC</code> 公司的 <code>ICE（Internet Communications Engine）</code>中间件平台。对于客户端和服务端程序的开发提供了很大的便利。</p>
+<p><strong>官网自己的描述：</strong></p>
+<ul>
+<li>灵活</li>
+<li>安全、稳定</li>
+<li>快速</li>
+<li>多语言多平台<code>（Develop in C++, C#, Java, JavaScript, Objective-C, PHP, Python, and Ruby. Deploy on Linux, macOS, Windows, Android, and iOS.）</code></li>
+</ul>
+<p>目前稳定版本为 3.6 ， 3.7 版本正在持续开发。</p>
+<hr>
+<h2 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h2><p>无论是 <code>Linux</code> <code>Window</code> 还是 <code>Mac</code> 安装步骤都是很方便的，只要按照官方文档使用几个命令就可以了。请参考<a href="https://doc.zeroc.com/" target="_blank" rel="external">官方文档</a></p>
+<center><br><img src="http://img.blog.csdn.net/20170316203105409?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWZtdm8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br></center>
+
+
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>我对 Android 中使用 ICE <strong><em>网络请求部分进行简单封装</em></strong>,可以提供参考.</p>
+<h3 id="调用接口姿势"><a href="#调用接口姿势" class="headerlink" title="调用接口姿势:"></a>调用接口姿势:</h3><p>实现传统 Callback 回调方式<br><figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">IceClient</span><span class="selector-class">.getUsers</span>(<span class="string">"ifmvo"</span>, <span class="string">"123456"</span>, new IceClient.Callback&lt;String&gt;() &#123;</div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onStart() &#123;</div><div class="line">                <span class="comment">// showLoading();</span></div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onFailure(String msg) &#123;</div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showErrorMsg();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"链接异常信息"</span> + msg);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            @<span class="selector-tag">Override</span></div><div class="line">            <span class="selector-tag">public</span> <span class="selector-tag">void</span> <span class="selector-tag">onSuccess</span>(String result) &#123;</div><div class="line"></div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showResult();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"返回成功信息"</span> + result);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="添加接口方式"><a href="#添加接口方式" class="headerlink" title="添加接口方式:"></a>添加接口方式:</h3><p>//IceClient.java<br><figure class="highlight aspectj"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 定义的借口就可以这样写</div><div class="line"> * <span class="doctag">@param</span> username 参数</div><div class="line"> * <span class="doctag">@param</span> password 参数</div><div class="line"> * <span class="doctag">@param</span> callback 回调</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">getUsers</span><span class="params">(String username, String password, <span class="keyword">final</span> Callback callback)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (requestPre(callback) != OK) <span class="keyword">return</span> ;</div><div class="line"></div><div class="line">    helloPrx.begin_getUsers(username, password, <span class="keyword">new</span> Callback_Hello_getUsers() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">response</span><span class="params">(<span class="keyword">int</span> ret, String message)</span> </span>&#123;</div><div class="line">            handleSuccess(message, callback);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">exception</span><span class="params">(LocalException e)</span> </span>&#123;</div><div class="line">            handleException(callback, e);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>github 链接:<br><figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/ifmvo/</span>ICEAndroidDemo</div></pre></td></tr></table></figure></p>
+<p>下载 demo 后，进入目录 <code>ice-demos/java/Android</code> 下就是 <code>Android</code> 的 <code>demo</code> 了</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://zeroc.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;zero ice&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;一个RPC框架，跨平台&lt;br&gt;What is Ice?&lt;br&gt;Ice is a comp
+      &lt;p&gt;由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。&lt;/p&gt;
+&lt;p&gt;其实我之前也没有听说个 ICE 这个东西，Google 后发现 
     
     </summary>
     
+    
+      <category term="ICE" scheme="https://ifmvo.github.io/tags/ICE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Thinking in Java 学习笔记</title>
+    <link href="https://ifmvo.github.io/2017/03/16/thinking_in_java/"/>
+    <id>https://ifmvo.github.io/2017/03/16/thinking_in_java/</id>
+    <published>2017-03-15T16:00:00.000Z</published>
+    <updated>2017-03-17T12:28:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
+<li><p>“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”<br>是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。</p>
+</li>
+<li><p>事实上,多线程最主要的一个用途就是构建一个“反应灵敏”的用户界面。</p>
+</li>
+<li><p>线程机制多少降低了一些计算效率,但无论程序的设计,资源的均衡,还是用户操作的方便性,都从中获得了巨大的利益。当然,如果本来就安装了多块 CPU,那么操作系统能够自行决定为不同的 CPU 分配哪些线程,程序的总体运行速度也会变得更快(所有这些都要求操作系统以及应用程序的支持)。多线程和多任务是充分发挥多处理机系统能力的一种最有效的方式。</p>
+</li>
+<li><p>CPU 处理一个现有线程集的顺序是不确定的——除非我们亲自介入,并用 Thread 的 setPriority()方法调整它们的优先级。</p>
+</li>
+<li>普通对象对于垃圾收集来说是一种“公平竞赛”,但线程却并非如此。每个线程都会“注册”自己,所以某处实际存在着对它的一个引用。这样一来,<br>垃圾收集器便只好对它“瞠目以对”了。</li>
+</ul>
+<blockquote>
+<p>个人理解：普通的对象比线程更容易被回收，原因是线程的引用会被存起来。</p>
+</blockquote>
+<ul>
+<li>若某样东西有一个 Runnable 接口,实际只是意味着它有一个 run()方法,但不存在与之相关的任何特殊东<br>西——它不具有任何天生的线程处理能力,这与那些从 Thread 继承的类是不同的。</li>
+</ul>
+<h3 id="Java-如何共享资源"><a href="#Java-如何共享资源" class="headerlink" title="Java 如何共享资源"></a>Java 如何共享资源</h3><ul>
+<li><p>对一种特殊的资源——对象中的内存——Java 提供了内建的机制来防止它们的冲突。由于我们通常将数据元<br>素设为从属于 private(私有)类,然后只通过方法访问那些内存,所以只需将一个特定的方法设为<br>synchronized(同步的),便可有效地防止冲突。<strong><em>在任何时刻,只可有一个线程调用特定对象的一个<br>synchronized 方法</em></strong> (尽管那个线程可以调用多个对象的同步方法)</p>
+</li>
+<li><p>如果只同步其中的一个方法,那么另一个就可以自<br>由忽视对象的锁定,并可无碍地调用。所以必须记住一个重要的规则:对于 <strong><em>访问某个关键共享资源的所有方<br>法,都必须把它们设为 synchronized</em></strong> ,否则就不能正常地工作。</p>
+</li>
+<li><p>要访问共享资源的每一部分代码都必须封装到一个适当的同步块里。</p>
+</li>
+</ul>
+<blockquote>
+<p>在能进入同步块之前,必须在 synchObject 上取得锁。如果已有其他线程取得了这把锁,块便不能进入,必<br>须等候那把锁被释放</p>
+</blockquote>
+<h3 id="synchronized-同步的效率"><a href="#synchronized-同步的效率" class="headerlink" title="synchronized 同步的效率"></a>synchronized 同步的效率</h3><ul>
+<li>由于要为同样的数据编写两个方法,所以无论如何都不会给人留下效率很高的印象。看来似乎更好的一种做<br>法是将所有方法都设为自动同步,并完全消除 synchronized 关键字(当然,含有 synchronized run()的例<br>子显示出这样做是很不通的)。但它也揭示出获取一把锁并非一种“廉价”方案——为一次方法调用付出的<br>代价(进入和退出方法,不执行方法主体)至少要累加到四倍,而且根据我们的具体现方案,这一代价还有<br>可能变得更高。所以假如已知一个方法不会造成冲突,最明智的做法便是撤消其中的 synchronized 关键字。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;多线程&quot;&gt;&lt;a href=&quot;#多线程&quot; class=&quot;headerlink&quot; title=&quot;多线程&quot;&gt;&lt;/a&gt;多线程&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://ifmvo.github.io/tags/Java/"/>
     
   </entry>
   
@@ -341,7 +345,7 @@
     <link href="https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/"/>
     <id>https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/</id>
     <published>2017-01-23T16:00:00.000Z</published>
-    <updated>2017-03-07T05:34:24.000Z</updated>
+    <updated>2017-03-17T12:22:25.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>程序员刚完成入门，到了迅速成长阶段，为了能够尽快步入大神行列，总想学者别人写个博客，不为别的，就是为了能在学完之后不会左耳进右耳冒，以后还记得曾经学过这么个东西，技术类的博客平台有很多：csdn、简书…. 但是总觉得这种平台的门槛有点低，是个人就能在上面写几笔，终究没有自己搭建的博客好用、上档次。下面就介绍一个好用、上档次的方法：</p>
 <h3 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h3><p>什么是Hexo？快速、简洁且高效的博客框架.这是Hexo官网对自己的描述。</p>
@@ -372,11 +376,11 @@
   </entry>
   
   <entry>
-    <title>如何学习js</title>
+    <title>如何学习JS</title>
     <link href="https://ifmvo.github.io/2017/01/23/how_learn%20_js/"/>
     <id>https://ifmvo.github.io/2017/01/23/how_learn _js/</id>
     <published>2017-01-22T16:00:00.000Z</published>
-    <updated>2017-03-07T05:34:24.000Z</updated>
+    <updated>2017-03-17T12:21:46.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文不是我自己写作，只是我在网上看到一篇文章，读起来有趣的很，这篇文章的作者绝对是写文章的好手，作者根据自己学习js的经验得出一些心得分享给大家，下面就是他的这篇文章，好好欣赏吧。</p>
 <h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>首先要说明的是，咱现在不是高手，最多还是一个半桶水，算是入了JS的门</p>
@@ -404,7 +408,7 @@
     </summary>
     
     
-      <category term="js" scheme="https://ifmvo.github.io/tags/js/"/>
+      <category term="JS" scheme="https://ifmvo.github.io/tags/JS/"/>
     
   </entry>
   
@@ -413,7 +417,7 @@
     <link href="https://ifmvo.github.io/2016/12/25/git/"/>
     <id>https://ifmvo.github.io/2016/12/25/git/</id>
     <published>2016-12-24T16:00:00.000Z</published>
-    <updated>2017-03-07T05:34:24.000Z</updated>
+    <updated>2017-03-17T12:21:15.000Z</updated>
     
     <content type="html"><![CDATA[<table>
 <thead>
