@@ -69,7 +69,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-03-15T16:00:00.000Z" itemprop="datePublished">2017-03-16</time>
-    更新日期:<time datetime="2017-03-17T12:22:30.000Z" itemprop="dateModified">2017-03-17</time>
+    更新日期:<time datetime="2017-03-17T12:33:19.000Z" itemprop="dateModified">2017-03-17</time>
     
   </p>
 </header>
@@ -104,8 +104,7 @@
 <h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>我对 Android 中使用 ICE <strong><em>网络请求部分进行简单封装</em></strong>,可以提供参考.</p>
 <h3 id="调用接口姿势"><a href="#调用接口姿势" class="headerlink" title="调用接口姿势:"></a>调用接口姿势:</h3><p>实现传统 Callback 回调方式<br><figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">IceClient</span><span class="selector-class">.getUsers</span>(<span class="string">"ifmvo"</span>, <span class="string">"123456"</span>, new IceClient.Callback&lt;String&gt;() &#123;</div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onStart() &#123;</div><div class="line">                <span class="comment">// showLoading();</span></div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onFailure(String msg) &#123;</div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showErrorMsg();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"链接异常信息"</span> + msg);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            @<span class="selector-tag">Override</span></div><div class="line">            <span class="selector-tag">public</span> <span class="selector-tag">void</span> <span class="selector-tag">onSuccess</span>(String result) &#123;</div><div class="line"></div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showResult();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"返回成功信息"</span> + result);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
 <h3 id="添加接口方式"><a href="#添加接口方式" class="headerlink" title="添加接口方式:"></a>添加接口方式:</h3><p>//IceClient.java<br><figure class="highlight aspectj"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 定义的借口就可以这样写</div><div class="line"> * <span class="doctag">@param</span> username 参数</div><div class="line"> * <span class="doctag">@param</span> password 参数</div><div class="line"> * <span class="doctag">@param</span> callback 回调</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">getUsers</span><span class="params">(String username, String password, <span class="keyword">final</span> Callback callback)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (requestPre(callback) != OK) <span class="keyword">return</span> ;</div><div class="line"></div><div class="line">    helloPrx.begin_getUsers(username, password, <span class="keyword">new</span> Callback_Hello_getUsers() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">response</span><span class="params">(<span class="keyword">int</span> ret, String message)</span> </span>&#123;</div><div class="line">            handleSuccess(message, callback);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">exception</span><span class="params">(LocalException e)</span> </span>&#123;</div><div class="line">            handleException(callback, e);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>github 链接:<br><figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/ifmvo/</span>ICEAndroidDemo</div></pre></td></tr></table></figure></p>
-<p>下载 demo 后，进入目录 <code>ice-demos/java/Android</code> 下就是 <code>Android</code> 的 <code>demo</code> 了</p>
+<p>github 链接:<br><a href="https://github.com/ifmvo/ICEAndroidDemo" target="_blank" rel="external">https://github.com/ifmvo/ICEAndroidDemo</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -130,18 +129,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/16/markdown/" title="Markdown 常用语法及快捷键">
+ <a href="/2017/03/17/goods/" title="资源">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Markdown 常用语法及快捷键</span>
+  资源</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/03/16/thinking_in_java/"  title="Thinking in Java 学习笔记">
+<a href="/2017/03/16/markdown/"  title="Markdown 常用语法及快捷键">
  <strong>NEXT:</strong><br/> 
- <span>Thinking in Java 学习笔记
+ <span>Markdown 常用语法及快捷键
 </span>
 </a>
 </div>
