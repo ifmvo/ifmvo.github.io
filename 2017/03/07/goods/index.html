@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>hexo 搭建博客 | 陈铭卓的博客</title>
+    <title>陈铭卓的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="陈铭卓">
     
-    <meta name="description" content="前言程序员刚完成入门，到了迅速成长阶段，为了能够尽快步入大神行列，总想学者别人写个博客，不为别的，就是为了能在学完之后不会左耳进右耳冒，以后还记得曾经学过这么个东西，技术类的博客平台有很多：csdn、简书…. 但是总觉得这种平台的门槛有点低，是个人就能在上面写几笔，终究没有自己搭建的博客好用、上档次">
+    <meta name="description" content="zero ice一个RPC框架，跨平台What is Ice?Ice is a comprehensive RPC framework with support for C++, C#, Java, JavaScript, Python, and more.
+lantern翻墙 科学上网
+Check">
     
     
     
@@ -60,15 +62,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/01/24/blog_by_hexo/" title="hexo 搭建博客" itemprop="url">hexo 搭建博客</a>
+      <a href="/2017/03/07/goods/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
     
       <a href="https://ifmvo.github.io" title="陈铭卓">陈铭卓</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-01-23T16:00:00.000Z" itemprop="datePublished">2017-01-24</time>
-    更新日期:<time datetime="2017-03-07T07:23:56.000Z" itemprop="dateModified">2017-03-07</time>
+    <time datetime="2017-03-07T05:34:24.000Z" itemprop="datePublished">2017-03-07</time>
+    更新日期:<time datetime="2017-03-07T05:34:24.000Z" itemprop="dateModified">2017-03-07</time>
     
   </p>
 </header>
@@ -77,39 +79,25 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo简介"><span class="toc-number">2.</span> <span class="toc-text">Hexo简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建站"><span class="toc-number">4.</span> <span class="toc-text">建站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加主题"><span class="toc-number">5.</span> <span class="toc-text">添加主题</span></a></li></ol>
+		
 		</div>
 		
-		<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>程序员刚完成入门，到了迅速成长阶段，为了能够尽快步入大神行列，总想学者别人写个博客，不为别的，就是为了能在学完之后不会左耳进右耳冒，以后还记得曾经学过这么个东西，技术类的博客平台有很多：csdn、简书…. 但是总觉得这种平台的门槛有点低，是个人就能在上面写几笔，终究没有自己搭建的博客好用、上档次。下面就介绍一个好用、上档次的方法：</p>
-<h3 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h3><p>什么是Hexo？快速、简洁且高效的博客框架.这是Hexo官网对自己的描述。</p>
-<p>超快速度：Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</p>
-<p>支持 Markdown: Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p>
-<p>一键部署: 只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。</p>
-<p>丰富的插件: Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装Node.js，依次执行以下命令<br><figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">curl http<span class="variable">s:</span>//raw.github.<span class="keyword">com</span>/creationix/nvm/master/install.<span class="keyword">sh</span> | <span class="keyword">sh</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">wget -qO- http<span class="variable">s:</span>//raw.github.<span class="keyword">com</span>/creationix/nvm/master/install.<span class="keyword">sh</span> | <span class="keyword">sh</span></div></pre></td></tr></table></figure>
-<p>安装完成后，重启终端并执行下列命令即可安装 Node.js。<br><figure class="highlight cmake"><table><tr><td class="code"><pre><div class="line">nvm <span class="keyword">install</span> stable</div></pre></td></tr></table></figure></p>
-<p>开始安装Hexo，如果你网速不好，这可能是个漫长的过程<br><figure class="highlight avrasm"><table><tr><td class="code"><pre><div class="line">npm install -g hexo-<span class="keyword">cli</span></div></pre></td></tr></table></figure></p>
-<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，会自动新建 xxx 文件夹，xxx 文件夹就是你的网站喽。<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo init xxx</div><div class="line"><span class="built_in">cd</span> xxx</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
-<p>现在在当前文件夹下执行命令<br><figure class="highlight axapta"><table><tr><td class="code"><pre><div class="line">hexo <span class="keyword">server</span></div></pre></td></tr></table></figure></p>
-<p>然后在浏览器地址栏输入：</p>
-<p><a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
-<p>回车后是不是已经可以看到你的博客了。</p>
-<h3 id="添加主题"><a href="#添加主题" class="headerlink" title="添加主题"></a>添加主题</h3>  
+		<p><strong><a href="https://zeroc.com/" target="_blank" rel="external">zero ice</a></strong><br>一个RPC框架，跨平台<br>What is Ice?<br>Ice is a comprehensive RPC framework with support for C++, C#, Java, JavaScript, Python, and more.</p>
+<p><strong><a href="https://github.com/getlantern/lantern" target="_blank" rel="external">lantern</a></strong><br>翻墙 科学上网</p>
+<p><strong><a href="http://gudong.name/2016/04/07/checkstyle.html" target="_blank" rel="external">CheckStyle</a></strong><br> AndroidStudio 检查代码规范的插件</p>
+<p><strong><a href="https://github.com/skylot/jadx" target="_blank" rel="external">jadx</a></strong><br>一个 Android 反编译神器, 不同于常见的 dex2jar, 这个反编译器生成代码的 try/catch 次数更少, View也不再是数字 id 了, 可读性更高</p>
+<p><strong><a href="https://github.com/importre/android-selector-intellij-plugin" target="_blank" rel="external">android-selector</a></strong><br>可以根据指定颜色生成 Selector Drawable 的插件</p>
+<p><strong><a href="http://blog.avlyun.com/show/%E3%80%8Asv%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%E3%80%8B/" target="_blank" rel="external">Smali Viewer</a></strong><br>sv 是一款免费 APK 分析软件, 对你感兴趣的 APP 分析看看它们都用了些什么, 对你学习借鉴有一定帮助</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/搭建博客/">搭建博客</a>
-  </div>
 
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="https://ifmvo.github.io/2017/01/24/blog_by_hexo/" data-title="hexo 搭建博客 | 陈铭卓的博客" data-tsina="null" class="share clearfix">
+  <div data-url="https://ifmvo.github.io/2017/03/07/goods/" data-title="陈铭卓的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -119,18 +107,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/16/thinking_in_java/" title="Thinking in Java 读书笔记">
+ <a href="/2017/03/16/markdown/" title="Markdown 常用语法及快捷键">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Thinking in Java 读书笔记</span>
+  Markdown 常用语法及快捷键</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/01/23/how_learn_js/"  title="如何学习JS">
+<a href="/2017/01/24/how_build_blog_by_hexo/"  title="快速搭建博客，分分钟的事儿">
  <strong>NEXT:</strong><br/> 
- <span>如何学习JS
+ <span>快速搭建博客，分分钟的事儿
 </span>
 </a>
 </div>
@@ -147,7 +135,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo简介"><span class="toc-number">2.</span> <span class="toc-text">Hexo简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建站"><span class="toc-number">4.</span> <span class="toc-text">建站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加主题"><span class="toc-number">5.</span> <span class="toc-text">添加主题</span></a></li></ol>
+  
   </div>
 
 <div id="asidepart">
@@ -165,13 +153,15 @@
 		
 			<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
 		
-			<li><a href="/tags/JS/" title="JS">JS<sup>1</sup></a></li>
-		
 			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
 		
-			<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
 		
-			<li><a href="/tags/搭建博客/" title="搭建博客">搭建博客<sup>1</sup></a></li>
+			<li><a href="/tags/真理/" title="真理">真理<sup>1</sup></a></li>
+		
+			<li><a href="/tags/轻松搭建博客/" title="轻松搭建博客">轻松搭建博客<sup>1</sup></a></li>
+		
+			<li><a href="/tags/面试题/" title="面试题">面试题<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -188,7 +178,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 

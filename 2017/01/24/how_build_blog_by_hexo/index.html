@@ -4,45 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Git 命令大全 | 陈铭卓的博客</title>
+    <title>快速搭建博客，分分钟的事儿 | 陈铭卓的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="陈铭卓">
     
-    <meta name="description" content="命令
-描述
-
-
-
-
-git init
-初始化仓库
-
-
-git status
-查看状态
-
-
-git add
-修改添加到缓存
-
-
-git log
-查看日志
-
-
-git brach
-查看分支列表
-
-
-git branch a
-从当前分支另外再新建一个分支
-
-
-git checkout a
-切换到a分支
-
-">
+    <meta name="description" content="前言程序员刚完成入门，到了迅速成长阶段，为了能够尽快步入大神行列，总想学者别人写个博客，不为别的，就是为了能在学完之后不会左耳进右耳冒，以后还记得曾经学过这么个东西，技术类的博客平台有很多：csdn、简书…. 但是总觉得这种平台的门槛有点低，是个人就能在上面写几笔，终究没有自己搭建的博客好用、上档次">
     
     
     
@@ -93,15 +60,15 @@ git checkout a
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/25/git_common_cmd/" title="Git 命令大全" itemprop="url">Git 命令大全</a>
+      <a href="/2017/01/24/how_build_blog_by_hexo/" title="快速搭建博客，分分钟的事儿" itemprop="url">快速搭建博客，分分钟的事儿</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://ifmvo.github.io" title="陈铭卓">陈铭卓</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-12-24T16:00:00.000Z" itemprop="datePublished">2016-12-25</time>
-    更新日期:<time datetime="2017-02-24T23:40:28.000Z" itemprop="dateModified">2017-02-25</time>
+    <time datetime="2017-01-23T16:00:00.000Z" itemprop="datePublished">2017-01-24</time>
+    更新日期:<time datetime="2017-03-07T05:34:24.000Z" itemprop="dateModified">2017-03-07</time>
     
   </p>
 </header>
@@ -110,124 +77,31 @@ git checkout a
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitFlow-Git工作流"><span class="toc-number">1.</span> <span class="toc-text">GitFlow(Git工作流)</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo简介"><span class="toc-number">2.</span> <span class="toc-text">Hexo简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建站"><span class="toc-number">4.</span> <span class="toc-text">建站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加主题"><span class="toc-number">5.</span> <span class="toc-text">添加主题</span></a></li></ol>
 		</div>
 		
-		<table>
-<thead>
-<tr>
-<th style="text-align:left">命令</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">git init</td>
-<td style="text-align:center">初始化仓库</td>
-</tr>
-<tr>
-<td style="text-align:left">git status</td>
-<td style="text-align:center">查看状态</td>
-</tr>
-<tr>
-<td style="text-align:left">git add</td>
-<td style="text-align:center">修改添加到缓存</td>
-</tr>
-<tr>
-<td style="text-align:left">git log</td>
-<td style="text-align:center">查看日志</td>
-</tr>
-<tr>
-<td style="text-align:left">git brach</td>
-<td style="text-align:center">查看分支列表</td>
-</tr>
-<tr>
-<td style="text-align:left">git branch a</td>
-<td style="text-align:center">从当前分支另外再新建一个分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git checkout a</td>
-<td style="text-align:center">切换到a分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git checkout -b a</td>
-<td style="text-align:center">新建并切换（git branch a   +   git checkout a）</td>
-</tr>
-<tr>
-<td style="text-align:left">git branch -d</td>
-<td style="text-align:center">删除分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git branch -D</td>
-<td style="text-align:center">强制删除分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git tag v1.0</td>
-<td style="text-align:center">将当前分支新建一个标签</td>
-</tr>
-<tr>
-<td style="text-align:left">git tag -d <tagname></tagname></td>
-<td style="text-align:center">删除tag</td>
-</tr>
-<tr>
-<td style="text-align:left">git checkout v1.0</td>
-<td style="text-align:center">切换到v1.0标签</td>
-</tr>
-<tr>
-<td style="text-align:left">git stash</td>
-<td style="text-align:center">将当前的修改暂存起来 （git add 过的也可以）</td>
-</tr>
-<tr>
-<td style="text-align:left">git stash list</td>
-<td style="text-align:center">查看缓存列表</td>
-</tr>
-<tr>
-<td style="text-align:left">git stash apply</td>
-<td style="text-align:center">恢复暂存</td>
-</tr>
-<tr>
-<td style="text-align:left">git stash drop</td>
-<td style="text-align:center">删除暂存</td>
-</tr>
-<tr>
-<td style="text-align:left">git stash pop</td>
-<td style="text-align:center">恢复并删除（git stash apply  +  git stash drop）</td>
-</tr>
-<tr>
-<td style="text-align:left">git merge develop</td>
-<td style="text-align:center">将develop 分支合并到当前分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git push origin –delete <branchname></branchname></td>
-<td style="text-align:center">删除远程分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git push origin –delete <tagname></tagname></td>
-<td style="text-align:center">删除远程tag</td>
-</tr>
-<tr>
-<td style="text-align:left">git remote show origin</td>
-<td style="text-align:center">查看远程和本地的详细状态</td>
-</tr>
-</tbody>
-</table>
-<h3 id="GitFlow-Git工作流"><a href="#GitFlow-Git工作流" class="headerlink" title="GitFlow(Git工作流)"></a>GitFlow(Git工作流)</h3><p>一般开发来说,大部分情况下都会拥有两个分支    master    和    develop,他们的职责分别是:</p>
-<p>master:永远处在即将发布(production-ready)状态<br>develop:最新的开发状态</p>
-<p>确切的说master、develop分支大部分情况下都会保持一致,只有在上线前的测试阶段develop比master的代码要多,一旦测试没问题,准备发布了,这时候会将develop合并到master上。</p>
-<p>但是我们发布之后又会进行下一版本的功能开发,开发中间可能又会遇到需要紧急修复bug,一个功能开发完成之后突然需求变动了等情况,所以GitFlow除了以上master和develop两个主要分支以外,还提出了以下三个辅助分支:</p>
-<p>feature:开发新功能的分支,基于develop,    完成后merge回develop<br>release:准备要发布版本的分支,用来修复bug,基于develop,完成后    merge回develop和master<br>hotfix:修复master上的问题,    等不及release版本就必须马上上线.基于master,完成后merge回master和develop</p>
-<p>什么意思呢?</p>
-<p>举个例子,假设我们已经有master和develop两个分支了,这个时候我们准备做一个功能A,第一步我们要做的,就是基于develop分支新建个分支:</p>
-<p>git branch feature/A看到了吧,其实就是一个规范,规定了所有开发的功能分支都以feature为前缀。但是这个时候做着做着发现线上有一个紧急的bug需要修复,那赶紧停下手头的工作,立刻切换到master分支,然后再此基础上新建一个分支:</p>
-<p>git    branch    hotfix/B代表新建了一个紧急修复分支,修复完成之后直接合并到develop和master,然后发布。然后再切回我们的feature/A分支继续着我们的开发,如果开发完了,那么合并回develop分支,然后在develop分支属于测试环境,跟后端对接并且测试的差不多了,感觉可以发布到正式环境了,这个时候再新建一个release分支:</p>
-<p>git branch release/1.0这个时候所有的api、数据等都是正式环境,然后在这个分支上进行最后的测试,发现bug直接进行修改,直到测试ok达到了发布的标准,最后把该分支合并到develop和master然后进行发布。</p>
-  
+		<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>程序员刚完成入门，到了迅速成长阶段，为了能够尽快步入大神行列，总想学者别人写个博客，不为别的，就是为了能在学完之后不会左耳进右耳冒，以后还记得曾经学过这么个东西，技术类的博客平台有很多：csdn、简书…. 但是总觉得这种平台的门槛有点低，是个人就能在上面写几笔，终究没有自己搭建的博客好用、上档次。下面就介绍一个好用、上档次的方法：</p>
+<h3 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h3><p>什么是Hexo？快速、简洁且高效的博客框架.这是Hexo官网对自己的描述。</p>
+<p>超快速度：Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</p>
+<p>支持 Markdown: Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p>
+<p>一键部署: 只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。</p>
+<p>丰富的插件: Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装Node.js，依次执行以下命令<br><figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">curl http<span class="variable">s:</span>//raw.github.<span class="keyword">com</span>/creationix/nvm/master/install.<span class="keyword">sh</span> | <span class="keyword">sh</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">wget -qO- http<span class="variable">s:</span>//raw.github.<span class="keyword">com</span>/creationix/nvm/master/install.<span class="keyword">sh</span> | <span class="keyword">sh</span></div></pre></td></tr></table></figure>
+<p>安装完成后，重启终端并执行下列命令即可安装 Node.js。<br><figure class="highlight cmake"><table><tr><td class="code"><pre><div class="line">nvm <span class="keyword">install</span> stable</div></pre></td></tr></table></figure></p>
+<p>开始安装Hexo，如果你网速不好，这可能是个漫长的过程<br><figure class="highlight avrasm"><table><tr><td class="code"><pre><div class="line">npm install -g hexo-<span class="keyword">cli</span></div></pre></td></tr></table></figure></p>
+<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，会自动新建 xxx 文件夹，xxx 文件夹就是你的网站喽。<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo init xxx</div><div class="line"><span class="built_in">cd</span> xxx</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>现在在当前文件夹下执行命令<br><figure class="highlight axapta"><table><tr><td class="code"><pre><div class="line">hexo <span class="keyword">server</span></div></pre></td></tr></table></figure></p>
+<p>然后在浏览器地址栏输入：</p>
+<p><a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
+<p>回车后是不是已经可以看到你的博客了。</p>
+<h3 id="添加主题"><a href="#添加主题" class="headerlink" title="添加主题"></a>添加主题</h3>  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Git/">Git</a>
+  <span></span> <a href="/tags/轻松搭建博客/">轻松搭建博客</a>
   </div>
 
 
@@ -235,7 +109,7 @@ git checkout a
 
 <div class="article-share" id="share">
 
-  <div data-url="https://ifmvo.github.io/2016/12/25/git_common_cmd/" data-title="Git 命令大全 | 陈铭卓的博客" data-tsina="null" class="share clearfix">
+  <div data-url="https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/" data-title="快速搭建博客，分分钟的事儿 | 陈铭卓的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -245,13 +119,21 @@ git checkout a
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/01/23/how_learn_js/" title="如何学习JS">
+ <a href="/2017/03/07/goods/" title="">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  如何学习JS</span>
+  (no title)</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2017/01/23/how_learn _js/"  title="如何学习js">
+ <strong>NEXT:</strong><br/> 
+ <span>如何学习js
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -265,7 +147,7 @@ git checkout a
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitFlow-Git工作流"><span class="toc-number">1.</span> <span class="toc-text">GitFlow(Git工作流)</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo简介"><span class="toc-number">2.</span> <span class="toc-text">Hexo简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建站"><span class="toc-number">4.</span> <span class="toc-text">建站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加主题"><span class="toc-number">5.</span> <span class="toc-text">添加主题</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -283,13 +165,15 @@ git checkout a
 		
 			<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
 		
-			<li><a href="/tags/JS/" title="JS">JS<sup>1</sup></a></li>
-		
 			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
 		
-			<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
 		
-			<li><a href="/tags/搭建博客/" title="搭建博客">搭建博客<sup>1</sup></a></li>
+			<li><a href="/tags/真理/" title="真理">真理<sup>1</sup></a></li>
+		
+			<li><a href="/tags/轻松搭建博客/" title="轻松搭建博客">轻松搭建博客<sup>1</sup></a></li>
+		
+			<li><a href="/tags/面试题/" title="面试题">面试题<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -306,7 +190,7 @@ git checkout a
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 

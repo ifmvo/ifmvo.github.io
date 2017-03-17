@@ -1,0 +1,371 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>陈铭卓的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="陈铭卓">
+    
+    <meta name="description" content="多线程
+“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。
+
+事实上,多线">
+    
+    
+    
+    
+    <link rel="alternate" href="/atom.xml" title="陈铭卓的博客" type="application/atom+xml">
+    
+    
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="陈铭卓的博客">陈铭卓的博客</a></h1>
+				<h2 class="blog-motto">瞅你一天天都学啥了？</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:ifmvo.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/17/thinking_in_java/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://ifmvo.github.io" title="陈铭卓">陈铭卓</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-03-17T11:41:30.000Z" itemprop="datePublished">2017-03-17</time>
+    更新日期:<time datetime="2017-03-17T11:41:30.000Z" itemprop="dateModified">2017-03-17</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程"><span class="toc-number">1.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-如何共享资源"><span class="toc-number">1.0.1.</span> <span class="toc-text">Java 如何共享资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-同步的效率"><span class="toc-number">1.0.2.</span> <span class="toc-text">synchronized 同步的效率</span></a></li></ol></li></ol></li></ol>
+		</div>
+		
+		<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
+<li><p>“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”<br>是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。</p>
+</li>
+<li><p>事实上,多线程最主要的一个用途就是构建一个“反应灵敏”的用户界面。</p>
+</li>
+<li><p>线程机制多少降低了一些计算效率,但无论程序的设计,资源的均衡,还是用户操作的方便性,都从中获得了巨大的利益。当然,如果本来就安装了多块 CPU,那么操作系统能够自行决定为不同的 CPU 分配哪些线程,程序的总体运行速度也会变得更快(所有这些都要求操作系统以及应用程序的支持)。多线程和多任务是充分发挥多处理机系统能力的一种最有效的方式。</p>
+</li>
+<li><p>CPU 处理一个现有线程集的顺序是不确定的——除非我们亲自介入,并用 Thread 的 setPriority()方法调整它们的优先级。</p>
+</li>
+<li>普通对象对于垃圾收集来说是一种“公平竞赛”,但线程却并非如此。每个线程都会“注册”自己,所以某处实际存在着对它的一个引用。这样一来,<br>垃圾收集器便只好对它“瞠目以对”了。</li>
+</ul>
+<blockquote>
+<p>个人理解：普通的对象比线程更容易被回收，原因是线程的引用会被存起来。</p>
+</blockquote>
+<ul>
+<li>若某样东西有一个 Runnable 接口,实际只是意味着它有一个 run()方法,但不存在与之相关的任何特殊东<br>西——它不具有任何天生的线程处理能力,这与那些从 Thread 继承的类是不同的。</li>
+</ul>
+<h3 id="Java-如何共享资源"><a href="#Java-如何共享资源" class="headerlink" title="Java 如何共享资源"></a>Java 如何共享资源</h3><ul>
+<li><p>对一种特殊的资源——对象中的内存——Java 提供了内建的机制来防止它们的冲突。由于我们通常将数据元<br>素设为从属于 private(私有)类,然后只通过方法访问那些内存,所以只需将一个特定的方法设为<br>synchronized(同步的),便可有效地防止冲突。<strong><em>在任何时刻,只可有一个线程调用特定对象的一个<br>synchronized 方法</em></strong> (尽管那个线程可以调用多个对象的同步方法)</p>
+</li>
+<li><p>如果只同步其中的一个方法,那么另一个就可以自<br>由忽视对象的锁定,并可无碍地调用。所以必须记住一个重要的规则:对于 <strong><em>访问某个关键共享资源的所有方<br>法,都必须把它们设为 synchronized</em></strong> ,否则就不能正常地工作。</p>
+</li>
+<li><p>要访问共享资源的每一部分代码都必须封装到一个适当的同步块里。</p>
+</li>
+</ul>
+<blockquote>
+<p>在能进入同步块之前,必须在 synchObject 上取得锁。如果已有其他线程取得了这把锁,块便不能进入,必<br>须等候那把锁被释放</p>
+</blockquote>
+<h3 id="synchronized-同步的效率"><a href="#synchronized-同步的效率" class="headerlink" title="synchronized 同步的效率"></a>synchronized 同步的效率</h3><ul>
+<li>由于要为同样的数据编写两个方法,所以无论如何都不会给人留下效率很高的印象。看来似乎更好的一种做<br>法是将所有方法都设为自动同步,并完全消除 synchronized 关键字(当然,含有 synchronized run()的例<br>子显示出这样做是很不通的)。但它也揭示出获取一把锁并非一种“廉价”方案——为一次方法调用付出的<br>代价(进入和退出方法,不执行方法主体)至少要累加到四倍,而且根据我们的具体现方案,这一代价还有<br>可能变得更高。所以假如已知一个方法不会造成冲突,最明智的做法便是撤消其中的 synchronized 关键字。</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://ifmvo.github.io/2017/03/17/thinking_in_java/" data-title="陈铭卓的博客" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/03/17/beautiful/"  title="真理">
+ <strong>NEXT:</strong><br/> 
+ <span>真理
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程"><span class="toc-number">1.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-如何共享资源"><span class="toc-number">1.0.1.</span> <span class="toc-text">Java 如何共享资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-同步的效率"><span class="toc-number">1.0.2.</span> <span class="toc-text">synchronized 同步的效率</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+		
+			<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
+		
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/真理/" title="真理">真理<sup>1</sup></a></li>
+		
+			<li><a href="/tags/轻松搭建博客/" title="轻松搭建博客">轻松搭建博客<sup>1</sup></a></li>
+		
+			<li><a href="/tags/面试题/" title="面试题">面试题<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
+    </ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="https://ifmvo.github.io" target="_blank" title="陈铭卓">陈铭卓</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"ifmvo"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+  </body>
+</html>

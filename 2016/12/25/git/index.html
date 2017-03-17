@@ -4,15 +4,45 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Thinking in Java 读书笔记 | 陈铭卓的博客</title>
+    <title>Git 命令大全 | 陈铭卓的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="陈铭卓">
     
-    <meta name="description" content="多线程
-“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。
+    <meta name="description" content="命令
+描述
 
-事实上,多线">
+
+
+
+git init
+初始化仓库
+
+
+git status
+查看状态
+
+
+git add
+修改添加到缓存
+
+
+git log
+查看日志
+
+
+git brach
+查看分支列表
+
+
+git branch a
+从当前分支另外再新建一个分支
+
+
+git checkout a
+切换到a分支
+
+">
     
     
     
@@ -63,15 +93,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/16/thinking_in_java/" title="Thinking in Java 读书笔记" itemprop="url">Thinking in Java 读书笔记</a>
+      <a href="/2016/12/25/git/" title="Git 命令大全" itemprop="url">Git 命令大全</a>
   </h1>
   <p class="article-author">By
     
       <a href="https://ifmvo.github.io" title="陈铭卓">陈铭卓</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-03-15T16:00:00.000Z" itemprop="datePublished">2017-03-16</time>
-    更新日期:<time datetime="2017-03-16T13:57:46.000Z" itemprop="dateModified">2017-03-16</time>
+    <time datetime="2016-12-24T16:00:00.000Z" itemprop="datePublished">2016-12-25</time>
+    更新日期:<time datetime="2017-03-07T05:34:24.000Z" itemprop="dateModified">2017-03-07</time>
     
   </p>
 </header>
@@ -80,28 +110,124 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程"><span class="toc-number">1.</span> <span class="toc-text">多线程</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitFlow-Git工作流"><span class="toc-number">1.</span> <span class="toc-text">GitFlow(Git工作流)</span></a></li></ol>
 		</div>
 		
-		<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><ol>
-<li><p>“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”<br>是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。</p>
-</li>
-<li><p>事实上,多线程最主要的一个用途就是构建一个“反应灵敏”的用户界面。</p>
-</li>
-<li><p>线程机制多少降低了一些计算效率,但无论程序的设计,资源的均衡,还是用户操作的方便性,都从中获得了巨大的利益。当然,如果本来就安装了多块 CPU,那么操作系统能够自行决定为不同的 CPU 分配哪些线程,程序的总体运行速度也会变得更快(所有这些都要求操作系统以及应用程序的支持)。多线程和多任务是充分发挥多处理机系统能力的一种最有效的方式。</p>
-</li>
-<li><p>CPU 处理一个现有线程集的顺序是不确定的——除非我们亲自介入,并用 Thread 的 setPriority()方法调整它们的优先级。</p>
-</li>
-<li>普通对象对于垃圾收集来说是一种“公平竞赛”,但线程却并非如此。每个线程都会“注册”自己,所以某处实际存在着对它的一个引用。这样一来,<br>垃圾收集器便只好对它“瞠目以对”了。<figure class="highlight"><table><tr><td class="code"><pre><div class="line">个人理解：普通的对象比线程更容易被回收，原因是线程的引用会被存起来。</div></pre></td></tr></table></figure>
-</li>
-</ol>
+		<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">git init</td>
+<td style="text-align:center">初始化仓库</td>
+</tr>
+<tr>
+<td style="text-align:left">git status</td>
+<td style="text-align:center">查看状态</td>
+</tr>
+<tr>
+<td style="text-align:left">git add</td>
+<td style="text-align:center">修改添加到缓存</td>
+</tr>
+<tr>
+<td style="text-align:left">git log</td>
+<td style="text-align:center">查看日志</td>
+</tr>
+<tr>
+<td style="text-align:left">git brach</td>
+<td style="text-align:center">查看分支列表</td>
+</tr>
+<tr>
+<td style="text-align:left">git branch a</td>
+<td style="text-align:center">从当前分支另外再新建一个分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git checkout a</td>
+<td style="text-align:center">切换到a分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git checkout -b a</td>
+<td style="text-align:center">新建并切换（git branch a   +   git checkout a）</td>
+</tr>
+<tr>
+<td style="text-align:left">git branch -d</td>
+<td style="text-align:center">删除分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git branch -D</td>
+<td style="text-align:center">强制删除分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git tag v1.0</td>
+<td style="text-align:center">将当前分支新建一个标签</td>
+</tr>
+<tr>
+<td style="text-align:left">git tag -d <tagname></tagname></td>
+<td style="text-align:center">删除tag</td>
+</tr>
+<tr>
+<td style="text-align:left">git checkout v1.0</td>
+<td style="text-align:center">切换到v1.0标签</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash</td>
+<td style="text-align:center">将当前的修改暂存起来 （git add 过的也可以）</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash list</td>
+<td style="text-align:center">查看缓存列表</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash apply</td>
+<td style="text-align:center">恢复暂存</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash drop</td>
+<td style="text-align:center">删除暂存</td>
+</tr>
+<tr>
+<td style="text-align:left">git stash pop</td>
+<td style="text-align:center">恢复并删除（git stash apply  +  git stash drop）</td>
+</tr>
+<tr>
+<td style="text-align:left">git merge develop</td>
+<td style="text-align:center">将develop 分支合并到当前分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git push origin –delete <branchname></branchname></td>
+<td style="text-align:center">删除远程分支</td>
+</tr>
+<tr>
+<td style="text-align:left">git push origin –delete <tagname></tagname></td>
+<td style="text-align:center">删除远程tag</td>
+</tr>
+<tr>
+<td style="text-align:left">git remote show origin</td>
+<td style="text-align:center">查看远程和本地的详细状态</td>
+</tr>
+</tbody>
+</table>
+<h3 id="GitFlow-Git工作流"><a href="#GitFlow-Git工作流" class="headerlink" title="GitFlow(Git工作流)"></a>GitFlow(Git工作流)</h3><p>一般开发来说,大部分情况下都会拥有两个分支    master    和    develop,他们的职责分别是:</p>
+<p>master:永远处在即将发布(production-ready)状态<br>develop:最新的开发状态</p>
+<p>确切的说master、develop分支大部分情况下都会保持一致,只有在上线前的测试阶段develop比master的代码要多,一旦测试没问题,准备发布了,这时候会将develop合并到master上。</p>
+<p>但是我们发布之后又会进行下一版本的功能开发,开发中间可能又会遇到需要紧急修复bug,一个功能开发完成之后突然需求变动了等情况,所以GitFlow除了以上master和develop两个主要分支以外,还提出了以下三个辅助分支:</p>
+<p>feature:开发新功能的分支,基于develop,    完成后merge回develop<br>release:准备要发布版本的分支,用来修复bug,基于develop,完成后    merge回develop和master<br>hotfix:修复master上的问题,    等不及release版本就必须马上上线.基于master,完成后merge回master和develop</p>
+<p>什么意思呢?</p>
+<p>举个例子,假设我们已经有master和develop两个分支了,这个时候我们准备做一个功能A,第一步我们要做的,就是基于develop分支新建个分支:</p>
+<p>git branch feature/A看到了吧,其实就是一个规范,规定了所有开发的功能分支都以feature为前缀。但是这个时候做着做着发现线上有一个紧急的bug需要修复,那赶紧停下手头的工作,立刻切换到master分支,然后再此基础上新建一个分支:</p>
+<p>git    branch    hotfix/B代表新建了一个紧急修复分支,修复完成之后直接合并到develop和master,然后发布。然后再切回我们的feature/A分支继续着我们的开发,如果开发完了,那么合并回develop分支,然后在develop分支属于测试环境,跟后端对接并且测试的差不多了,感觉可以发布到正式环境了,这个时候再新建一个release分支:</p>
+<p>git branch release/1.0这个时候所有的api、数据等都是正式环境,然后在这个分支上进行最后的测试,发现bug直接进行修改,直到测试ok达到了发布的标准,最后把该分支合并到develop和master然后进行发布。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/java/">java</a>
+  <span></span> <a href="/tags/Git/">Git</a>
   </div>
 
 
@@ -109,7 +235,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="https://ifmvo.github.io/2017/03/16/thinking_in_java/" data-title="Thinking in Java 读书笔记 | 陈铭卓的博客" data-tsina="null" class="share clearfix">
+  <div data-url="https://ifmvo.github.io/2016/12/25/git/" data-title="Git 命令大全 | 陈铭卓的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -119,21 +245,13 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/16/markdown/" title="Markdown 常用语法及快捷键">
+ <a href="/2017/01/23/how_learn _js/" title="如何学习js">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Markdown 常用语法及快捷键</span>
+  如何学习js</span>
 </a>
 </div>
 
-
-<div class="next">
-<a href="/2017/01/24/blog_by_hexo/"  title="hexo 搭建博客">
- <strong>NEXT:</strong><br/> 
- <span>hexo 搭建博客
-</span>
-</a>
-</div>
 
 </nav>
 
@@ -147,7 +265,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程"><span class="toc-number">1.</span> <span class="toc-text">多线程</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitFlow-Git工作流"><span class="toc-number">1.</span> <span class="toc-text">GitFlow(Git工作流)</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -165,13 +283,15 @@
 		
 			<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
 		
-			<li><a href="/tags/JS/" title="JS">JS<sup>1</sup></a></li>
-		
 			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
 		
-			<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
 		
-			<li><a href="/tags/搭建博客/" title="搭建博客">搭建博客<sup>1</sup></a></li>
+			<li><a href="/tags/真理/" title="真理">真理<sup>1</sup></a></li>
+		
+			<li><a href="/tags/轻松搭建博客/" title="轻松搭建博客">轻松搭建博客<sup>1</sup></a></li>
+		
+			<li><a href="/tags/面试题/" title="面试题">面试题<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -188,7 +308,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li></ul>
   </div>
 
 
