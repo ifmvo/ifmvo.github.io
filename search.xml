@@ -4,6 +4,24 @@
   
     
     <entry>
+      <title><![CDATA[道理]]></title>
+      <url>https://ifmvo.github.io/2017/03/17/beautiful/</url>
+      <content type="html"><![CDATA[<p>如果“从零开始”，用什么设计架构的问题属于想得太多做得太少的问题。</p>
+<p>从零开始意味着一个项目的主要技术难点是基本功能实现。当每一个功能都需要考虑如何做到的时候，我觉得一般人都没办法考虑如何做好。</p>
+<p>因为，所有的优化都是站在最上层进行统筹规划。在这之前，你必须对下层的每一个模块都非常熟悉，进而提炼可复用的代码、规划逻辑流程。</p>
+<p><code>所以，如果真的是从零开始，别想太多了.</code></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 道理 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Java 面试题]]></title>
       <url>https://ifmvo.github.io/2017/03/17/case_interview/</url>
       <content type="html"><![CDATA[<h3 id="关于中间件的描述"><a href="#关于中间件的描述" class="headerlink" title="关于中间件的描述"></a>关于中间件的描述</h3><blockquote>
@@ -46,24 +64,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[道理]]></title>
-      <url>https://ifmvo.github.io/2017/03/17/beautiful/</url>
-      <content type="html"><![CDATA[<p>如果“从零开始”，用什么设计架构的问题属于想得太多做得太少的问题。</p>
-<p>从零开始意味着一个项目的主要技术难点是基本功能实现。当每一个功能都需要考虑如何做到的时候，我觉得一般人都没办法考虑如何做好。</p>
-<p>因为，所有的优化都是站在最上层进行统筹规划。在这之前，你必须对下层的每一个模块都非常熟悉，进而提炼可复用的代码、规划逻辑流程。</p>
-<p><code>所以，如果真的是从零开始，别想太多了.</code></p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> 道理 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[ICE For Android]]></title>
       <url>https://ifmvo.github.io/2017/03/16/ice_network/</url>
       <content type="html"><![CDATA[<p>由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。</p>
@@ -97,6 +97,51 @@
         <tags>
             
             <tag> ICE </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Thinking in Java 学习笔记]]></title>
+      <url>https://ifmvo.github.io/2017/03/16/thinking_in_java/</url>
+      <content type="html"><![CDATA[<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
+<li><p>“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”<br>是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。</p>
+</li>
+<li><p>事实上,多线程最主要的一个用途就是构建一个“反应灵敏”的用户界面。</p>
+</li>
+<li><p>线程机制多少降低了一些计算效率,但无论程序的设计,资源的均衡,还是用户操作的方便性,都从中获得了巨大的利益。当然,如果本来就安装了多块 CPU,那么操作系统能够自行决定为不同的 CPU 分配哪些线程,程序的总体运行速度也会变得更快(所有这些都要求操作系统以及应用程序的支持)。多线程和多任务是充分发挥多处理机系统能力的一种最有效的方式。</p>
+</li>
+<li><p>CPU 处理一个现有线程集的顺序是不确定的——除非我们亲自介入,并用 Thread 的 setPriority()方法调整它们的优先级。</p>
+</li>
+<li>普通对象对于垃圾收集来说是一种“公平竞赛”,但线程却并非如此。每个线程都会“注册”自己,所以某处实际存在着对它的一个引用。这样一来,<br>垃圾收集器便只好对它“瞠目以对”了。</li>
+</ul>
+<blockquote>
+<p>个人理解：普通的对象比线程更容易被回收，原因是线程的引用会被存起来。</p>
+</blockquote>
+<ul>
+<li>若某样东西有一个 Runnable 接口,实际只是意味着它有一个 run()方法,但不存在与之相关的任何特殊东<br>西——它不具有任何天生的线程处理能力,这与那些从 Thread 继承的类是不同的。</li>
+</ul>
+<h3 id="Java-如何共享资源"><a href="#Java-如何共享资源" class="headerlink" title="Java 如何共享资源"></a>Java 如何共享资源</h3><ul>
+<li><p>对一种特殊的资源——对象中的内存——Java 提供了内建的机制来防止它们的冲突。由于我们通常将数据元<br>素设为从属于 private(私有)类,然后只通过方法访问那些内存,所以只需将一个特定的方法设为<br>synchronized(同步的),便可有效地防止冲突。<strong><em>在任何时刻,只可有一个线程调用特定对象的一个<br>synchronized 方法</em></strong> (尽管那个线程可以调用多个对象的同步方法)</p>
+</li>
+<li><p>如果只同步其中的一个方法,那么另一个就可以自<br>由忽视对象的锁定,并可无碍地调用。所以必须记住一个重要的规则:对于 <strong><em>访问某个关键共享资源的所有方<br>法,都必须把它们设为 synchronized</em></strong> ,否则就不能正常地工作。</p>
+</li>
+<li><p>要访问共享资源的每一部分代码都必须封装到一个适当的同步块里。</p>
+</li>
+</ul>
+<blockquote>
+<p>在能进入同步块之前,必须在 synchObject 上取得锁。如果已有其他线程取得了这把锁,块便不能进入,必<br>须等候那把锁被释放</p>
+</blockquote>
+<h3 id="synchronized-同步的效率"><a href="#synchronized-同步的效率" class="headerlink" title="synchronized 同步的效率"></a>synchronized 同步的效率</h3><ul>
+<li>由于要为同样的数据编写两个方法,所以无论如何都不会给人留下效率很高的印象。看来似乎更好的一种做<br>法是将所有方法都设为自动同步,并完全消除 synchronized 关键字(当然,含有 synchronized run()的例<br>子显示出这样做是很不通的)。但它也揭示出获取一把锁并非一种“廉价”方案——为一次方法调用付出的<br>代价(进入和退出方法,不执行方法主体)至少要累加到四倍,而且根据我们的具体现方案,这一代价还有<br>可能变得更高。所以假如已知一个方法不会造成冲突,最明智的做法便是撤消其中的 synchronized 关键字。</li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Java </tag>
             
         </tags>
         
@@ -235,51 +280,6 @@
         <tags>
             
             <tag> Markdown </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Thinking in Java 学习笔记]]></title>
-      <url>https://ifmvo.github.io/2017/03/16/thinking_in_java/</url>
-      <content type="html"><![CDATA[<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
-<li><p>“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”<br>是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。</p>
-</li>
-<li><p>事实上,多线程最主要的一个用途就是构建一个“反应灵敏”的用户界面。</p>
-</li>
-<li><p>线程机制多少降低了一些计算效率,但无论程序的设计,资源的均衡,还是用户操作的方便性,都从中获得了巨大的利益。当然,如果本来就安装了多块 CPU,那么操作系统能够自行决定为不同的 CPU 分配哪些线程,程序的总体运行速度也会变得更快(所有这些都要求操作系统以及应用程序的支持)。多线程和多任务是充分发挥多处理机系统能力的一种最有效的方式。</p>
-</li>
-<li><p>CPU 处理一个现有线程集的顺序是不确定的——除非我们亲自介入,并用 Thread 的 setPriority()方法调整它们的优先级。</p>
-</li>
-<li>普通对象对于垃圾收集来说是一种“公平竞赛”,但线程却并非如此。每个线程都会“注册”自己,所以某处实际存在着对它的一个引用。这样一来,<br>垃圾收集器便只好对它“瞠目以对”了。</li>
-</ul>
-<blockquote>
-<p>个人理解：普通的对象比线程更容易被回收，原因是线程的引用会被存起来。</p>
-</blockquote>
-<ul>
-<li>若某样东西有一个 Runnable 接口,实际只是意味着它有一个 run()方法,但不存在与之相关的任何特殊东<br>西——它不具有任何天生的线程处理能力,这与那些从 Thread 继承的类是不同的。</li>
-</ul>
-<h3 id="Java-如何共享资源"><a href="#Java-如何共享资源" class="headerlink" title="Java 如何共享资源"></a>Java 如何共享资源</h3><ul>
-<li><p>对一种特殊的资源——对象中的内存——Java 提供了内建的机制来防止它们的冲突。由于我们通常将数据元<br>素设为从属于 private(私有)类,然后只通过方法访问那些内存,所以只需将一个特定的方法设为<br>synchronized(同步的),便可有效地防止冲突。<strong><em>在任何时刻,只可有一个线程调用特定对象的一个<br>synchronized 方法</em></strong> (尽管那个线程可以调用多个对象的同步方法)</p>
-</li>
-<li><p>如果只同步其中的一个方法,那么另一个就可以自<br>由忽视对象的锁定,并可无碍地调用。所以必须记住一个重要的规则:对于 <strong><em>访问某个关键共享资源的所有方<br>法,都必须把它们设为 synchronized</em></strong> ,否则就不能正常地工作。</p>
-</li>
-<li><p>要访问共享资源的每一部分代码都必须封装到一个适当的同步块里。</p>
-</li>
-</ul>
-<blockquote>
-<p>在能进入同步块之前,必须在 synchObject 上取得锁。如果已有其他线程取得了这把锁,块便不能进入,必<br>须等候那把锁被释放</p>
-</blockquote>
-<h3 id="synchronized-同步的效率"><a href="#synchronized-同步的效率" class="headerlink" title="synchronized 同步的效率"></a>synchronized 同步的效率</h3><ul>
-<li>由于要为同样的数据编写两个方法,所以无论如何都不会给人留下效率很高的印象。看来似乎更好的一种做<br>法是将所有方法都设为自动同步,并完全消除 synchronized 关键字(当然,含有 synchronized run()的例<br>子显示出这样做是很不通的)。但它也揭示出获取一把锁并非一种“廉价”方案——为一次方法调用付出的<br>代价(进入和退出方法,不执行方法主体)至少要累加到四倍,而且根据我们的具体现方案,这一代价还有<br>可能变得更高。所以假如已知一个方法不会造成冲突,最明智的做法便是撤消其中的 synchronized 关键字。</li>
-</ul>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> Java </tag>
             
         </tags>
         
