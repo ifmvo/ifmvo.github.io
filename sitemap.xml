@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ifmvo.github.io/2017/01/23/how_learn_js/</loc>
+    
+    <lastmod>2017-03-16T13:58:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ifmvo.github.io/2017/03/16/thinking_in_java/</loc>
+    
+    <lastmod>2017-03-16T13:57:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ifmvo.github.io/2017/03/16/markdown/</loc>
+    
+    <lastmod>2017-03-16T13:54:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ifmvo.github.io/2017/03/16/ice_network/</loc>
+    
+    <lastmod>2017-03-16T13:52:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ifmvo.github.io/about/index.html</loc>
     
     <lastmod>2017-03-07T13:58:07.000Z</lastmod>
@@ -26,13 +54,6 @@
     <loc>https://ifmvo.github.io/2016/12/25/git_common_cmd/</loc>
     
     <lastmod>2017-02-24T23:40:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/2017/01/23/how_learn_js/</loc>
-    
-    <lastmod>2017-02-24T23:19:52.000Z</lastmod>
     
   </url>
   
