@@ -4,15 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Thinking in Java 学习笔记 | 陈铭卓的博客</title>
+    <title>陈铭卓的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="陈铭卓">
     
-    <meta name="description" content="多线程
-“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。
-
-事实上,多线">
+    <meta name="description" content="zero ice一个RPC框架，跨平台What is Ice?Ice is a comprehensive RPC framework with support for C++, C#, Java, JavaScript, Python, and more.
+lantern翻墙 科学上网
+Check">
     
     
     
@@ -63,15 +62,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/16/thinking_in_java/" title="Thinking in Java 学习笔记" itemprop="url">Thinking in Java 学习笔记</a>
+      <a href="/2017/03/07/goods/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
     
       <a href="https://ifmvo.github.io" title="陈铭卓">陈铭卓</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-03-15T16:00:00.000Z" itemprop="datePublished">2017-03-16</time>
-    更新日期:<time datetime="2017-03-17T12:10:01.000Z" itemprop="dateModified">2017-03-17</time>
+    <time datetime="2017-03-07T05:34:24.000Z" itemprop="datePublished">2017-03-07</time>
+    更新日期:<time datetime="2017-03-07T05:34:24.000Z" itemprop="dateModified">2017-03-07</time>
     
   </p>
 </header>
@@ -80,55 +79,25 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程"><span class="toc-number">1.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-如何共享资源"><span class="toc-number">1.0.1.</span> <span class="toc-text">Java 如何共享资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-同步的效率"><span class="toc-number">1.0.2.</span> <span class="toc-text">synchronized 同步的效率</span></a></li></ol></li></ol></li></ol>
+		
 		</div>
 		
-		<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
-<li><p>“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”<br>是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。</p>
-</li>
-<li><p>事实上,多线程最主要的一个用途就是构建一个“反应灵敏”的用户界面。</p>
-</li>
-<li><p>线程机制多少降低了一些计算效率,但无论程序的设计,资源的均衡,还是用户操作的方便性,都从中获得了巨大的利益。当然,如果本来就安装了多块 CPU,那么操作系统能够自行决定为不同的 CPU 分配哪些线程,程序的总体运行速度也会变得更快(所有这些都要求操作系统以及应用程序的支持)。多线程和多任务是充分发挥多处理机系统能力的一种最有效的方式。</p>
-</li>
-<li><p>CPU 处理一个现有线程集的顺序是不确定的——除非我们亲自介入,并用 Thread 的 setPriority()方法调整它们的优先级。</p>
-</li>
-<li>普通对象对于垃圾收集来说是一种“公平竞赛”,但线程却并非如此。每个线程都会“注册”自己,所以某处实际存在着对它的一个引用。这样一来,<br>垃圾收集器便只好对它“瞠目以对”了。</li>
-</ul>
-<blockquote>
-<p>个人理解：普通的对象比线程更容易被回收，原因是线程的引用会被存起来。</p>
-</blockquote>
-<ul>
-<li>若某样东西有一个 Runnable 接口,实际只是意味着它有一个 run()方法,但不存在与之相关的任何特殊东<br>西——它不具有任何天生的线程处理能力,这与那些从 Thread 继承的类是不同的。</li>
-</ul>
-<h3 id="Java-如何共享资源"><a href="#Java-如何共享资源" class="headerlink" title="Java 如何共享资源"></a>Java 如何共享资源</h3><ul>
-<li><p>对一种特殊的资源——对象中的内存——Java 提供了内建的机制来防止它们的冲突。由于我们通常将数据元<br>素设为从属于 private(私有)类,然后只通过方法访问那些内存,所以只需将一个特定的方法设为<br>synchronized(同步的),便可有效地防止冲突。<strong><em>在任何时刻,只可有一个线程调用特定对象的一个<br>synchronized 方法</em></strong> (尽管那个线程可以调用多个对象的同步方法)</p>
-</li>
-<li><p>如果只同步其中的一个方法,那么另一个就可以自<br>由忽视对象的锁定,并可无碍地调用。所以必须记住一个重要的规则:对于 <strong><em>访问某个关键共享资源的所有方<br>法,都必须把它们设为 synchronized</em></strong> ,否则就不能正常地工作。</p>
-</li>
-<li><p>要访问共享资源的每一部分代码都必须封装到一个适当的同步块里。</p>
-</li>
-</ul>
-<blockquote>
-<p>在能进入同步块之前,必须在 synchObject 上取得锁。如果已有其他线程取得了这把锁,块便不能进入,必<br>须等候那把锁被释放</p>
-</blockquote>
-<h3 id="synchronized-同步的效率"><a href="#synchronized-同步的效率" class="headerlink" title="synchronized 同步的效率"></a>synchronized 同步的效率</h3><ul>
-<li>由于要为同样的数据编写两个方法,所以无论如何都不会给人留下效率很高的印象。看来似乎更好的一种做<br>法是将所有方法都设为自动同步,并完全消除 synchronized 关键字(当然,含有 synchronized run()的例<br>子显示出这样做是很不通的)。但它也揭示出获取一把锁并非一种“廉价”方案——为一次方法调用付出的<br>代价(进入和退出方法,不执行方法主体)至少要累加到四倍,而且根据我们的具体现方案,这一代价还有<br>可能变得更高。所以假如已知一个方法不会造成冲突,最明智的做法便是撤消其中的 synchronized 关键字。</li>
-</ul>
+		<p><strong><a href="https://zeroc.com/" target="_blank" rel="external">zero ice</a></strong><br>一个RPC框架，跨平台<br>What is Ice?<br>Ice is a comprehensive RPC framework with support for C++, C#, Java, JavaScript, Python, and more.</p>
+<p><strong><a href="https://github.com/getlantern/lantern" target="_blank" rel="external">lantern</a></strong><br>翻墙 科学上网</p>
+<p><strong><a href="http://gudong.name/2016/04/07/checkstyle.html" target="_blank" rel="external">CheckStyle</a></strong><br> AndroidStudio 检查代码规范的插件</p>
+<p><strong><a href="https://github.com/skylot/jadx" target="_blank" rel="external">jadx</a></strong><br>一个 Android 反编译神器, 不同于常见的 dex2jar, 这个反编译器生成代码的 try/catch 次数更少, View也不再是数字 id 了, 可读性更高</p>
+<p><strong><a href="https://github.com/importre/android-selector-intellij-plugin" target="_blank" rel="external">android-selector</a></strong><br>可以根据指定颜色生成 Selector Drawable 的插件</p>
+<p><strong><a href="http://blog.avlyun.com/show/%E3%80%8Asv%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%E3%80%8B/" target="_blank" rel="external">Smali Viewer</a></strong><br>sv 是一款免费 APK 分析软件, 对你感兴趣的 APP 分析看看它们都用了些什么, 对你学习借鉴有一定帮助</p>
   
 	</div>
 		<footer class="article-footer clearfix">
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Java/">Java</a>
-  </div>
 
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="https://ifmvo.github.io/2017/03/16/thinking_in_java/" data-title="Thinking in Java 学习笔记 | 陈铭卓的博客" data-tsina="null" class="share clearfix">
+  <div data-url="https://ifmvo.github.io/2017/03/07/goods/" data-title="陈铭卓的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -166,7 +135,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程"><span class="toc-number">1.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-如何共享资源"><span class="toc-number">1.0.1.</span> <span class="toc-text">Java 如何共享资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-同步的效率"><span class="toc-number">1.0.2.</span> <span class="toc-text">synchronized 同步的效率</span></a></li></ol></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">
@@ -184,17 +153,13 @@
 		
 			<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
 		
-			<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
-		
 			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
 		
 			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
 		
-			<li><a href="/tags/资源/" title="资源">资源<sup>1</sup></a></li>
+			<li><a href="/tags/真理/" title="真理">真理<sup>1</sup></a></li>
 		
 			<li><a href="/tags/轻松搭建博客/" title="轻松搭建博客">轻松搭建博客<sup>1</sup></a></li>
-		
-			<li><a href="/tags/道理/" title="道理">道理<sup>1</sup></a></li>
 		
 			<li><a href="/tags/面试题/" title="面试题">面试题<sup>1</sup></a></li>
 		
