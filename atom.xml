@@ -39,32 +39,6 @@
   </entry>
   
   <entry>
-    <title>道理</title>
-    <link href="https://ifmvo.github.io/2017/03/17/beautiful/"/>
-    <id>https://ifmvo.github.io/2017/03/17/beautiful/</id>
-    <published>2017-03-16T16:00:00.000Z</published>
-    <updated>2017-03-17T12:21:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>如果“从零开始”，用什么设计架构的问题属于想得太多做得太少的问题。</p>
-<p>从零开始意味着一个项目的主要技术难点是基本功能实现。当每一个功能都需要考虑如何做到的时候，我觉得一般人都没办法考虑如何做好。</p>
-<p>因为，所有的优化都是站在最上层进行统筹规划。在这之前，你必须对下层的每一个模块都非常熟悉，进而提炼可复用的代码、规划逻辑流程。</p>
-<p><code>所以，如果真的是从零开始，别想太多了.</code></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如果“从零开始”，用什么设计架构的问题属于想得太多做得太少的问题。&lt;/p&gt;
-&lt;p&gt;从零开始意味着一个项目的主要技术难点是基本功能实现。当每一个功能都需要考虑如何做到的时候，我觉得一般人都没办法考虑如何做好。&lt;/p&gt;
-&lt;p&gt;因为，所有的优化都是站在最上层进行统筹规划。在这之前
-    
-    </summary>
-    
-    
-      <category term="道理" scheme="https://ifmvo.github.io/tags/%E9%81%93%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java 面试题</title>
     <link href="https://ifmvo.github.io/2017/03/17/case_interview/"/>
     <id>https://ifmvo.github.io/2017/03/17/case_interview/</id>
@@ -92,6 +66,32 @@
     
     
       <category term="面试题" scheme="https://ifmvo.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>道理</title>
+    <link href="https://ifmvo.github.io/2017/03/17/beautiful/"/>
+    <id>https://ifmvo.github.io/2017/03/17/beautiful/</id>
+    <published>2017-03-16T16:00:00.000Z</published>
+    <updated>2017-03-17T12:21:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果“从零开始”，用什么设计架构的问题属于想得太多做得太少的问题。</p>
+<p>从零开始意味着一个项目的主要技术难点是基本功能实现。当每一个功能都需要考虑如何做到的时候，我觉得一般人都没办法考虑如何做好。</p>
+<p>因为，所有的优化都是站在最上层进行统筹规划。在这之前，你必须对下层的每一个模块都非常熟悉，进而提炼可复用的代码、规划逻辑流程。</p>
+<p><code>所以，如果真的是从零开始，别想太多了.</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果“从零开始”，用什么设计架构的问题属于想得太多做得太少的问题。&lt;/p&gt;
+&lt;p&gt;从零开始意味着一个项目的主要技术难点是基本功能实现。当每一个功能都需要考虑如何做到的时候，我觉得一般人都没办法考虑如何做好。&lt;/p&gt;
+&lt;p&gt;因为，所有的优化都是站在最上层进行统筹规划。在这之前
+    
+    </summary>
+    
+    
+      <category term="道理" scheme="https://ifmvo.github.io/tags/%E9%81%93%E7%90%86/"/>
     
   </entry>
   
