@@ -4,128 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Git 命令大全 | 陈铭卓的博客</title>
+    <title>利用 jitpack 将项目插件化 | 陈铭卓的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="陈铭卓">
     
 
     
-    <meta name="description" content="命令
-描述
-
-
-
-
-git init
-初始化仓库
-
-
-git status
-查看状态
-
-
-git add
-修改添加到缓存
-
-
-git log
-查看日志
-
-
-git brach
-查看分支列表
-
-
-git branch a
-从当前分支另外再新建一个分支
-
-
-git checkout a
-切换到a分支
-
-
-git checkout -b a
-新建并切换（git branch a   +   git">
+    <meta name="description" content="jitpack 是什么为什么用 jitpack怎么用 jitpackStep1buildscript &amp;#123;  dependencies &amp;#123;    classpath &apos;com.github.dcendents:android-maven-gradle-plugin:1.5&apos; // Add this line">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git 命令大全">
-<meta property="og:url" content="https://ifmvo.github.io/2016/12/25/git/index.html">
+<meta property="og:title" content="利用 jitpack 将项目插件化">
+<meta property="og:url" content="https://ifmvo.github.io/2017/03/19/jitpack/index.html">
 <meta property="og:site_name" content="陈铭卓的博客">
-<meta property="og:description" content="命令
-描述
-
-
-
-
-git init
-初始化仓库
-
-
-git status
-查看状态
-
-
-git add
-修改添加到缓存
-
-
-git log
-查看日志
-
-
-git brach
-查看分支列表
-
-
-git branch a
-从当前分支另外再新建一个分支
-
-
-git checkout a
-切换到a分支
-
-
-git checkout -b a
-新建并切换（git branch a   +   git">
-<meta property="og:updated_time" content="2017-03-17T12:21:15.000Z">
+<meta property="og:description" content="jitpack 是什么为什么用 jitpack怎么用 jitpackStep1buildscript &amp;#123;  dependencies &amp;#123;    classpath &apos;com.github.dcendents:android-maven-gradle-plugin:1.5&apos; // Add this line">
+<meta property="og:image" content="https://ifmvo.github.io/img/jitpack.jpg">
+<meta property="og:updated_time" content="2017-03-19T01:48:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git 命令大全">
-<meta name="twitter:description" content="命令
-描述
-
-
-
-
-git init
-初始化仓库
-
-
-git status
-查看状态
-
-
-git add
-修改添加到缓存
-
-
-git log
-查看日志
-
-
-git brach
-查看分支列表
-
-
-git branch a
-从当前分支另外再新建一个分支
-
-
-git checkout a
-切换到a分支
-
-
-git checkout -b a
-新建并切换（git branch a   +   git">
+<meta name="twitter:title" content="利用 jitpack 将项目插件化">
+<meta name="twitter:description" content="jitpack 是什么为什么用 jitpack怎么用 jitpackStep1buildscript &amp;#123;  dependencies &amp;#123;    classpath &apos;com.github.dcendents:android-maven-gradle-plugin:1.5&apos; // Add this line">
+<meta name="twitter:image" content="https://ifmvo.github.io/img/jitpack.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="陈铭卓的博客" type="application/atom+xml">
@@ -181,14 +78,14 @@ git checkout -b a
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/25/git/" title="Git 命令大全" itemprop="url">Git 命令大全</a>
+      <a href="/2017/03/19/jitpack/" title="利用 jitpack 将项目插件化" itemprop="url">利用 jitpack 将项目插件化</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="陈铭卓" target="_blank" itemprop="author">陈铭卓</a>
 		
   <p class="article-time">
-    <time datetime="2016-12-24T16:00:00.000Z" itemprop="datePublished"> 发表于 2016-12-25</time>
+    <time datetime="2017-03-18T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-03-19</time>
     
   </p>
 </header>
@@ -197,118 +94,12 @@ git checkout -b a
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitFlow-Git工作流"><span class="toc-number">1.</span> <span class="toc-text">GitFlow(Git工作流)</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jitpack-是什么"><span class="toc-number">1.</span> <span class="toc-text">jitpack 是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么用-jitpack"><span class="toc-number">2.</span> <span class="toc-text">为什么用 jitpack</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#怎么用-jitpack"><span class="toc-number">3.</span> <span class="toc-text">怎么用 jitpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1"><span class="toc-number">3.0.1.</span> <span class="toc-text">Step1</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<table>
-<thead>
-<tr>
-<th style="text-align:left">命令</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">git init</td>
-<td style="text-align:center">初始化仓库</td>
-</tr>
-<tr>
-<td style="text-align:left">git status</td>
-<td style="text-align:center">查看状态</td>
-</tr>
-<tr>
-<td style="text-align:left">git add</td>
-<td style="text-align:center">修改添加到缓存</td>
-</tr>
-<tr>
-<td style="text-align:left">git log</td>
-<td style="text-align:center">查看日志</td>
-</tr>
-<tr>
-<td style="text-align:left">git brach</td>
-<td style="text-align:center">查看分支列表</td>
-</tr>
-<tr>
-<td style="text-align:left">git branch a</td>
-<td style="text-align:center">从当前分支另外再新建一个分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git checkout a</td>
-<td style="text-align:center">切换到a分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git checkout -b a</td>
-<td style="text-align:center">新建并切换（git branch a   +   git checkout a）</td>
-</tr>
-<tr>
-<td style="text-align:left">git branch -d</td>
-<td style="text-align:center">删除分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git branch -D</td>
-<td style="text-align:center">强制删除分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git tag v1.0</td>
-<td style="text-align:center">将当前分支新建一个标签</td>
-</tr>
-<tr>
-<td style="text-align:left">git tag -d <tagname></tagname></td>
-<td style="text-align:center">删除tag</td>
-</tr>
-<tr>
-<td style="text-align:left">git checkout v1.0</td>
-<td style="text-align:center">切换到v1.0标签</td>
-</tr>
-<tr>
-<td style="text-align:left">git stash</td>
-<td style="text-align:center">将当前的修改暂存起来 （git add 过的也可以）</td>
-</tr>
-<tr>
-<td style="text-align:left">git stash list</td>
-<td style="text-align:center">查看缓存列表</td>
-</tr>
-<tr>
-<td style="text-align:left">git stash apply</td>
-<td style="text-align:center">恢复暂存</td>
-</tr>
-<tr>
-<td style="text-align:left">git stash drop</td>
-<td style="text-align:center">删除暂存</td>
-</tr>
-<tr>
-<td style="text-align:left">git stash pop</td>
-<td style="text-align:center">恢复并删除（git stash apply  +  git stash drop）</td>
-</tr>
-<tr>
-<td style="text-align:left">git merge develop</td>
-<td style="text-align:center">将develop 分支合并到当前分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git push origin –delete <branchname></branchname></td>
-<td style="text-align:center">删除远程分支</td>
-</tr>
-<tr>
-<td style="text-align:left">git push origin –delete <tagname></tagname></td>
-<td style="text-align:center">删除远程tag</td>
-</tr>
-<tr>
-<td style="text-align:left">git remote show origin</td>
-<td style="text-align:center">查看远程和本地的详细状态</td>
-</tr>
-</tbody>
-</table>
-<h3 id="GitFlow-Git工作流"><a href="#GitFlow-Git工作流" class="headerlink" title="GitFlow(Git工作流)"></a>GitFlow(Git工作流)</h3><p>一般开发来说,大部分情况下都会拥有两个分支    master    和    develop,他们的职责分别是:</p>
-<p>master:永远处在即将发布(production-ready)状态<br>develop:最新的开发状态</p>
-<p>确切的说master、develop分支大部分情况下都会保持一致,只有在上线前的测试阶段develop比master的代码要多,一旦测试没问题,准备发布了,这时候会将develop合并到master上。</p>
-<p>但是我们发布之后又会进行下一版本的功能开发,开发中间可能又会遇到需要紧急修复bug,一个功能开发完成之后突然需求变动了等情况,所以GitFlow除了以上master和develop两个主要分支以外,还提出了以下三个辅助分支:</p>
-<p>feature:开发新功能的分支,基于develop,    完成后merge回develop<br>release:准备要发布版本的分支,用来修复bug,基于develop,完成后    merge回develop和master<br>hotfix:修复master上的问题,    等不及release版本就必须马上上线.基于master,完成后merge回master和develop</p>
-<p>什么意思呢?</p>
-<p>举个例子,假设我们已经有master和develop两个分支了,这个时候我们准备做一个功能A,第一步我们要做的,就是基于develop分支新建个分支:</p>
-<p>git branch feature/A看到了吧,其实就是一个规范,规定了所有开发的功能分支都以feature为前缀。但是这个时候做着做着发现线上有一个紧急的bug需要修复,那赶紧停下手头的工作,立刻切换到master分支,然后再此基础上新建一个分支:</p>
-<p>git    branch    hotfix/B代表新建了一个紧急修复分支,修复完成之后直接合并到develop和master,然后发布。然后再切回我们的feature/A分支继续着我们的开发,如果开发完了,那么合并回develop分支,然后在develop分支属于测试环境,跟后端对接并且测试的差不多了,感觉可以发布到正式环境了,这个时候再新建一个release分支:</p>
-<p>git branch release/1.0这个时候所有的api、数据等都是正式环境,然后在这个分支上进行最后的测试,发现bug直接进行修改,直到测试ok达到了发布的标准,最后把该分支合并到develop和master然后进行发布。</p>
+		<p><img src="img/jitpack.jpg" alt="jitpack"></p>
+<h1 id="jitpack-是什么"><a href="#jitpack-是什么" class="headerlink" title="jitpack 是什么"></a>jitpack 是什么</h1><h1 id="为什么用-jitpack"><a href="#为什么用-jitpack" class="headerlink" title="为什么用 jitpack"></a>为什么用 jitpack</h1><h1 id="怎么用-jitpack"><a href="#怎么用-jitpack" class="headerlink" title="怎么用 jitpack"></a>怎么用 jitpack</h1><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><figure class="highlight gradle"><table><tr><td class="code"><pre><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">  <span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="keyword">classpath</span> <span class="string">'com.github.dcendents:android-maven-gradle-plugin:1.5'</span> <span class="comment">// Add this line</span></div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -317,7 +108,7 @@ git checkout -b a
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Git/">Git</a>
+  <span></span> <a href="/tags/jitpack-插件化/">jitpack, 插件化</a>
   </div>
 
 </div>
@@ -326,7 +117,7 @@ git checkout -b a
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://ifmvo.github.io/2016/12/25/git/" data-title="Git 命令大全 | 陈铭卓的博客" data-tsina="undefined" class="share clearfix">
+	  <div data-url="https://ifmvo.github.io/2017/03/19/jitpack/" data-title="利用 jitpack 将项目插件化 | 陈铭卓的博客" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -339,20 +130,20 @@ git checkout -b a
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/01/23/how_learn _js/" title="如何学习JS">
-  <strong>上一篇：</strong><br/>
-  <span>
-  如何学习JS</span>
+
+<div class="next">
+<a href="/2017/03/17/beautiful/"  title="道理">
+ <strong>下一篇：</strong><br/> 
+ <span>道理
+</span>
 </a>
 </div>
-
 
 </nav>
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/12/25/git/" data-title="Git 命令大全" data-url="https://ifmvo.github.io/2016/12/25/git/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/19/jitpack/" data-title="利用 jitpack 将项目插件化" data-url="https://ifmvo.github.io/2017/03/19/jitpack/"></div>
 </section>
 
 
@@ -362,7 +153,7 @@ git checkout -b a
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitFlow-Git工作流"><span class="toc-number">1.</span> <span class="toc-text">GitFlow(Git工作流)</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jitpack-是什么"><span class="toc-number">1.</span> <span class="toc-text">jitpack 是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么用-jitpack"><span class="toc-number">2.</span> <span class="toc-text">为什么用 jitpack</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#怎么用-jitpack"><span class="toc-number">3.</span> <span class="toc-text">怎么用 jitpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1"><span class="toc-number">3.0.1.</span> <span class="toc-text">Step1</span></a></li></ol></li></ol></li></ol>
  
   </div>
 

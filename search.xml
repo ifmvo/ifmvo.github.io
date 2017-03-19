@@ -4,6 +4,22 @@
   
     
     <entry>
+      <title><![CDATA[利用 jitpack 将项目插件化]]></title>
+      <url>https://ifmvo.github.io/2017/03/19/jitpack/</url>
+      <content type="html"><![CDATA[<p><img src="img/jitpack.jpg" alt="jitpack"></p>
+<h1 id="jitpack-是什么"><a href="#jitpack-是什么" class="headerlink" title="jitpack 是什么"></a>jitpack 是什么</h1><h1 id="为什么用-jitpack"><a href="#为什么用-jitpack" class="headerlink" title="为什么用 jitpack"></a>为什么用 jitpack</h1><h1 id="怎么用-jitpack"><a href="#怎么用-jitpack" class="headerlink" title="怎么用 jitpack"></a>怎么用 jitpack</h1><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><figure class="highlight gradle"><table><tr><td class="code"><pre><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">  <span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="keyword">classpath</span> <span class="string">'com.github.dcendents:android-maven-gradle-plugin:1.5'</span> <span class="comment">// Add this line</span></div></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> jitpack, 插件化 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[道理]]></title>
       <url>https://ifmvo.github.io/2017/03/17/beautiful/</url>
       <content type="html"><![CDATA[<p>如果“从零开始”，用什么设计架构的问题属于想得太多做得太少的问题。</p>
@@ -259,6 +275,7 @@
 <ul>
 <li>若某样东西有一个 Runnable 接口,实际只是意味着它有一个 run()方法,但不存在与之相关的任何特殊东<br>西——它不具有任何天生的线程处理能力,这与那些从 Thread 继承的类是不同的。</li>
 </ul>
+<hr>
 <h3 id="Java-如何共享资源"><a href="#Java-如何共享资源" class="headerlink" title="Java 如何共享资源"></a>Java 如何共享资源</h3><ul>
 <li><p>对一种特殊的资源——对象中的内存——Java 提供了内建的机制来防止它们的冲突。由于我们通常将数据元<br>素设为从属于 private(私有)类,然后只通过方法访问那些内存,所以只需将一个特定的方法设为<br>synchronized(同步的),便可有效地防止冲突。<strong><em>在任何时刻,只可有一个线程调用特定对象的一个<br>synchronized 方法</em></strong> (尽管那个线程可以调用多个对象的同步方法)</p>
 </li>
@@ -270,9 +287,33 @@
 <blockquote>
 <p>在能进入同步块之前,必须在 synchObject 上取得锁。如果已有其他线程取得了这把锁,块便不能进入,必<br>须等候那把锁被释放</p>
 </blockquote>
+<hr>
 <h3 id="synchronized-同步的效率"><a href="#synchronized-同步的效率" class="headerlink" title="synchronized 同步的效率"></a>synchronized 同步的效率</h3><ul>
 <li>由于要为同样的数据编写两个方法,所以无论如何都不会给人留下效率很高的印象。看来似乎更好的一种做<br>法是将所有方法都设为自动同步,并完全消除 synchronized 关键字(当然,含有 synchronized run()的例<br>子显示出这样做是很不通的)。但它也揭示出获取一把锁并非一种“廉价”方案——为一次方法调用付出的<br>代价(进入和退出方法,不执行方法主体)至少要累加到四倍,而且根据我们的具体现方案,这一代价还有<br>可能变得更高。所以假如已知一个方法不会造成冲突,最明智的做法便是撤消其中的 synchronized 关键字。</li>
 </ul>
+<hr>
+<h3 id="线程的四个状态"><a href="#线程的四个状态" class="headerlink" title="线程的四个状态"></a>线程的四个状态</h3><ol>
+<li>新(New):线程对象已经创建,但尚未启动,所以不可运行。</li>
+<li>可运行(Runnable ):意味着一旦时间分片机制有空闲的 CPU 周期提供给一个线程,那个线程便可立即<br>开始运行。因此,线程可能在、也可能不在运行当中,但一旦条件许可,没有什么能阻止它的运行——它既<br>没有“死”掉,也未被“堵塞”。</li>
+<li>死(Dead):从自己的 run()方法中返回后,一个线程便已“死”掉。亦可调用 stop()令其死掉,但会<br>产生一个违例——属于 Error 的一个子类(也就是说,我们通常不捕获它)。记住一个违例的“掷”出应当<br>是一个特殊事件,而不是正常程序运行的一部分。所以不建议你使用 stop()(在 Java 1.2 则是坚决反<br>对)。另外还有一个 destroy()方法(它永远不会实现),应该尽可能地避免调用它,因为它非常武断,根<br>本不会解除对象的锁定。</li>
+<li>堵塞(Blocked):线程可以运行,但有某种东西阻碍了它。若线程处于堵塞状态,调度机制可以简单地<br>跳过它,不给它分配任何 CPU 时间。除非线程再次进入“可运行”状态,否则不会采取任何操作。</li>
+</ol>
+<hr>
+<h3 id="为什么会堵塞"><a href="#为什么会堵塞" class="headerlink" title="为什么会堵塞?"></a>为什么会堵塞?</h3><p>线程被堵塞可能是由下述五方面的原因造成的:</p>
+<ol>
+<li>调用 <code>sleep</code>(毫秒数),使线程进入“睡眠”状态。在规定的时间内,这个线程是不会运行的。</li>
+<li>用 <code>suspend()</code> 暂停了线程的执行。除非线程收到 <code>resume()</code> 消息,否则不会返回“可运行”状态。</li>
+<li>用 <code>wait()</code> 暂停了线程的执行。除非线程收到 <code>nofify()</code> 或者 <code>notifyAll()</code> 消息,否则不会变成“可运行”(是的,这看起来同原因 <code>2</code> 非常相象,但有一个明显的区别是我们马上要揭示的)。</li>
+<li>线程正在等候一些 <code>IO</code>(输入输出)操作完成。</li>
+<li>线程试图调用另一个对象的 <code>同步</code> 方法,但那个对象处于锁定状态,暂时无法使用。</li>
+</ol>
+<blockquote>
+<p>亦可调用 <code>yield()</code>(Thread 类的一个方法)<code>自动放弃 CPU</code>,以便其他线程能够运行。然而,假如调度机制觉<br>得我们的线程已拥有足够的时间,并跳转到另一个线程,就会发生同样的事情。也就是说,没有什么能防止<br>调度机制重新启动我们的线程。线程被堵塞后,便有一些原因造成它不能继续运行。</p>
+</blockquote>
+<hr>
+<h3 id="等待和通知"><a href="#等待和通知" class="headerlink" title="等待和通知"></a>等待和通知</h3><p><strong><em>无论 sleep()还是 suspend()都不会在自己被调用的时候解除锁定。</em></strong> 需要用到对象锁时,请务必注意这个问题。在另一方面,<strong><em>wait()方法在被调用时却会解除锁定</em></strong>,这意味着可在执行<br>wait()期间调用线程对象中的其他同步方法。但在接着的两个类中,我们看到 run()方法都是“同步”的。<br>在 wait()期间,Peeker 仍然拥有对同步方法的完全访问权限。这是由于 wait()在挂起内部调用的方法时,<br>会解除对象的锁定。<br>我们也可以看到 wait()的两种形式。第一种形式采用一个以毫秒为单位的参数,它具有与 sleep()中相同的<br>含义:暂停这一段规定时间。区别在于在 wait()中,对象锁已被解除,而且能够自由地退出 wait(),因为一<br>个 notify() 可强行使时间流逝。<br>第二种形式不采用任何参数,这意味着 wait()会持续执行,直到 notify()介入为止。而且在一段时间以后,<br>不会自行中止。<br>wait()和 notify()比较特别的一个地方是这两个方法都属于基础类 Object 的一部分,不象 sleep(),<br>suspend()以及 resume()那样属于 Thread 的一部分。尽管这表面看有点儿奇怪——居然让专门进行线程处理<br>的东西成为通用基础类的一部分——但仔细想想又会释然,因为它们操纵的对象锁也属于每个对象的一部<br>分。因此,我们可将一个 wait()置入任何同步方法内部,无论在那个类里是否准备进行涉及线程的处理。事<br>实上,我们能调用 wait()的唯一地方是在一个同步的方法或代码块内部。若在一个不同步的方法内调用<br>wait()或者 notify(),尽管程序仍然会编译,但在运行它的时候,就会得到一个<br>IllegalMonitorStateException(非法监视器状态违例),而且会出现多少有点莫名其妙的一条消息:<br>“current thread not owner”(当前线程不是所有人”。注意 sleep(),suspend()以及resume()都能在不<br>同步的方法内调用,因为它们不需要对锁定进行操作。<br>只能为自己的锁定调用 wait()和 notify()。同样地,仍然可以编译那些试图使用错误锁定的代码,但和往常<br>一样会产生同样的 IllegalMonitorStateException 违例。我们没办法用其他人的对象锁来愚弄系统,但可要<br>求另一个对象执行相应的操作,对它自己的锁进行操作。所以一种做法是创建一个同步方法,令其为自己的<br>对象调用 notify()。</p>
+<hr>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>由于线程可能进入堵塞状态,而且由于对象可能拥有“同步”方法——除非同步锁定被解除,否则线程不能<br>访问那个对象——所以 <strong><em>一个线程完全可能等候另一个对象,而另一个对象又在等候下一个对象</em></strong> ,以此类推。<br>这个“等候”链最可怕的情形就是进入封闭状态—— <strong><em>最后那个对象等候的是第一个对象</em></strong> !此时,所有线程都<br>会陷入无休止的相互等待状态,大家都动弹不得。我们将这种情况称为“死锁”。尽管这种情况并非经常出<br>现,但一旦碰到,程序的调试将变得异常艰难。<br>就语言本身来说,尚未直接提供防止死锁的帮助措施,需要我们通过谨慎的设计来避免。如果有谁需要调试<br>一个死锁的程序,他是没有任何窍门可用的。</p>
 ]]></content>
       
         
