@@ -19,14 +19,11 @@
 <meta property="og:site_name" content="陈铭卓的博客">
 <meta property="og:description" content="由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。
 其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使">
-<meta property="og:image" content="http://img.blog.csdn.net/20170316191751952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWZtdm8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170316203105409?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWZtdm8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-03-17T12:33:19.000Z">
+<meta property="og:updated_time" content="2017-03-19T03:16:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ICE For Android">
 <meta name="twitter:description" content="由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。
 其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170316191751952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWZtdm8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
     
     <link rel="alternative" href="/atom.xml" title="陈铭卓的博客" type="application/atom+xml">
@@ -105,10 +102,7 @@
 		<p>由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。</p>
 <p>其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使用，并没有为你提供什么封装好的网络请求库，所以完全由自己从零开始一步一步进行封装，这对于一个刚刚入门的我来说着实不易。</p>
 <hr>
-<h2 id="ICE为何物？"><a href="#ICE为何物？" class="headerlink" title="ICE为何物？"></a>ICE为何物？</h2><center><br><img src="http://img.blog.csdn.net/20170316191751952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWZtdm8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="network"><br></center>
-
-
-<p><code>ZeroC ICE</code> 是 <code>ZeroC</code> 公司的 <code>ICE（Internet Communications Engine）</code>中间件平台。对于客户端和服务端程序的开发提供了很大的便利。</p>
+<h2 id="ICE为何物？"><a href="#ICE为何物？" class="headerlink" title="ICE为何物？"></a>ICE为何物？</h2><p><code>ZeroC ICE</code> 是 <code>ZeroC</code> 公司的 <code>ICE（Internet Communications Engine）</code>中间件平台。对于客户端和服务端程序的开发提供了很大的便利。</p>
 <p><strong>官网自己的描述：</strong></p>
 <ul>
 <li>灵活</li>
@@ -119,13 +113,10 @@
 <p>目前稳定版本为 3.6 ， 3.7 版本正在持续开发。</p>
 <hr>
 <h2 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h2><p>无论是 <code>Linux</code> <code>Window</code> 还是 <code>Mac</code> 安装步骤都是很方便的，只要按照官方文档使用几个命令就可以了。请参考<a href="https://doc.zeroc.com/" target="_blank" rel="external">官方文档</a></p>
-<center><br><img src="http://img.blog.csdn.net/20170316203105409?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWZtdm8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br></center>
-
-
 <h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>我对 Android 中使用 ICE <strong><em>网络请求部分进行简单封装</em></strong>,可以提供参考.</p>
+<p>github 链接:<br><a href="https://github.com/ifmvo/ICEAndroidDemo" target="_blank" rel="external">https://github.com/ifmvo/ICEAndroidDemo</a></p>
 <h3 id="调用接口姿势"><a href="#调用接口姿势" class="headerlink" title="调用接口姿势:"></a>调用接口姿势:</h3><p>实现传统 Callback 回调方式<br><figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">IceClient</span><span class="selector-class">.getUsers</span>(<span class="string">"ifmvo"</span>, <span class="string">"123456"</span>, new IceClient.Callback&lt;String&gt;() &#123;</div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onStart() &#123;</div><div class="line">                <span class="comment">// showLoading();</span></div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onFailure(String msg) &#123;</div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showErrorMsg();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"链接异常信息"</span> + msg);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            @<span class="selector-tag">Override</span></div><div class="line">            <span class="selector-tag">public</span> <span class="selector-tag">void</span> <span class="selector-tag">onSuccess</span>(String result) &#123;</div><div class="line"></div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showResult();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"返回成功信息"</span> + result);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
 <h3 id="添加接口方式"><a href="#添加接口方式" class="headerlink" title="添加接口方式:"></a>添加接口方式:</h3><p>//IceClient.java<br><figure class="highlight aspectj"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 定义的借口就可以这样写</div><div class="line"> * <span class="doctag">@param</span> username 参数</div><div class="line"> * <span class="doctag">@param</span> password 参数</div><div class="line"> * <span class="doctag">@param</span> callback 回调</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">getUsers</span><span class="params">(String username, String password, <span class="keyword">final</span> Callback callback)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (requestPre(callback) != OK) <span class="keyword">return</span> ;</div><div class="line"></div><div class="line">    helloPrx.begin_getUsers(username, password, <span class="keyword">new</span> Callback_Hello_getUsers() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">response</span><span class="params">(<span class="keyword">int</span> ret, String message)</span> </span>&#123;</div><div class="line">            handleSuccess(message, callback);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">exception</span><span class="params">(LocalException e)</span> </span>&#123;</div><div class="line">            handleException(callback, e);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>github 链接:<br><a href="https://github.com/ifmvo/ICEAndroidDemo" target="_blank" rel="external">https://github.com/ifmvo/ICEAndroidDemo</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -157,10 +148,10 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/17/goods/" title="资源">
+ <a href="/2017/03/17/case_interview/" title="Java 面试题">
   <strong>上一篇：</strong><br/>
   <span>
-  资源</span>
+  Java 面试题</span>
 </a>
 </div>
 
@@ -206,6 +197,30 @@
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/轻松搭建博客/" title="轻松搭建博客">轻松搭建博客<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JS/" title="JS">JS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/jitpack-插件化/" title="jitpack, 插件化">jitpack, 插件化<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/道理/" title="道理">道理<sup>1</sup></a></li>
 			
 		
@@ -215,34 +230,6 @@
 		
 			
 				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/资源/" title="资源">资源<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/轻松搭建博客/" title="轻松搭建博客">轻松搭建博客<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JS/" title="JS">JS<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/jitpack-插件化/" title="jitpack, 插件化">jitpack, 插件化<sup>1</sup></a></li>
 			
 		
 		</ul>

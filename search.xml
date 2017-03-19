@@ -60,35 +60,12 @@
     </entry>
     
     <entry>
-      <title><![CDATA[资源]]></title>
-      <url>https://ifmvo.github.io/2017/03/17/goods/</url>
-      <content type="html"><![CDATA[<p><strong><a href="https://zeroc.com/" target="_blank" rel="external">zero ice</a></strong><br>一个RPC框架，跨平台<br>What is Ice?<br>Ice is a comprehensive RPC framework with support for C++, C#, Java, JavaScript, Python, and more.</p>
-<p><strong><a href="https://github.com/getlantern/lantern" target="_blank" rel="external">lantern</a></strong><br>翻墙 科学上网</p>
-<p><strong><a href="http://gudong.name/2016/04/07/checkstyle.html" target="_blank" rel="external">CheckStyle</a></strong><br> AndroidStudio 检查代码规范的插件</p>
-<p><strong><a href="https://github.com/skylot/jadx" target="_blank" rel="external">jadx</a></strong><br>一个 Android 反编译神器, 不同于常见的 dex2jar, 这个反编译器生成代码的 try/catch 次数更少, View也不再是数字 id 了, 可读性更高</p>
-<p><strong><a href="https://github.com/importre/android-selector-intellij-plugin" target="_blank" rel="external">android-selector</a></strong><br>可以根据指定颜色生成 Selector Drawable 的插件</p>
-<p><strong><a href="http://blog.avlyun.com/show/%E3%80%8Asv%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%E3%80%8B/" target="_blank" rel="external">Smali Viewer</a></strong><br>sv 是一款免费 APK 分析软件, 对你感兴趣的 APP 分析看看它们都用了些什么, 对你学习借鉴有一定帮助</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> 资源 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[ICE For Android]]></title>
       <url>https://ifmvo.github.io/2017/03/16/ice_network/</url>
       <content type="html"><![CDATA[<p>由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。</p>
 <p>其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使用，并没有为你提供什么封装好的网络请求库，所以完全由自己从零开始一步一步进行封装，这对于一个刚刚入门的我来说着实不易。</p>
 <hr>
-<h2 id="ICE为何物？"><a href="#ICE为何物？" class="headerlink" title="ICE为何物？"></a>ICE为何物？</h2><center><br><img src="http://img.blog.csdn.net/20170316191751952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWZtdm8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="network"><br></center>
-
-
-<p><code>ZeroC ICE</code> 是 <code>ZeroC</code> 公司的 <code>ICE（Internet Communications Engine）</code>中间件平台。对于客户端和服务端程序的开发提供了很大的便利。</p>
+<h2 id="ICE为何物？"><a href="#ICE为何物？" class="headerlink" title="ICE为何物？"></a>ICE为何物？</h2><p><code>ZeroC ICE</code> 是 <code>ZeroC</code> 公司的 <code>ICE（Internet Communications Engine）</code>中间件平台。对于客户端和服务端程序的开发提供了很大的便利。</p>
 <p><strong>官网自己的描述：</strong></p>
 <ul>
 <li>灵活</li>
@@ -99,13 +76,10 @@
 <p>目前稳定版本为 3.6 ， 3.7 版本正在持续开发。</p>
 <hr>
 <h2 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h2><p>无论是 <code>Linux</code> <code>Window</code> 还是 <code>Mac</code> 安装步骤都是很方便的，只要按照官方文档使用几个命令就可以了。请参考<a href="https://doc.zeroc.com/" target="_blank" rel="external">官方文档</a></p>
-<center><br><img src="http://img.blog.csdn.net/20170316203105409?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaWZtdm8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br></center>
-
-
 <h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>我对 Android 中使用 ICE <strong><em>网络请求部分进行简单封装</em></strong>,可以提供参考.</p>
+<p>github 链接:<br><a href="https://github.com/ifmvo/ICEAndroidDemo" target="_blank" rel="external">https://github.com/ifmvo/ICEAndroidDemo</a></p>
 <h3 id="调用接口姿势"><a href="#调用接口姿势" class="headerlink" title="调用接口姿势:"></a>调用接口姿势:</h3><p>实现传统 Callback 回调方式<br><figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">IceClient</span><span class="selector-class">.getUsers</span>(<span class="string">"ifmvo"</span>, <span class="string">"123456"</span>, new IceClient.Callback&lt;String&gt;() &#123;</div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onStart() &#123;</div><div class="line">                <span class="comment">// showLoading();</span></div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onFailure(String msg) &#123;</div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showErrorMsg();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"链接异常信息"</span> + msg);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            @<span class="selector-tag">Override</span></div><div class="line">            <span class="selector-tag">public</span> <span class="selector-tag">void</span> <span class="selector-tag">onSuccess</span>(String result) &#123;</div><div class="line"></div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showResult();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"返回成功信息"</span> + result);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
 <h3 id="添加接口方式"><a href="#添加接口方式" class="headerlink" title="添加接口方式:"></a>添加接口方式:</h3><p>//IceClient.java<br><figure class="highlight aspectj"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 定义的借口就可以这样写</div><div class="line"> * <span class="doctag">@param</span> username 参数</div><div class="line"> * <span class="doctag">@param</span> password 参数</div><div class="line"> * <span class="doctag">@param</span> callback 回调</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">getUsers</span><span class="params">(String username, String password, <span class="keyword">final</span> Callback callback)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (requestPre(callback) != OK) <span class="keyword">return</span> ;</div><div class="line"></div><div class="line">    helloPrx.begin_getUsers(username, password, <span class="keyword">new</span> Callback_Hello_getUsers() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">response</span><span class="params">(<span class="keyword">int</span> ret, String message)</span> </span>&#123;</div><div class="line">            handleSuccess(message, callback);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">exception</span><span class="params">(LocalException e)</span> </span>&#123;</div><div class="line">            handleException(callback, e);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>github 链接:<br><a href="https://github.com/ifmvo/ICEAndroidDemo" target="_blank" rel="external">https://github.com/ifmvo/ICEAndroidDemo</a></p>
 ]]></content>
       
         
@@ -120,7 +94,7 @@
     <entry>
       <title><![CDATA[Markdown 常用语法及快捷键]]></title>
       <url>https://ifmvo.github.io/2017/03/16/markdown/</url>
-      <content type="html"><![CDATA[<h1 id="欢迎使用Markdown编辑器写博客"><a href="#欢迎使用Markdown编辑器写博客" class="headerlink" title="欢迎使用Markdown编辑器写博客"></a>欢迎使用Markdown编辑器写博客</h1><p>本Markdown编辑器使用<a href="https://github.com/benweet/stackedit" target="_blank" rel="external">StackEdit</a>修改而来，用它写博客，将会带来全新的体验哦：</p>
+      <content type="html"><![CDATA[<h1 id="欢迎使用Markdown编辑器写博客"><a href="#欢迎使用Markdown编辑器写博客" class="headerlink" title="欢迎使用Markdown编辑器写博客"></a>欢迎使用Markdown编辑器写博客</h1><p>本Markdown编辑器使用[StackEdit][6]修改而来，用它写博客，将会带来全新的体验哦：</p>
 <ul>
 <li><strong>Markdown和扩展Markdown简洁的语法</strong></li>
 <li><strong>代码块高亮</strong></li>
@@ -149,8 +123,7 @@
 <h2 id="Markdown及扩展"><a href="#Markdown及扩展" class="headerlink" title="Markdown及扩展"></a>Markdown及扩展</h2><blockquote>
 <p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank"> [ 维基百科 ]</a></p>
 </blockquote>
-<p>使用简单的符号标识不同的标题，将某些文字标记为<strong>粗体</strong>或者<em>斜体</em>，创建一个<a href="http://www.csdn.net" target="_blank" rel="external">链接</a>等，详细语法参考帮助？。</p>
-<p>本编辑器支持 <strong>Markdown Extra</strong> , 　扩展了很多好用的功能。具体请参考<a href="https://github.com/jmcmanus/pagedown-extra" title="Pagedown Extra" target="_blank" rel="external">Github</a>.  </p>
+<p>本编辑器支持 <strong>Markdown Extra</strong> , 　扩展了很多好用的功能。具体请参考[Github][2].  </p>
 <h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p><strong>Markdown　Extra</strong>　表格语法：</p>
 <table>
 <thead>
@@ -210,23 +183,22 @@
 <p>###脚注<br>生成一个脚注[^footnote].<br>  [^footnote]: 这里是 <strong>脚注</strong> 的 <em>内容</em>.</p>
 <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>用 <code>[TOC]</code>来生成目录：</p>
 <p>[TOC]</p>
-<h3 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h3><p>使用MathJax渲染<em>LaTex</em> 数学公式，详见<a href="http://math.stackexchange.com/" target="_blank" rel="external">math.stackexchange.com</a>.</p>
+<h3 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h3><p>使用MathJax渲染<em>LaTex</em> 数学公式，详见[math.stackexchange.com][1].</p>
 <ul>
 <li>行内公式，数学公式为：$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。</li>
 <li>块级公式：</li>
 </ul>
 <p>$$    x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
-<p>更多LaTex语法请参考 <a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="external">这儿</a>.</p>
+<p>更多LaTex语法请参考 [这儿][3].</p>
 <h3 id="UML-图"><a href="#UML-图" class="headerlink" title="UML 图:"></a>UML 图:</h3><p>可以渲染序列图：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">张三-&gt;李四: 嘿，小四儿, 写博客了没?</div><div class="line">Note right of 李四: 李四愣了一下，说：</div><div class="line">李四--&gt;张三: 忙得吐血，哪有时间写。</div></pre></td></tr></table></figure>
 <p>或者流程图：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">st=&gt;start: 开始</div><div class="line">e=&gt;end: 结束</div><div class="line">op=&gt;operation: 我的操作</div><div class="line">cond=&gt;condition: 确认？</div><div class="line"></div><div class="line">st-&gt;op-&gt;cond</div><div class="line">cond(yes)-&gt;e</div><div class="line">cond(no)-&gt;op</div></pre></td></tr></table></figure>
 <ul>
-<li>关于 <strong>序列图</strong> 语法，参考 <a href="http://bramp.github.io/js-sequence-diagrams/" target="_blank" rel="external">这儿</a>,</li>
-<li>关于 <strong>流程图</strong> 语法，参考 <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="external">这儿</a>.</li>
+<li>关于 <strong>序列图</strong> 语法，参考 [这儿][4],</li>
+<li>关于 <strong>流程图</strong> 语法，参考 [这儿][5].</li>
 </ul>
-<h2 id="离线写博客"><a href="#离线写博客" class="headerlink" title="离线写博客"></a>离线写博客</h2><p>即使用户在没有网络的情况下，也可以通过本编辑器离线写博客（直接在曾经使用过的浏览器中输入<a href="http://write.blog.csdn.net/mdeditor" target="_blank" rel="external">write.blog.csdn.net/mdeditor</a>即可。<strong>Markdown编辑器</strong>使用浏览器离线存储将内容保存在本地。</p>
-<p>用户写博客的过程中，内容实时保存在浏览器缓存中，在用户关闭浏览器或者其它异常情况下，内容不会丢失。用户再次打开浏览器时，会显示上次用户正在编辑的没有发表的内容。</p>
+<h2 id="离线写博客"><a href="#离线写博客" class="headerlink" title="离线写博客"></a>离线写博客</h2><p>用户写博客的过程中，内容实时保存在浏览器缓存中，在用户关闭浏览器或者其它异常情况下，内容不会丢失。用户再次打开浏览器时，会显示上次用户正在编辑的没有发表的内容。</p>
 <p>博客发表后，本地缓存将被删除。　</p>
 <p>用户可以选择 <i class="icon-disk"></i> 把正在写的博客保存到服务器草稿箱，即使换浏览器或者清除缓存，内容也不会丢失。</p>
 <blockquote>
@@ -340,9 +312,6 @@
 <p>开始安装Hexo，如果你网速不好，这可能是个漫长的过程<br><figure class="highlight avrasm"><table><tr><td class="code"><pre><div class="line">npm install -g hexo-<span class="keyword">cli</span></div></pre></td></tr></table></figure></p>
 <h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，会自动新建 xxx 文件夹，xxx 文件夹就是你的网站喽。<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo init xxx</div><div class="line"><span class="built_in">cd</span> xxx</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
 <p>现在在当前文件夹下执行命令<br><figure class="highlight axapta"><table><tr><td class="code"><pre><div class="line">hexo <span class="keyword">server</span></div></pre></td></tr></table></figure></p>
-<p>然后在浏览器地址栏输入：</p>
-<p><a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
-<p>回车后是不是已经可以看到你的博客了。</p>
 <h3 id="添加主题"><a href="#添加主题" class="headerlink" title="添加主题"></a>添加主题</h3>]]></content>
       
         
