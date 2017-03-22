@@ -27,7 +27,7 @@
 事实上,多线程最主要的一个用途就是构建一个“反应灵敏”的用户界面。
 
 线程机制多少降低了一些计算效率,但无论程序">
-<meta property="og:updated_time" content="2017-03-19T03:16:59.000Z">
+<meta property="og:updated_time" content="2017-03-22T13:43:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Thinking in Java 学习笔记">
 <meta name="twitter:description" content="多线程
@@ -107,7 +107,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程"><span class="toc-number">1.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-如何共享资源"><span class="toc-number">1.0.1.</span> <span class="toc-text">Java 如何共享资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-同步的效率"><span class="toc-number">1.0.2.</span> <span class="toc-text">synchronized 同步的效率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程的四个状态"><span class="toc-number">1.0.3.</span> <span class="toc-text">线程的四个状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么会堵塞"><span class="toc-number">1.0.4.</span> <span class="toc-text">为什么会堵塞?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#等待和通知"><span class="toc-number">1.0.5.</span> <span class="toc-text">等待和通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">1.0.6.</span> <span class="toc-text">死锁</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程"><span class="toc-number">1.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-如何共享资源"><span class="toc-number">1.0.1.</span> <span class="toc-text">Java 如何共享资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-同步的效率"><span class="toc-number">1.0.2.</span> <span class="toc-text">synchronized 同步的效率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程的四个状态"><span class="toc-number">1.0.3.</span> <span class="toc-text">线程的四个状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么会堵塞"><span class="toc-number">1.0.4.</span> <span class="toc-text">为什么会堵塞?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#等待和通知"><span class="toc-number">1.0.5.</span> <span class="toc-text">等待和通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">1.0.6.</span> <span class="toc-text">死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.0.7.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
@@ -167,6 +167,22 @@
 <h3 id="等待和通知"><a href="#等待和通知" class="headerlink" title="等待和通知"></a>等待和通知</h3><p><strong><em>无论 sleep()还是 suspend()都不会在自己被调用的时候解除锁定。</em></strong> 需要用到对象锁时,请务必注意这个问题。在另一方面,<strong><em>wait()方法在被调用时却会解除锁定</em></strong>,这意味着可在执行<br>wait()期间调用线程对象中的其他同步方法。但在接着的两个类中,我们看到 run()方法都是“同步”的。<br>在 wait()期间,Peeker 仍然拥有对同步方法的完全访问权限。这是由于 wait()在挂起内部调用的方法时,<br>会解除对象的锁定。<br>我们也可以看到 wait()的两种形式。第一种形式采用一个以毫秒为单位的参数,它具有与 sleep()中相同的<br>含义:暂停这一段规定时间。区别在于在 wait()中,对象锁已被解除,而且能够自由地退出 wait(),因为一<br>个 notify() 可强行使时间流逝。<br>第二种形式不采用任何参数,这意味着 wait()会持续执行,直到 notify()介入为止。而且在一段时间以后,<br>不会自行中止。<br>wait()和 notify()比较特别的一个地方是这两个方法都属于基础类 Object 的一部分,不象 sleep(),<br>suspend()以及 resume()那样属于 Thread 的一部分。尽管这表面看有点儿奇怪——居然让专门进行线程处理<br>的东西成为通用基础类的一部分——但仔细想想又会释然,因为它们操纵的对象锁也属于每个对象的一部<br>分。因此,我们可将一个 wait()置入任何同步方法内部,无论在那个类里是否准备进行涉及线程的处理。事<br>实上,我们能调用 wait()的唯一地方是在一个同步的方法或代码块内部。若在一个不同步的方法内调用<br>wait()或者 notify(),尽管程序仍然会编译,但在运行它的时候,就会得到一个<br>IllegalMonitorStateException(非法监视器状态违例),而且会出现多少有点莫名其妙的一条消息:<br>“current thread not owner”(当前线程不是所有人”。注意 sleep(),suspend()以及resume()都能在不<br>同步的方法内调用,因为它们不需要对锁定进行操作。<br>只能为自己的锁定调用 wait()和 notify()。同样地,仍然可以编译那些试图使用错误锁定的代码,但和往常<br>一样会产生同样的 IllegalMonitorStateException 违例。我们没办法用其他人的对象锁来愚弄系统,但可要<br>求另一个对象执行相应的操作,对它自己的锁进行操作。所以一种做法是创建一个同步方法,令其为自己的<br>对象调用 notify()。</p>
 <hr>
 <h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>由于线程可能进入堵塞状态,而且由于对象可能拥有“同步”方法——除非同步锁定被解除,否则线程不能<br>访问那个对象——所以 <strong><em>一个线程完全可能等候另一个对象,而另一个对象又在等候下一个对象</em></strong> ,以此类推。<br>这个“等候”链最可怕的情形就是进入封闭状态—— <strong><em>最后那个对象等候的是第一个对象</em></strong> !此时,所有线程都<br>会陷入无休止的相互等待状态,大家都动弹不得。我们将这种情况称为“死锁”。尽管这种情况并非经常出<br>现,但一旦碰到,程序的调试将变得异常艰难。<br>就语言本身来说,尚未直接提供防止死锁的帮助措施,需要我们通过谨慎的设计来避免。如果有谁需要调试<br>一个死锁的程序,他是没有任何窍门可用的。</p>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>何时使用多线程技术,以及何时避免用它,这是我们需要掌握的重要课题。骼它的主要目的是对大量任务进<br>行有序的管理。通过多个任务的混合使用,可以更有效地利用计算机资源,或者对用户来说显得更方便。资<br>源均衡的经典问题是在 IO 等候期间如何利用 CPU。至于用户方面的方便性,最经典的问题就是如何在一个长<br>时间的下载过程中监视并灵敏地反应一个“停止”(stop )按钮的按下。</p>
+<p>多线程的主要缺点包括:</p>
+<ol>
+<li>等候使用共享资源时造成程序的运行速度变慢。</li>
+<li>对线程进行管理要求的额外 CPU 开销。</li>
+<li>复杂程度无意义的加大,比如用独立的线程来更新数组内每个元素的愚蠢主意。</li>
+<li>漫长的等待、浪费精力的资源竞争以及死锁等多线程症状。</li>
+</ol>
+<p>线程另一个优点是它们用“轻度”执行切换(100 条指令的顺序)取代了“重度”进程场景切换(1000 条指<br>令)。由于一个进程内的所有线程共享相同的内存空间,所以“轻度”场景切换只改变程序的执行和本地变<br>量。而在“重度”场景切换时,一个进程的改变要求必须完整地交换内存空间。<br>线程处理看来好象进入了一个全新的领域,似乎要求我们学习一种全新的程序设计语言——或者至少学习一<br>系列新的语言概念。由于大多数微机操作系统都提供了对线程的支持,所以程序设计语言或者库里也出现了<br>对线程的扩展。</p>
+<p>不管在什么情况下,涉及线程的程序设计:</p>
+<ol>
+<li>刚开始会让人摸不着头脑,要求改换我们传统的编程思路;</li>
+<li>其他语言对线程的支持看来是类似的。所以一旦掌握了线程的概念,在其他环境也不会有太大的困难。</li>
+</ol>
+<p>尽管对线程的支持使 Java 语言的复杂程度多少有些增加,但请不要责怪 Java。毕竟,利用线程可以做许多<br>有益的事情。<br>多个线程可能共享同一个资源(比如一个对象里的内存),这是运用线程时面临的最大的一个麻烦。必须保<br>证多个线程不会同时试图读取和修改那个资源。这要求技巧性地运用 synchronized(同步)关键字。它是一<br>个有用的工具,但必须真正掌握它,因为假若操作不当,极易出现死锁。<br>除此以外,运用线程时还要注意一个非常特殊的问题。由于根据 Java 的设计,它允许我们根据需要创建任意<br>数量的线程——至少理论上如此(例如,假设为一项工程方面的有限元素分析创建数以百万的线程,这对<br>Java 来说并非实际)。然而,我们一般都要控制自己创建的线程数量的上限。因为在某些情况下,大量线程<br>会将场面变得一团糟,所以工作都会几乎陷于停顿。临界点并不象对象那样可以达到几千个,而是在 100 以<br>下。一般情况下,我们只创建少数几个关键线程,用它们解决某个特定的问题。这时数量的限制问题不大。<br>但在较常规的一些设计中,这一限制确实会使我们感到束手束脚。<br>大家要注意线程处理中一个不是十分直观的问题。由于采用了线程“调度”机制,所以通过在 run()的主循<br>环中插入对 sleep()的调用,一般都可以使自己的程序运行得更快一些。这使它对编程技巧的要求非常高,<br>特别是在更长的延迟似乎反而能提高性能的时候。当然,之所以会出现这种情况,是由于在正在运行的线程<br>准备进入“休眠”状态之前,较短的延迟可能造成“sleep()结束”调度机制的中断。这便强迫调度机制将其<br>中止,并于稍后重新启动,以便它能做完自己的事情,再进入休眠状态。必须多想一想,才能意识到事情真<br>正的麻烦程度。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -228,7 +244,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程"><span class="toc-number">1.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-如何共享资源"><span class="toc-number">1.0.1.</span> <span class="toc-text">Java 如何共享资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-同步的效率"><span class="toc-number">1.0.2.</span> <span class="toc-text">synchronized 同步的效率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程的四个状态"><span class="toc-number">1.0.3.</span> <span class="toc-text">线程的四个状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么会堵塞"><span class="toc-number">1.0.4.</span> <span class="toc-text">为什么会堵塞?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#等待和通知"><span class="toc-number">1.0.5.</span> <span class="toc-text">等待和通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">1.0.6.</span> <span class="toc-text">死锁</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程"><span class="toc-number">1.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-如何共享资源"><span class="toc-number">1.0.1.</span> <span class="toc-text">Java 如何共享资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-同步的效率"><span class="toc-number">1.0.2.</span> <span class="toc-text">synchronized 同步的效率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程的四个状态"><span class="toc-number">1.0.3.</span> <span class="toc-text">线程的四个状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么会堵塞"><span class="toc-number">1.0.4.</span> <span class="toc-text">为什么会堵塞?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#等待和通知"><span class="toc-number">1.0.5.</span> <span class="toc-text">等待和通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">1.0.6.</span> <span class="toc-text">死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.0.7.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -237,6 +253,13 @@
 <aside class="clearfix">
 
   
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="https://github.com/ifmvo" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
 
 
   
@@ -251,19 +274,7 @@
 			
 		
 			
-				<li><a href="/tags/面试题/" title="面试题">面试题<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/轻松搭建博客/" title="轻松搭建博客">轻松搭建博客<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JS/" title="JS">JS<sup>1</sup></a></li>
 			
 		
 			
@@ -271,15 +282,31 @@
 			
 		
 			
-				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/jitpack-插件化/" title="jitpack, 插件化">jitpack, 插件化<sup>1</sup></a></li>
 			
 		
 			
+				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/view/" title="view">view<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试题/" title="面试题">面试题<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JS/" title="JS">JS<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -292,13 +319,25 @@
         
           <li>
             
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            	<a href="http://blog.csdn.net/guolin_blog" target="_blank" title="郭霖">郭霖</a>
             
           </li>
         
           <li>
             
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            	<a href="http://stormzhang.com" target="_blank" title="stormzhang">stormzhang</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://zhanghongyang.com" target="_blank" title="张鸿洋">张鸿洋</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="博客主题的作者">Jark&#39;s Blog</a>
             
           </li>
         
@@ -317,6 +356,7 @@
 	<div class="social-font" class="clearfix">
 		
 		
+		<a href="https://github.com/https://github.com/ifmvo" target="_blank" class="icon-github" title="github"></a>
 		
 		
 		
@@ -324,6 +364,9 @@
 		
 		
 		
+		
+		
+		<a href="mailto:Matthew_Chen_1994@163.com" target="_blank" class="icon-email" title="Email Me"></a>
 		
 	</div>
 			

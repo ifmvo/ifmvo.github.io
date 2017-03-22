@@ -4,26 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>ICE For Android | 陈铭卓的博客</title>
+    <title>TabLayout 使用详解 | 陈铭卓的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="陈铭卓">
     
 
     
-    <meta name="description" content="由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。
-其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使">
+    <meta name="description" content="属性:app:tabMode=”scrollable 左对其如果多可滑动” / “fixed 平分”">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ICE For Android">
-<meta property="og:url" content="https://ifmvo.github.io/2017/03/16/ice_network/index.html">
+<meta property="og:title" content="TabLayout 使用详解">
+<meta property="og:url" content="https://ifmvo.github.io/2017/03/21/tablayout/index.html">
 <meta property="og:site_name" content="陈铭卓的博客">
-<meta property="og:description" content="由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。
-其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使">
-<meta property="og:updated_time" content="2017-03-19T03:16:07.000Z">
+<meta property="og:description" content="属性:app:tabMode=”scrollable 左对其如果多可滑动” / “fixed 平分”">
+<meta property="og:updated_time" content="2017-03-22T13:43:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ICE For Android">
-<meta name="twitter:description" content="由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。
-其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使">
+<meta name="twitter:title" content="TabLayout 使用详解">
+<meta name="twitter:description" content="属性:app:tabMode=”scrollable 左对其如果多可滑动” / “fixed 平分”">
 
     
     <link rel="alternative" href="/atom.xml" title="陈铭卓的博客" type="application/atom+xml">
@@ -79,14 +76,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/16/ice_network/" title="ICE For Android" itemprop="url">ICE For Android</a>
+      <a href="/2017/03/21/tablayout/" title="TabLayout 使用详解" itemprop="url">TabLayout 使用详解</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="陈铭卓" target="_blank" itemprop="author">陈铭卓</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-15T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-03-16</time>
+    <time datetime="2017-03-20T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-03-21</time>
     
   </p>
 </header>
@@ -95,28 +92,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ICE为何物？"><span class="toc-number">1.</span> <span class="toc-text">ICE为何物？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何安装？"><span class="toc-number">2.</span> <span class="toc-text">如何安装？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo"><span class="toc-number">3.</span> <span class="toc-text">Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调用接口姿势"><span class="toc-number">3.1.</span> <span class="toc-text">调用接口姿势:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加接口方式"><span class="toc-number">3.2.</span> <span class="toc-text">添加接口方式:</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-number">1.</span> <span class="toc-text">属性:</span></a></li></ol>
 		
 		</div>
 		
-		<p>由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。</p>
-<p>其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使用，并没有为你提供什么封装好的网络请求库，所以完全由自己从零开始一步一步进行封装，这对于一个刚刚入门的我来说着实不易。</p>
-<hr>
-<h2 id="ICE为何物？"><a href="#ICE为何物？" class="headerlink" title="ICE为何物？"></a>ICE为何物？</h2><p><code>ZeroC ICE</code> 是 <code>ZeroC</code> 公司的 <code>ICE（Internet Communications Engine）</code>中间件平台。对于客户端和服务端程序的开发提供了很大的便利。</p>
-<p><strong>官网自己的描述：</strong></p>
-<ul>
-<li>灵活</li>
-<li>安全、稳定</li>
-<li>快速</li>
-<li>多语言多平台<code>（Develop in C++, C#, Java, JavaScript, Objective-C, PHP, Python, and Ruby. Deploy on Linux, macOS, Windows, Android, and iOS.）</code></li>
-</ul>
-<p>目前稳定版本为 3.6 ， 3.7 版本正在持续开发。</p>
-<hr>
-<h2 id="如何安装？"><a href="#如何安装？" class="headerlink" title="如何安装？"></a>如何安装？</h2><p>无论是 <code>Linux</code> <code>Window</code> 还是 <code>Mac</code> 安装步骤都是很方便的，只要按照官方文档使用几个命令就可以了。请参考<a href="https://doc.zeroc.com/" target="_blank" rel="external">官方文档</a></p>
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>我对 Android 中使用 ICE <strong><em>网络请求部分进行简单封装</em></strong>,可以提供参考.</p>
-<p>github 链接:<br><a href="https://github.com/ifmvo/ICEAndroidDemo" target="_blank" rel="external">https://github.com/ifmvo/ICEAndroidDemo</a></p>
-<h3 id="调用接口姿势"><a href="#调用接口姿势" class="headerlink" title="调用接口姿势:"></a>调用接口姿势:</h3><p>实现传统 Callback 回调方式<br><figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">IceClient</span><span class="selector-class">.getUsers</span>(<span class="string">"ifmvo"</span>, <span class="string">"123456"</span>, new IceClient.Callback&lt;String&gt;() &#123;</div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onStart() &#123;</div><div class="line">                <span class="comment">// showLoading();</span></div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="variable">@Override</span></div><div class="line">            public void onFailure(String msg) &#123;</div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showErrorMsg();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"链接异常信息"</span> + msg);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            @<span class="selector-tag">Override</span></div><div class="line">            <span class="selector-tag">public</span> <span class="selector-tag">void</span> <span class="selector-tag">onSuccess</span>(String result) &#123;</div><div class="line"></div><div class="line">                <span class="comment">//closeLoading();</span></div><div class="line">                <span class="comment">//showResult();</span></div><div class="line">                <span class="selector-tag">tvInfo</span><span class="selector-class">.setText</span>(<span class="string">"返回成功信息"</span> + result);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
-<h3 id="添加接口方式"><a href="#添加接口方式" class="headerlink" title="添加接口方式:"></a>添加接口方式:</h3><p>//IceClient.java<br><figure class="highlight aspectj"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 定义的借口就可以这样写</div><div class="line"> * <span class="doctag">@param</span> username 参数</div><div class="line"> * <span class="doctag">@param</span> password 参数</div><div class="line"> * <span class="doctag">@param</span> callback 回调</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">getUsers</span><span class="params">(String username, String password, <span class="keyword">final</span> Callback callback)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (requestPre(callback) != OK) <span class="keyword">return</span> ;</div><div class="line"></div><div class="line">    helloPrx.begin_getUsers(username, password, <span class="keyword">new</span> Callback_Hello_getUsers() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">response</span><span class="params">(<span class="keyword">int</span> ret, String message)</span> </span>&#123;</div><div class="line">            handleSuccess(message, callback);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">exception</span><span class="params">(LocalException e)</span> </span>&#123;</div><div class="line">            handleException(callback, e);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+		<h3 id="属性"><a href="#属性" class="headerlink" title="属性:"></a>属性:</h3><p>app:tabMode=”scrollable 左对其如果多可滑动” / “fixed 平分”</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -125,7 +105,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/ICE/">ICE</a>
+  <span></span> <a href="/tags/view/">view</a>
   </div>
 
 </div>
@@ -134,7 +114,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://ifmvo.github.io/2017/03/16/ice_network/" data-title="ICE For Android | 陈铭卓的博客" data-tsina="undefined" class="share clearfix">
+	  <div data-url="https://ifmvo.github.io/2017/03/21/tablayout/" data-title="TabLayout 使用详解 | 陈铭卓的博客" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -147,19 +127,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/17/case_interview/" title="Java 面试题">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Java 面试题</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/16/markdown/"  title="Markdown 常用语法及快捷键">
+<a href="/2017/03/19/jitpack/"  title="利用 jitpack 将项目插件化">
  <strong>下一篇：</strong><br/> 
- <span>Markdown 常用语法及快捷键
+ <span>利用 jitpack 将项目插件化
 </span>
 </a>
 </div>
@@ -168,7 +140,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/16/ice_network/" data-title="ICE For Android" data-url="https://ifmvo.github.io/2017/03/16/ice_network/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/21/tablayout/" data-title="TabLayout 使用详解" data-url="https://ifmvo.github.io/2017/03/21/tablayout/"></div>
 </section>
 
 
@@ -178,7 +150,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ICE为何物？"><span class="toc-number">1.</span> <span class="toc-text">ICE为何物？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何安装？"><span class="toc-number">2.</span> <span class="toc-text">如何安装？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo"><span class="toc-number">3.</span> <span class="toc-text">Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调用接口姿势"><span class="toc-number">3.1.</span> <span class="toc-text">调用接口姿势:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加接口方式"><span class="toc-number">3.2.</span> <span class="toc-text">添加接口方式:</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性"><span class="toc-number">1.</span> <span class="toc-text">属性:</span></a></li></ol>
  
   </div>
 

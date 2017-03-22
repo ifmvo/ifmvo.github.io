@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ifmvo.github.io/2017/03/16/markdown/</loc>
+    <loc>https://ifmvo.github.io/2017/03/16/thinking_in_java/</loc>
     
-    <lastmod>2017-03-19T03:17:03.000Z</lastmod>
+    <lastmod>2017-03-22T13:43:46.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://ifmvo.github.io/2017/03/16/thinking_in_java/</loc>
+    <loc>https://ifmvo.github.io/2017/03/21/tablayout/</loc>
     
-    <lastmod>2017-03-19T03:16:59.000Z</lastmod>
+    <lastmod>2017-03-22T13:43:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ifmvo.github.io/2017/03/16/markdown/</loc>
+    
+    <lastmod>2017-03-19T03:17:03.000Z</lastmod>
     
   </url>
   
