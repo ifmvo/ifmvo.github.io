@@ -4,39 +4,8 @@
   
     
     <entry>
-      <title><![CDATA[TabLayout 使用详解]]></title>
-      <url>https://ifmvo.github.io/2017/03/21/tablayout/</url>
-      <content type="html"><![CDATA[<h3 id="属性"><a href="#属性" class="headerlink" title="属性:"></a>属性:</h3><p>app:tabMode=”scrollable 左对其如果多可滑动” / “fixed 平分”</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> view </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[利用 jitpack 将项目插件化]]></title>
-      <url>https://ifmvo.github.io/2017/03/19/jitpack/</url>
-      <content type="html"><![CDATA[<p><img src="img/jitpack.jpg" alt="jitpack"></p>
-<h1 id="jitpack-是什么"><a href="#jitpack-是什么" class="headerlink" title="jitpack 是什么"></a>jitpack 是什么</h1><h1 id="为什么用-jitpack"><a href="#为什么用-jitpack" class="headerlink" title="为什么用 jitpack"></a>为什么用 jitpack</h1><h1 id="怎么用-jitpack"><a href="#怎么用-jitpack" class="headerlink" title="怎么用 jitpack"></a>怎么用 jitpack</h1><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><figure class="highlight gradle"><table><tr><td class="code"><pre><div class="line"><span class="keyword">buildscript</span> &#123;</div><div class="line">  <span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="keyword">classpath</span> <span class="string">'com.github.dcendents:android-maven-gradle-plugin:1.5'</span> <span class="comment">// Add this line</span></div></pre></td></tr></table></figure>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> jitpack, 插件化 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[道理]]></title>
-      <url>https://ifmvo.github.io/2017/03/17/beautiful/</url>
+      <title><![CDATA[你说的对啊]]></title>
+      <url>https://blog.ifmvo.cn/2017/03/17/beautiful/</url>
       <content type="html"><![CDATA[<p>如果“从零开始”，用什么设计架构的问题属于想得太多做得太少的问题。</p>
 <p>从零开始意味着一个项目的主要技术难点是基本功能实现。当每一个功能都需要考虑如何做到的时候，我觉得一般人都没办法考虑如何做好。</p>
 <p>因为，所有的优化都是站在最上层进行统筹规划。在这之前，你必须对下层的每一个模块都非常熟悉，进而提炼可复用的代码、规划逻辑流程。</p>
@@ -44,39 +13,11 @@
 ]]></content>
       
         
-        <tags>
-            
-            <tag> 道理 </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
-      <title><![CDATA[Java 面试题]]></title>
-      <url>https://ifmvo.github.io/2017/03/17/case_interview/</url>
-      <content type="html"><![CDATA[<h3 id="关于中间件的描述"><a href="#关于中间件的描述" class="headerlink" title="关于中间件的描述"></a>关于中间件的描述</h3><blockquote>
-<ul>
-<li>中间件应支持标准的协议和接口</li>
-<li>中间件可运行与多种硬件和操作系统</li>
-<li>跨越网络，硬件，操作系统平台的应用或服务科通过中间件透明交互</li>
-<li>中间件并不能提高内核的效率，一般只是负责网络信息的分发处理</li>
-</ul>
-</blockquote>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> 面试题 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[ICE For Android]]></title>
-      <url>https://ifmvo.github.io/2017/03/16/ice_network/</url>
+      <title><![CDATA[Android ICE 网络请求完美封装]]></title>
+      <url>https://blog.ifmvo.cn/2017/03/16/ice_network/</url>
       <content type="html"><![CDATA[<p>由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。</p>
 <p>其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使用，并没有为你提供什么封装好的网络请求库，所以完全由自己从零开始一步一步进行封装，这对于一个刚刚入门的我来说着实不易。</p>
 <hr>
@@ -107,144 +48,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Markdown 常用语法及快捷键]]></title>
-      <url>https://ifmvo.github.io/2017/03/16/markdown/</url>
-      <content type="html"><![CDATA[<h1 id="欢迎使用Markdown编辑器写博客"><a href="#欢迎使用Markdown编辑器写博客" class="headerlink" title="欢迎使用Markdown编辑器写博客"></a>欢迎使用Markdown编辑器写博客</h1><p>本Markdown编辑器使用[StackEdit][6]修改而来，用它写博客，将会带来全新的体验哦：</p>
-<ul>
-<li><strong>Markdown和扩展Markdown简洁的语法</strong></li>
-<li><strong>代码块高亮</strong></li>
-<li><strong>图片链接和图片上传</strong></li>
-<li><strong><em>LaTex</em>数学公式</strong></li>
-<li><strong>UML序列图和流程图</strong></li>
-<li><strong>离线写博客</strong></li>
-<li><strong>导入导出Markdown文件</strong></li>
-<li><strong>丰富的快捷键</strong></li>
-</ul>
-<hr>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li>加粗    <code>Ctrl + B</code></li>
-<li>斜体    <code>Ctrl + I</code></li>
-<li>引用    <code>Ctrl + Q</code></li>
-<li>插入链接    <code>Ctrl + L</code></li>
-<li>插入代码    <code>Ctrl + K</code></li>
-<li>插入图片    <code>Ctrl + G</code></li>
-<li>提升标题    <code>Ctrl + H</code></li>
-<li>有序列表    <code>Ctrl + O</code></li>
-<li>无序列表    <code>Ctrl + U</code></li>
-<li>横线    <code>Ctrl + R</code></li>
-<li>撤销    <code>Ctrl + Z</code></li>
-<li>重做    <code>Ctrl + Y</code></li>
-</ul>
-<h2 id="Markdown及扩展"><a href="#Markdown及扩展" class="headerlink" title="Markdown及扩展"></a>Markdown及扩展</h2><blockquote>
-<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank"> [ 维基百科 ]</a></p>
-</blockquote>
-<p>本编辑器支持 <strong>Markdown Extra</strong> , 　扩展了很多好用的功能。具体请参考[Github][2].  </p>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p><strong>Markdown　Extra</strong>　表格语法：</p>
-<table>
-<thead>
-<tr>
-<th>项目</th>
-<th>价格</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Computer</td>
-<td>$1600</td>
-</tr>
-<tr>
-<td>Phone</td>
-<td>$12</td>
-</tr>
-<tr>
-<td>Pipe</td>
-<td>$1</td>
-</tr>
-</tbody>
-</table>
-<p>可以使用冒号来定义对齐方式：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">项目</th>
-<th style="text-align:right">价格</th>
-<th style="text-align:center">数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Computer</td>
-<td style="text-align:right">1600 元</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:left">Phone</td>
-<td style="text-align:right">12 元</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td style="text-align:left">Pipe</td>
-<td style="text-align:right">1 元</td>
-<td style="text-align:center">234</td>
-</tr>
-</tbody>
-</table>
-<p>###定义列表</p>
-<p><strong>Markdown　Extra</strong>　定义列表语法：<br>项目１<br>项目２<br>:   定义 A<br>:   定义 B</p>
-<p>项目３<br>:   定义 C</p>
-<p>:   定义 D</p>
-<pre><code>&gt; 定义D内容
-</code></pre><h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>代码块语法遵循标准markdown代码，例如：<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="meta">@requires_authorization</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></div><div class="line">    <span class="string">'''A docstring'''</span></div><div class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></div><div class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</span></div><div class="line"><span class="meta">... </span>prompt'''</div></pre></td></tr></table></figure></p>
-<p>###脚注<br>生成一个脚注[^footnote].<br>  [^footnote]: 这里是 <strong>脚注</strong> 的 <em>内容</em>.</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>用 <code>[TOC]</code>来生成目录：</p>
-<p>[TOC]</p>
-<h3 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h3><p>使用MathJax渲染<em>LaTex</em> 数学公式，详见[math.stackexchange.com][1].</p>
-<ul>
-<li>行内公式，数学公式为：$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。</li>
-<li>块级公式：</li>
-</ul>
-<p>$$    x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
-<p>更多LaTex语法请参考 [这儿][3].</p>
-<h3 id="UML-图"><a href="#UML-图" class="headerlink" title="UML 图:"></a>UML 图:</h3><p>可以渲染序列图：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">张三-&gt;李四: 嘿，小四儿, 写博客了没?</div><div class="line">Note right of 李四: 李四愣了一下，说：</div><div class="line">李四--&gt;张三: 忙得吐血，哪有时间写。</div></pre></td></tr></table></figure>
-<p>或者流程图：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">st=&gt;start: 开始</div><div class="line">e=&gt;end: 结束</div><div class="line">op=&gt;operation: 我的操作</div><div class="line">cond=&gt;condition: 确认？</div><div class="line"></div><div class="line">st-&gt;op-&gt;cond</div><div class="line">cond(yes)-&gt;e</div><div class="line">cond(no)-&gt;op</div></pre></td></tr></table></figure>
-<ul>
-<li>关于 <strong>序列图</strong> 语法，参考 [这儿][4],</li>
-<li>关于 <strong>流程图</strong> 语法，参考 [这儿][5].</li>
-</ul>
-<h2 id="离线写博客"><a href="#离线写博客" class="headerlink" title="离线写博客"></a>离线写博客</h2><p>用户写博客的过程中，内容实时保存在浏览器缓存中，在用户关闭浏览器或者其它异常情况下，内容不会丢失。用户再次打开浏览器时，会显示上次用户正在编辑的没有发表的内容。</p>
-<p>博客发表后，本地缓存将被删除。　</p>
-<p>用户可以选择 <i class="icon-disk"></i> 把正在写的博客保存到服务器草稿箱，即使换浏览器或者清除缓存，内容也不会丢失。</p>
-<blockquote>
-<p><strong>注意：</strong>虽然浏览器存储大部分时候都比较可靠，但为了您的数据安全，在联网后，<strong>请务必及时发表或者保存到服务器草稿箱</strong>。</p>
-</blockquote>
-<p>##浏览器兼容</p>
-<ol>
-<li>目前，本编辑器对Chrome浏览器支持最为完整。建议大家使用较新版本的Chrome。</li>
-<li>IE９以下不支持</li>
-<li>IE９，１０，１１存在以下问题<ol>
-<li>不支持离线功能</li>
-<li>IE9不支持文件导入导出</li>
-<li>IE10不支持拖拽文件导入</li>
-</ol>
-</li>
-</ol>
-<hr>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> Markdown </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Thinking in Java 学习笔记]]></title>
-      <url>https://ifmvo.github.io/2017/03/16/thinking_in_java/</url>
+      <url>https://blog.ifmvo.cn/2017/03/16/thinking_in_java/</url>
       <content type="html"><![CDATA[<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
 <li><p>“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”<br>是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。</p>
 </li>
@@ -329,65 +134,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[快速搭建博客，分分钟的事儿]]></title>
-      <url>https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/</url>
-      <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>程序员刚完成入门，到了迅速成长阶段，为了能够尽快步入大神行列，总想学者别人写个博客，不为别的，就是为了能在学完之后不会左耳进右耳冒，以后还记得曾经学过这么个东西，技术类的博客平台有很多：csdn、简书…. 但是总觉得这种平台的门槛有点低，是个人就能在上面写几笔，终究没有自己搭建的博客好用、上档次。下面就介绍一个好用、上档次的方法：</p>
-<h3 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h3><p>什么是Hexo？快速、简洁且高效的博客框架.这是Hexo官网对自己的描述。</p>
-<p>超快速度：Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</p>
-<p>支持 Markdown: Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</p>
-<p>一键部署: 只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。</p>
-<p>丰富的插件: Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装Node.js，依次执行以下命令<br><figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">curl http<span class="variable">s:</span>//raw.github.<span class="keyword">com</span>/creationix/nvm/master/install.<span class="keyword">sh</span> | <span class="keyword">sh</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">wget -qO- http<span class="variable">s:</span>//raw.github.<span class="keyword">com</span>/creationix/nvm/master/install.<span class="keyword">sh</span> | <span class="keyword">sh</span></div></pre></td></tr></table></figure>
-<p>安装完成后，重启终端并执行下列命令即可安装 Node.js。<br><figure class="highlight cmake"><table><tr><td class="code"><pre><div class="line">nvm <span class="keyword">install</span> stable</div></pre></td></tr></table></figure></p>
-<p>开始安装Hexo，如果你网速不好，这可能是个漫长的过程<br><figure class="highlight avrasm"><table><tr><td class="code"><pre><div class="line">npm install -g hexo-<span class="keyword">cli</span></div></pre></td></tr></table></figure></p>
-<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，会自动新建 xxx 文件夹，xxx 文件夹就是你的网站喽。<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo init xxx</div><div class="line"><span class="built_in">cd</span> xxx</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
-<p>现在在当前文件夹下执行命令<br><figure class="highlight axapta"><table><tr><td class="code"><pre><div class="line">hexo <span class="keyword">server</span></div></pre></td></tr></table></figure></p>
-<h3 id="添加主题"><a href="#添加主题" class="headerlink" title="添加主题"></a>添加主题</h3>]]></content>
-      
-        
-        <tags>
-            
-            <tag> 轻松搭建博客 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[如何学习JS]]></title>
-      <url>https://ifmvo.github.io/2017/01/23/how_learn%20_js/</url>
-      <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文不是我自己写作，只是我在网上看到一篇文章，读起来有趣的很，这篇文章的作者绝对是写文章的好手，作者根据自己学习js的经验得出一些心得分享给大家，下面就是他的这篇文章，好好欣赏吧。</p>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>首先要说明的是，咱现在不是高手，最多还是一个半桶水，算是入了JS的门</p>
-<p>谈不上经验，都是一些教训</p>
-<p>这个时候有人要说，“靠，你丫半桶水，凭啥教我们”。您先别急着骂，先听我说</p>
-<p>你叫一个大学生去教小学数学，不见得比一个初中生教得好。因为大学生早已经过了那个阶段，都忘记自己怎么走过来的了。而对于初中生，刚好走过那个阶 段，对自己怎么走过来的还记忆犹新，或者还有一些自己的总结。比如，很多高手觉得那本犀牛书入门很好，他们觉得太简单了，但以我的经验来看，它不是入门的 最好选择</p>
-<p>先说说学js的条件<br>论条件，咱是文科生，大学专业工商管理，和计算机毛关系都没；有人说英语，读了四年大学，很遗憾，咱还四级没混过；就咱这条件都学得乐呵呵的，您还等啥</p>
-<p>当然学习JS也是有门槛的，就是你的html和css至少还比较熟练，您不能连<body>这东东是干啥的都不知道就开始上JS了，学乘除前，学好加减法总是有益无害的</body></p>
-<p>再说几点忠告<br>1，不要着急看一些复杂网页效果的代码，这样除了打击你自信心，什么也学不到。没达到一定的武功水平，割了小JJ也学不会葵花宝典的<br>2，别急着加技术交流QQ群，加牛人QQ。如果你找张三丰交流武功，你上去第一句问“丰哥，where is 丹田？”，你会被他一掌劈死的<br>3，看网上什么多少天精通JS，啥啥啥从入门到精通，这种教程直接跳过吧，太多的事实证明，以一种浮躁的心态去做任何事都会以失败而告终<br>4，千万别去弄啥电脑培训，花了钱和时间不说，关键是学不到东西。本来你买两本好书自学3个月能学会的，他们硬是能折腾你两年</p>
-<p>推荐几本好书<br>“超毛，你丫吹了半天牛B，还是没说怎么学啊”<br>呵呵，我也没啥特别的办法，只是推荐几本好书。推荐的书，得按先后顺序看。别第一本没看完，就急着上第二本，并不是每次“穿越”都能成功的</p>
-<p>第一阶段：《JavaScript DOM编程艺术》<br>看这本书之前，请先确认您对Javascript有个基本的了解，应该知道if else之类的语法，如果不懂，先去看看我第二阶段推荐的Javascript高级程序设计的前三章，记住看三章就别往下看了，回到《JavaScript DOM编程艺术》这本书上来。<br>学习Javascript用《JavaScript DOM编程艺术》来入门最好不过了，老老实实看两遍，看完了你就会对JS有一个大概的了解，整本书都围绕着一个网页效果例子展开，你跟着老老实实敲一篇，敲完之后，你会发现这个效果不是常在网页中看到么，发现自己也能做出来网上的效果了，嘿嘿，小有成就感吧<br>《JavaScript DOM编程艺术》下载地址</p>
-<p>第二阶段：《JavaScript高级程序设计》<br>有的书是用来成为经典的，比如犀牛书；还有些书是用来超越经典的，显然这本书就是这种。书中章章经典，由浅入深，其中第6章，关于JS面向对象的解说，没有教程出其右<br>如果有一场满分100分的JS考试，看了《JavaScript DOM编程艺术》能让你拿到20分，那么看完这本书，你就能拿到60分以上了，学完后，你会成就感倍增的，相信我（至少看两遍，推荐三篇，跟着书上的代码一行行的敲）<br>这本书强烈推荐购买，写的太TMD牛逼了，给你带来的价值超过百倍千倍<br>这本书最新的是第三版，貌似就是前些日子出来的，我看的是第二版，第三版相对第二版变动不大，添加了几章内容，价格目前相差10元左右</p>
-<p>接下来，恭喜你可以下山了，这个时候可以自己做一些事情了</p>
-<p>你可以去Ferris这个教程看看他写的这些效果，看看源代码，怎么样，是不是觉得有一部分很简单了，尝试着跟着他写一写这些效果吧，点这里<br>学技术闭门造车是行不通的，适当的加一两个QQ群交流（注重质量），常去论坛（蓝色理想，CSDN）逛逛，你会经常有些小收获的<br>再有就是看看前辈这些牛人前辈们分享的文章，它会让你的学习事半功倍的，这里是热心人收集的国内一些牛人的博客，个人网站，点这里</p>
-<p>第三阶段：《JavaScript语言精粹》和《高性能JavaScript》<br>接下来两本书《JavaScript语言精粹》和《高性能JavaScript》算是JS高级教程的补充，里面有一些内容和JS高级教程重复了，两本书可以同时看，都不厚，可以对前面所学的有一个很好的加强和巩固<br>《JavaScript语言精粹》下载地址<br>《高性能JavaScript》下载地址</p>
-<p>第四阶段：《JavaScript DOM高级程序设计》和《JavaScript设计模式》<br>在吃透了前面所说的书之后，接下来两本书的顺序已经无关紧要了，《JavaScript DOM高级程序设计》（注意和《JavaScript 高级程序设计》相区别）和《JavaScript设计模式》，这两本都是重量级的书，能让你的JS技术上一个新的台阶；这两本书前者主修炼外功，后者主修 炼内功，有点想乾坤大挪移和九阳神功的关系；<br>《JavaScript DOM高级程序设计》 首先教你搭建一个类似JQuery的额工具函数库，然后通过讲解几个实际中经常遇到的几个应用例子，会让初学者受益匪浅<br>《JavaScript设计模式》主要讲Javascript的设计模式，说实话，翻译的质量很一般，有些生硬，但已经基本不影响你的学习，看代码完全可以理解出自己的意思<br>这两本书出来一段时间了，可能买不着了，提供下载地址<br>《JavaScript DOM高级程序设计》下载地址，注意有三部分需要下载<br>《JavaScript设计模式》下载地址</p>
-<p>最后想说的<br>不安逸，不浮躁。任何学习都不是一蹴而就的，牛B就是一个学习积累的过程，别指望两三个月，你的水平就多么厉害。倚天屠龙记里面的武功最牛B的是张三丰，而不是张无忌。<br>任何工作都需要多种技能，别忽略了html,css等其他知识的学习。</p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>由于我是在知乎上看到的文章，发帖的人应该也是粘过来的，所以我也不清楚出处是哪里，请勿转发。</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> JS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Git 命令大全]]></title>
-      <url>https://ifmvo.github.io/2016/12/25/git/</url>
+      <url>https://blog.ifmvo.cn/2016/12/25/git/</url>
       <content type="html"><![CDATA[<table>
 <thead>
 <tr>

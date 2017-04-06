@@ -2,86 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ifmvo.github.io/2017/03/16/thinking_in_java/</loc>
+    <loc>https://blog.ifmvo.cn/about/index.html</loc>
+    
+    <lastmod>2017-04-06T12:44:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/resume/index.html</loc>
+    
+    <lastmod>2017-04-06T12:43:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/03/16/ice_network/</loc>
+    
+    <lastmod>2017-03-29T06:50:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/03/17/beautiful/</loc>
+    
+    <lastmod>2017-03-29T02:32:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/03/16/thinking_in_java/</loc>
     
     <lastmod>2017-03-22T13:43:46.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://ifmvo.github.io/2017/03/21/tablayout/</loc>
-    
-    <lastmod>2017-03-22T13:43:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/2017/03/16/markdown/</loc>
-    
-    <lastmod>2017-03-19T03:17:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/2017/03/16/ice_network/</loc>
-    
-    <lastmod>2017-03-19T03:16:07.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/2017/01/24/how_build_blog_by_hexo/</loc>
-    
-    <lastmod>2017-03-19T03:12:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/about/index.html</loc>
-    
-    <lastmod>2017-03-19T02:36:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/2017/03/19/jitpack/</loc>
-    
-    <lastmod>2017-03-19T01:48:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/2017/03/17/case_interview/</loc>
-    
-    <lastmod>2017-03-17T12:22:15.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/2017/01/23/how_learn%20_js/</loc>
-    
-    <lastmod>2017-03-17T12:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/2016/12/25/git/</loc>
+    <loc>https://blog.ifmvo.cn/2016/12/25/git/</loc>
     
     <lastmod>2017-03-17T12:21:15.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/2017/03/17/beautiful/</loc>
-    
-    <lastmod>2017-03-17T12:21:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ifmvo.github.io/search/index.html</loc>
-    
-    <lastmod>2017-03-07T09:25:12.000Z</lastmod>
     
   </url>
   
