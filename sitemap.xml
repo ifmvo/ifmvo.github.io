@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/</loc>
+    
+    <lastmod>2017-04-13T05:43:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ifmvo.cn/about/index.html</loc>
     
     <lastmod>2017-04-06T13:13:07.000Z</lastmod>

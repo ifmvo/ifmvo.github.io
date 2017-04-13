@@ -1,0 +1,475 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Andorid-常见的内存泄露及解决办法 | 陈序员</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="陈铭卓">
+    
+
+    
+    <meta name="description" content="单例造成的内存泄漏当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。
+public class CommUtil &amp;#123;    private static CommUtil instance;    private Context context;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Andorid-常见的内存泄露及解决办法">
+<meta property="og:url" content="https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/index.html">
+<meta property="og:site_name" content="陈序员">
+<meta property="og:description" content="单例造成的内存泄漏当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。
+public class CommUtil &amp;#123;    private static CommUtil instance;    private Context context;">
+<meta property="og:updated_time" content="2017-04-13T05:43:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Andorid-常见的内存泄露及解决办法">
+<meta name="twitter:description" content="单例造成的内存泄漏当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。
+public class CommUtil &amp;#123;    private static CommUtil instance;    private Context context;">
+
+    
+    <link rel="alternative" href="/atom.xml" title="陈序员" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="陈序员">陈序员</a></h1>
+				<h2 class="blog-motto">懒惰使人进步</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/resume">简历</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:blog.ifmvo.cn">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/13/avoid-memory-leak-ways/" title="Andorid-常见的内存泄露及解决办法" itemprop="url">Andorid-常见的内存泄露及解决办法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="陈铭卓" target="_blank" itemprop="author">陈铭卓</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-12T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-04-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单例造成的内存泄漏"><span class="toc-number">1.</span> <span class="toc-text">单例造成的内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非静态内部类创建静态实例造成的内存泄漏"><span class="toc-number">2.</span> <span class="toc-text">非静态内部类创建静态实例造成的内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler造成的内存泄漏"><span class="toc-number">3.</span> <span class="toc-text">Handler造成的内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程造成的内存泄漏"><span class="toc-number">4.</span> <span class="toc-text">线程造成的内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源未关闭造成的内存泄漏"><span class="toc-number">5.</span> <span class="toc-text">资源未关闭造成的内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用了静态的Activity和View"><span class="toc-number">6.</span> <span class="toc-text">使用了静态的Activity和View</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册了系统的服务，但onDestory未注销"><span class="toc-number">7.</span> <span class="toc-text">注册了系统的服务，但onDestory未注销</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不需要用的监听未移除会发生内存泄露"><span class="toc-number">8.</span> <span class="toc-text">不需要用的监听未移除会发生内存泄露</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="单例造成的内存泄漏"><a href="#单例造成的内存泄漏" class="headerlink" title="单例造成的内存泄漏"></a>单例造成的内存泄漏</h2><p>当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。</p>
+<figure class="highlight smali"><table><tr><td class="code"><pre><div class="line">public class CommUtil &#123;</div><div class="line">   <span class="keyword"> private</span><span class="keyword"> static</span> CommUtil instance;</div><div class="line">   <span class="keyword"> private</span> Context context;</div><div class="line">   <span class="keyword"> private</span> CommUtil(Context context)&#123;</div><div class="line">        this.context = context;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   <span class="keyword"> public</span><span class="keyword"> static</span> CommUtil getInstance(Context mcontext)&#123;</div><div class="line">        if(instance == null)&#123;</div><div class="line">           <span class="built_in"> instance </span>=<span class="built_in"> new </span>CommUtil(mcontext);</div><div class="line">        &#125;</div><div class="line">       <span class="built_in"> return </span>instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方案：能使用Application的Context就不要使用Activity的Content，Application的生命周期伴随着整个进程的周期</p>
+</blockquote>
+<hr>
+<h2 id="非静态内部类创建静态实例造成的内存泄漏"><a href="#非静态内部类创建静态实例造成的内存泄漏" class="headerlink" title="非静态内部类创建静态实例造成的内存泄漏"></a>非静态内部类创建静态实例造成的内存泄漏</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> TestResource mResource = <span class="keyword">null</span>;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        <span class="keyword">if</span>(mManager == <span class="keyword">null</span>)&#123;</div><div class="line">            mManager = <span class="keyword">new</span> TestResource();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TestResource</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方案：将非静态内部类修改为静态内部类。（静态内部类不会隐式持有外部类）</p>
+</blockquote>
+<hr>
+<h2 id="Handler造成的内存泄漏"><a href="#Handler造成的内存泄漏" class="headerlink" title="Handler造成的内存泄漏"></a>Handler造成的内存泄漏</h2><p>mHandler是Handler的非静态匿名内部类的实例，所以它持有外部  类Activity的引用，我们知道消息队列是在一个Looper线程中不断轮询处理消息，那么当这个Activity退出时消息队列中还有未处理的消息或者正在处理消息，而消息队列中的Message持有mHandler实例的引用，mHandler又持有Activity的引用，所以导致该Activity的内存资源无法及时回收，引发内存泄漏。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">private</span> MyHandler mHandler = <span class="keyword">new</span> MyHandler(<span class="keyword">this</span>);</div><div class="line">    <span class="keyword">private</span> TextView mTextView ;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> WeakReference&lt;Context&gt; reference;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyHandler</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">            reference = <span class="keyword">new</span> WeakReference&lt;&gt;(context);</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">            MainActivity activity = (MainActivity) reference.get();</div><div class="line">            <span class="keyword">if</span>(activity != <span class="keyword">null</span>)&#123;</div><div class="line">                activity.mTextView.setText(<span class="string">""</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        mTextView = (TextView)findViewById(R.id.textview);</div><div class="line">        loadData();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadData</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        Message message = Message.obtain();</div><div class="line">        mHandler.sendMessage(message);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方案：创建一个静态Handler内部类，然后对Handler持有的对象使用弱引用，这样在回收时也可以回收Handler持有的对象，这样虽然避免了Activity泄漏，不过Looper线程的消息队列中还是可能会有待处理的消息，所以我们在Activity的Destroy时或者Stop时应该移除消息队列中的消息</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">private</span> MyHandler mHandler = <span class="keyword">new</span> MyHandler(<span class="keyword">this</span>);</div><div class="line">    <span class="keyword">private</span> TextView mTextView ;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> WeakReference&lt;Context&gt; reference;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyHandler</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">            reference = <span class="keyword">new</span> WeakReference&lt;&gt;(context);</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">            MainActivity activity = (MainActivity) reference.get();</div><div class="line">            <span class="keyword">if</span>(activity != <span class="keyword">null</span>)&#123;</div><div class="line">                activity.mTextView.setText(<span class="string">""</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        mTextView = (TextView)findViewById(R.id.textview);</div><div class="line">        loadData();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadData</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//...request</span></div><div class="line">        Message message = Message.obtain();</div><div class="line">        mHandler.sendMessage(message);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">        mHandler.removeCallbacksAndMessages(<span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="线程造成的内存泄漏"><a href="#线程造成的内存泄漏" class="headerlink" title="线程造成的内存泄漏"></a>线程造成的内存泄漏</h2><p>异步任务和Runnable都是一个匿名内部类，因此它们对当前Activity都有一个隐式引用。如果Activity在销毁之前，任务还未完成， 那么将导致Activity的内存资源无法回收，造成内存泄漏。</p>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><div class="line"><span class="literal">new</span> AsyncTask&lt;<span class="literal">Void</span>, <span class="literal">Void</span>, <span class="literal">Void</span>&gt;() &#123;</div><div class="line">    @Override</div><div class="line">    <span class="keyword">protected</span> <span class="literal">Void</span> doInBackground(<span class="literal">Void</span><span class="params">...</span> <span class="keyword">params</span>) &#123;</div><div class="line">        SystemClock.sleep(<span class="number">10000</span>);</div><div class="line">        <span class="keyword">return</span> <span class="built_in">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;.execute();</div><div class="line"></div><div class="line"></div><div class="line"><span class="literal">new</span> <span class="keyword">Thread</span>(<span class="literal">new</span> Runnable() &#123;</div><div class="line">    @Override</div><div class="line">    <span class="keyword">public</span> <span class="literal">void</span> run() &#123;</div><div class="line">        SystemClock.sleep(<span class="number">10000</span>);</div><div class="line">    &#125;</div><div class="line">&#125;).start();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方案：使用 静态内部类，避免了Activity的内存资源泄漏，当然在Activity销毁时候也应该取消相应的任务AsyncTask::cancel()，避免任务在后台执行浪费资源</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAsyncTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Void</span>, <span class="title">Void</span>, <span class="title">Void</span>&gt; </span>&#123;</div><div class="line">        <span class="keyword">private</span> WeakReference&lt;Context&gt; weakReference;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyAsyncTask</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">            weakReference = <span class="keyword">new</span> WeakReference&lt;&gt;(context);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> Void <span class="title">doInBackground</span><span class="params">(Void... params)</span> </span>&#123;</div><div class="line">            SystemClock.sleep(<span class="number">10000</span>);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Void aVoid)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>.onPostExecute(aVoid);</div><div class="line">            MainActivity activity = (MainActivity) weakReference.get();</div><div class="line">            <span class="keyword">if</span> (activity != <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="comment">//...</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            SystemClock.sleep(<span class="number">10000</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"><span class="comment">//——————</span></div><div class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> MyRunnable()).start();</div><div class="line">    <span class="keyword">new</span> MyAsyncTask(<span class="keyword">this</span>).execute();</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="资源未关闭造成的内存泄漏"><a href="#资源未关闭造成的内存泄漏" class="headerlink" title="资源未关闭造成的内存泄漏"></a>资源未关闭造成的内存泄漏</h2><p>对于使用了BraodcastReceiver，ContentObserver，File，Cursor，Stream，Bitmap等资源的使用，应该在Activity销毁时及时关闭或者注销，否则这些资源将不会被回收，造成内存泄漏.</p>
+<blockquote>
+<p>解决方案：在Activity销毁时及时关闭或者注销</p>
+</blockquote>
+<hr>
+<h2 id="使用了静态的Activity和View"><a href="#使用了静态的Activity和View" class="headerlink" title="使用了静态的Activity和View"></a>使用了静态的Activity和View</h2><figure class="highlight aspectj"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> view;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setStaticView</span><span class="params">()</span> </span>&#123;</div><div class="line">    view = findViewById(R.id.sv_button);</div><div class="line">&#125;</div><div class="line"></div><div class="line">View svButton = findViewById(R.id.sv_button);</div><div class="line">svButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener()&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        setStaticView();</div><div class="line">        nextActivity();</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">static</span> Activity activity;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">setStaticActivity</span><span class="params">()</span> </span>&#123;</div><div class="line">    activity = <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">View saButton = findViewById(R.id.sa_button);</div><div class="line">saButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener()&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        setStaticActivity();</div><div class="line">        nextActivity();</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方案：应该及时将静态的应用 置为null，而且一般不建议将View及Activity设置为静态</p>
+</blockquote>
+<hr>
+<h2 id="注册了系统的服务，但onDestory未注销"><a href="#注册了系统的服务，但onDestory未注销" class="headerlink" title="注册了系统的服务，但onDestory未注销"></a>注册了系统的服务，但onDestory未注销</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line">SensorManager sensorManager = getSystemService(SENSOR_SERVICE)<span class="comment">;</span></div><div class="line">Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ALL)<span class="comment">;</span></div><div class="line">sensorManager.registerListener(this,sensor,SensorManager.SENSOR_DELAY_FASTEST)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方案：不需要的时候及时移除监听</p>
+</blockquote>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><div class="line">sensorManager.unregisterListener(listener)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="不需要用的监听未移除会发生内存泄露"><a href="#不需要用的监听未移除会发生内存泄露" class="headerlink" title="不需要用的监听未移除会发生内存泄露"></a>不需要用的监听未移除会发生内存泄露</h2><figure class="highlight aspectj"><table><tr><td class="code"><pre><div class="line"><span class="comment">//add监听，放到集合里面</span></div><div class="line">tv.getViewTreeObserver().addOnWindowFocusChangeListener(</div><div class="line">  <span class="keyword">new</span> ViewTreeObserver.OnWindowFocusChangeListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onWindowFocusChanged</span><span class="params">(<span class="keyword">boolean</span> b)</span> </span>&#123;</div><div class="line">        <span class="comment">//监听view的加载，view加载出来的时候，计算他的宽高等。</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方案：使用完后，一定要移除这个监听</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">tv</span><span class="selector-class">.getViewTreeObserver</span>()</div><div class="line"><span class="selector-class">.removeOnWindowFocusChangeListener</span>(<span class="selector-tag">this</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="comment">//监听执行完回收对象，不用考虑内存泄漏</span></div><div class="line"><span class="selector-tag">tv</span><span class="selector-class">.setOnClickListener</span>();</div><div class="line"><span class="comment">//add监听，放到集合里面，需要考虑内存泄漏</span></div><div class="line"><span class="selector-tag">tv</span><span class="selector-class">.getViewTreeObserver</span>()</div><div class="line"><span class="selector-class">.addOnWindowFocusChangeListener</span>(this);</div></pre></td></tr></table></figure>
+<hr>
+<p>参考文章：</p>
+<p><a href="https://www.jianshu.com/p/402225fce4b2" target="_blank" rel="external">https://www.jianshu.com/p/402225fce4b2</a></p>
+<p>如果一不小心，还是让内存泄露了，怎么分析是在哪里泄露了呢？请看：</p>
+<p><a href="https://www.jianshu.com/p/2c9fc4e871a4" target="_blank" rel="external">https://www.jianshu.com/p/2c9fc4e871a4</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Android/">Android</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/" data-title="Andorid-常见的内存泄露及解决办法 | 陈序员" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/03/17/beautiful/"  title="你说的对啊">
+ <strong>下一篇：</strong><br/> 
+ <span>你说的对啊
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/04/13/avoid-memory-leak-ways/" data-title="Andorid-常见的内存泄露及解决办法" data-url="https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单例造成的内存泄漏"><span class="toc-number">1.</span> <span class="toc-text">单例造成的内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非静态内部类创建静态实例造成的内存泄漏"><span class="toc-number">2.</span> <span class="toc-text">非静态内部类创建静态实例造成的内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler造成的内存泄漏"><span class="toc-number">3.</span> <span class="toc-text">Handler造成的内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程造成的内存泄漏"><span class="toc-number">4.</span> <span class="toc-text">线程造成的内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源未关闭造成的内存泄漏"><span class="toc-number">5.</span> <span class="toc-text">资源未关闭造成的内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用了静态的Activity和View"><span class="toc-number">6.</span> <span class="toc-text">使用了静态的Activity和View</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册了系统的服务，但onDestory未注销"><span class="toc-number">7.</span> <span class="toc-text">注册了系统的服务，但onDestory未注销</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不需要用的监听未移除会发生内存泄露"><span class="toc-number">8.</span> <span class="toc-text">不需要用的监听未移除会发生内存泄露</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/https://github.com/ifmvo" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:Matthew_Chen_1994@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="陈铭卓">陈铭卓</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"ifmvo"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
