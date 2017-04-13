@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/</loc>
-    
-    <lastmod>2017-04-13T05:43:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ifmvo.cn/about/index.html</loc>
     
-    <lastmod>2017-04-06T13:13:07.000Z</lastmod>
+    <lastmod>2017-04-13T06:05:17.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.ifmvo.cn/resume/index.html</loc>
     
-    <lastmod>2017-04-06T12:43:40.000Z</lastmod>
+    <lastmod>2017-04-13T06:04:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/04/13/ToolBar/</loc>
+    
+    <lastmod>2017-04-13T05:54:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/</loc>
+    
+    <lastmod>2017-04-13T05:44:37.000Z</lastmod>
     
   </url>
   
