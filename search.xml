@@ -4,6 +4,20 @@
   
     
     <entry>
+      <title><![CDATA[Android ToolBar 最佳实践]]></title>
+      <url>https://blog.ifmvo.cn/2017/04/13/ToolBar/</url>
+      <content type="html"></content>
+      
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Andorid 常见的内存泄露及解决办法]]></title>
       <url>https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/</url>
       <content type="html"><![CDATA[<h2 id="单例造成的内存泄漏"><a href="#单例造成的内存泄漏" class="headerlink" title="单例造成的内存泄漏"></a>单例造成的内存泄漏</h2><p>当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。</p>
@@ -59,20 +73,6 @@
 <p>如果一不小心，还是让内存泄露了，怎么分析是在哪里泄露了呢？请看：</p>
 <p><a href="https://www.jianshu.com/p/2c9fc4e871a4" target="_blank" rel="external">https://www.jianshu.com/p/2c9fc4e871a4</a></p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> Android </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Android ToolBar 最佳实践]]></title>
-      <url>https://blog.ifmvo.cn/2017/04/13/ToolBar/</url>
-      <content type="html"></content>
       
         
         <tags>
