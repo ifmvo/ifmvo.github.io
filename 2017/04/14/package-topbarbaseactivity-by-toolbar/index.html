@@ -4,33 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Android 封装一个 TopBarBaseActivity by Toolbar | 陈序员</title>
+    <title>Android 快速开发（一），封装一个 TopBarBaseActivity | 陈序员</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="陈铭卓">
     
 
     
-    <meta name="description" content="本文出自 陈序员 的博客，转载必须注明出处。
-http://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/
-效果什么是快速开发嘞，看这个效果
+    <meta name="description" content="效果什么是快速开发嘞，看这个效果
 
 
 然而我只用了这么几行代码：
 MainActivity.java
-public class MainActivity extends TopBarBaseActivity &amp;#">
+public class MainActivity extends TopBarBaseActivity &amp;#123;    @Override    protected int getContentView() &amp;#123;        return R.layout.activity_mai">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 封装一个 TopBarBaseActivity by Toolbar">
-<meta property="og:url" content="https://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/index.html">
+<meta property="og:title" content="Android 快速开发（一），封装一个 TopBarBaseActivity">
+<meta property="og:url" content="https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/index.html">
 <meta property="og:site_name" content="陈序员">
-<meta property="og:description" content="本文出自 陈序员 的博客，转载必须注明出处。
-http://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/
-效果什么是快速开发嘞，看这个效果
+<meta property="og:description" content="效果什么是快速开发嘞，看这个效果
 
 
 然而我只用了这么几行代码：
 MainActivity.java
-public class MainActivity extends TopBarBaseActivity &amp;#">
+public class MainActivity extends TopBarBaseActivity &amp;#123;    @Override    protected int getContentView() &amp;#123;        return R.layout.activity_mai">
 <meta property="og:image" content="https://blog.ifmvo.cn/img/toolbar1.png">
 <meta property="og:image" content="https://blog.ifmvo.cn/img/toolbar2.png">
 <meta property="og:image" content="https://blog.ifmvo.cn/img/toolbar3.png">
@@ -39,17 +35,15 @@ public class MainActivity extends TopBarBaseActivity &amp;#">
 <meta property="og:image" content="https://blog.ifmvo.cn/img/toolbar6.png">
 <meta property="og:image" content="https://blog.ifmvo.cn/img/toolbar7.png">
 <meta property="og:image" content="https://blog.ifmvo.cn/img/huba.png">
-<meta property="og:updated_time" content="2017-04-14T09:15:10.000Z">
+<meta property="og:updated_time" content="2017-04-14T11:11:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 封装一个 TopBarBaseActivity by Toolbar">
-<meta name="twitter:description" content="本文出自 陈序员 的博客，转载必须注明出处。
-http://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/
-效果什么是快速开发嘞，看这个效果
+<meta name="twitter:title" content="Android 快速开发（一），封装一个 TopBarBaseActivity">
+<meta name="twitter:description" content="效果什么是快速开发嘞，看这个效果
 
 
 然而我只用了这么几行代码：
 MainActivity.java
-public class MainActivity extends TopBarBaseActivity &amp;#">
+public class MainActivity extends TopBarBaseActivity &amp;#123;    @Override    protected int getContentView() &amp;#123;        return R.layout.activity_mai">
 <meta name="twitter:image" content="https://blog.ifmvo.cn/img/toolbar1.png">
 
     
@@ -108,14 +102,14 @@ public class MainActivity extends TopBarBaseActivity &amp;#">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/04/13/package-topbarbaseactivity-by-toolbar/" title="Android 封装一个 TopBarBaseActivity by Toolbar" itemprop="url">Android 封装一个 TopBarBaseActivity by Toolbar</a>
+      <a href="/2017/04/14/package-topbarbaseactivity-by-toolbar/" title="Android 快速开发（一），封装一个 TopBarBaseActivity" itemprop="url">Android 快速开发（一），封装一个 TopBarBaseActivity</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="陈铭卓" target="_blank" itemprop="author">陈铭卓</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-12T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-04-13</time>
+    <time datetime="2017-04-14T06:44:28.000Z" itemprop="datePublished"> 发表于 2017-04-14</time>
     
   </p>
 </header>
@@ -124,13 +118,11 @@ public class MainActivity extends TopBarBaseActivity &amp;#">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-number">1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始封装"><span class="toc-number">2.</span> <span class="toc-text">开始封装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖-appcompat-v7"><span class="toc-number">2.1.</span> <span class="toc-text">依赖 appcompat-v7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置-NoActionBar-主题"><span class="toc-number">2.2.</span> <span class="toc-text">设置 NoActionBar 主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-TopBarBaseActivity"><span class="toc-number">2.3.</span> <span class="toc-text">创建 TopBarBaseActivity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把-TopBar-封装在-TopBarBaseActivity"><span class="toc-number">2.4.</span> <span class="toc-text">把 TopBar 封装在 TopBarBaseActivity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加标题"><span class="toc-number">2.5.</span> <span class="toc-text">实现一句话添加标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加左上角按钮"><span class="toc-number">2.6.</span> <span class="toc-text">实现一句话添加左上角按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加右上角按钮"><span class="toc-number">2.7.</span> <span class="toc-text">实现一句话添加右上角按钮</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-number">1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始"><span class="toc-number">2.</span> <span class="toc-text">开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖-appcompat-v7"><span class="toc-number">2.1.</span> <span class="toc-text">依赖 appcompat-v7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置-NoActionBar-主题"><span class="toc-number">2.2.</span> <span class="toc-text">设置 NoActionBar 主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-TopBarBaseActivity"><span class="toc-number">2.3.</span> <span class="toc-text">创建 TopBarBaseActivity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把-TopBar-封装在-TopBarBaseActivity"><span class="toc-number">2.4.</span> <span class="toc-text">把 TopBar 封装在 TopBarBaseActivity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加标题"><span class="toc-number">2.5.</span> <span class="toc-text">实现一句话添加标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加左上角按钮"><span class="toc-number">2.6.</span> <span class="toc-text">实现一句话添加左上角按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加右上角按钮"><span class="toc-number">2.7.</span> <span class="toc-text">实现一句话添加右上角按钮</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">3.</span> <span class="toc-text">最后</span></a></li></ol>
 		
 		</div>
 		
-		<p><strong><em>本文出自 陈序员 的博客，转载必须注明出处。</em></strong></p>
-<p><a href="http://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/">http://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/</a></p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>什么是快速开发嘞，看这个效果</p>
+		<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>什么是快速开发嘞，看这个效果</p>
 <center><br><img src="/img/toolbar1.png" alt=""><br></center>
 
 <p>然而我只用了这么几行代码：</p>
@@ -139,7 +131,7 @@ public class MainActivity extends TopBarBaseActivity &amp;#">
 <p><strong><em>activity_main.xml 里面什么也没有！</em></strong></p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>其实说白了哈，就是我把 TopBar 封装在 TopBarBaseActivity 里面，然后 MainActivity 只需 继承 TopBarBaseActivity 即可。 你想一想，以后每个上面有 TopBar 的界面，只需 让你的 XXActivity extends TopBarBaseActivity，就可以随意的设置你的 TopBar 了，多爽啊！。下面跟着我一步一步的实现我们想要的 TopBarBaseActivity。</p>
-<h2 id="开始封装"><a href="#开始封装" class="headerlink" title="开始封装"></a>开始封装</h2><h3 id="依赖-appcompat-v7"><a href="#依赖-appcompat-v7" class="headerlink" title="依赖 appcompat-v7"></a>依赖 appcompat-v7</h3><p>新建一个项目，因为 Toolbar 是在 appcompat-v7 包下，所以确保已经依赖 appcompat-v7。如果没有请加上，例如：</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="依赖-appcompat-v7"><a href="#依赖-appcompat-v7" class="headerlink" title="依赖 appcompat-v7"></a>依赖 appcompat-v7</h3><p>新建一个项目，因为 Toolbar 是在 appcompat-v7 包下，所以确保已经依赖 appcompat-v7。如果没有请加上，例如：</p>
 <figure class="highlight gradle"><table><tr><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:25.3.0'</span></div></pre></td></tr></table></figure>
 <h3 id="设置-NoActionBar-主题"><a href="#设置-NoActionBar-主题" class="headerlink" title="设置 NoActionBar 主题"></a>设置 NoActionBar 主题</h3><p>由于我们使用 Toolbar 代替 ActionBar，所以先把 ActionBar 去掉，我们通过设置 Application 的 theme 来隐藏，这样项目中所有的界面的 ActionBar 就都隐藏了。<br>先修改 style.xml 中的 AppTheme 继承自 Theme.AppCompat.Light.NoActionBar</p>
 <figure class="highlight applescript"><table><tr><td class="code"><pre><div class="line">&lt;style <span class="built_in">name</span>=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</div><div class="line">    &lt;<span class="built_in">item</span> <span class="built_in">name</span>=<span class="string">"colorPrimary"</span>&gt;@color/colorPrimary&lt;/<span class="built_in">item</span>&gt;</div><div class="line">    &lt;<span class="built_in">item</span> <span class="built_in">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;@color/colorPrimaryDark&lt;/<span class="built_in">item</span>&gt;</div><div class="line">    &lt;<span class="built_in">item</span> <span class="built_in">name</span>=<span class="string">"colorAccent"</span>&gt;@color/colorAccent&lt;/<span class="built_in">item</span>&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
@@ -203,7 +195,7 @@ public class MainActivity extends TopBarBaseActivity &amp;#">
 <center><br><img src="/img/toolbar7.png" alt=""><br></center>
 
 <p>到这里我们的 TopBarBaseActivity 就封装完了，过程比较简单，重要的是这个封装的思路，其实还有很多我们常用的布局都是可以进行封装的。</p>
-<p>可能有些人还会有些疑问：为什么要用 ToolBar 进行封装呢，自己写一个 TopBar 不是更好吗？</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>可能有些人还会有些疑问：为什么要用 ToolBar 进行封装呢，自己写一个 TopBar 不是更好吗？</p>
 <p>是的，如果你用不惯 Toolbar 你就可以根据自己的习惯写一个扩展性更好的 TopBar。但是我觉得 Toolbar 其实也有一些优质的品德的：</p>
 <ol>
 <li>官方提供，符合标准，界面统一。</li>
@@ -214,6 +206,10 @@ public class MainActivity extends TopBarBaseActivity &amp;#">
 <p><strong><em>Demo GitHub 地址</em></strong></p>
 <blockquote>
 <p><a href="https://github.com/ifmvo/TopBarBaseActivity" target="_blank" rel="external">https://github.com/ifmvo/TopBarBaseActivity</a></p>
+</blockquote>
+<p><strong><em>本文出自 陈序员 的博客，转载必须注明出处。</em></strong></p>
+<blockquote>
+<p><a href="http://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/">http://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/</a></p>
 </blockquote>
 <center><br><img src="/img/huba.png" alt=""><br><p><strong>陈序员</strong></p><br><p><a href="https://blog.ifmvo.cn">https://blog.ifmvo.cn</a></p><br></center>
 
@@ -234,7 +230,7 @@ public class MainActivity extends TopBarBaseActivity &amp;#">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/" data-title="Android 封装一个 TopBarBaseActivity by Toolbar | 陈序员" data-tsina="undefined" class="share clearfix">
+	  <div data-url="https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/" data-title="Android 快速开发（一），封装一个 TopBarBaseActivity | 陈序员" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -247,19 +243,11 @@ public class MainActivity extends TopBarBaseActivity &amp;#">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/04/13/avoid-memory-leak-ways/" title="Andorid 常见的内存泄露及解决办法">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Andorid 常见的内存泄露及解决办法</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/17/beautiful/"  title="你说的对啊">
+<a href="/2017/04/13/avoid-memory-leak-ways/"  title="Andorid 常见的内存泄露及解决办法">
  <strong>下一篇：</strong><br/> 
- <span>你说的对啊
+ <span>Andorid 常见的内存泄露及解决办法
 </span>
 </a>
 </div>
@@ -268,7 +256,7 @@ public class MainActivity extends TopBarBaseActivity &amp;#">
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/04/13/package-topbarbaseactivity-by-toolbar/" data-title="Android 封装一个 TopBarBaseActivity by Toolbar" data-url="https://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/"></div>
+	<div class="ds-thread" data-thread-key="2017/04/14/package-topbarbaseactivity-by-toolbar/" data-title="Android 快速开发（一），封装一个 TopBarBaseActivity" data-url="https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/"></div>
 </section>
 
 
@@ -278,7 +266,7 @@ public class MainActivity extends TopBarBaseActivity &amp;#">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-number">1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始封装"><span class="toc-number">2.</span> <span class="toc-text">开始封装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖-appcompat-v7"><span class="toc-number">2.1.</span> <span class="toc-text">依赖 appcompat-v7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置-NoActionBar-主题"><span class="toc-number">2.2.</span> <span class="toc-text">设置 NoActionBar 主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-TopBarBaseActivity"><span class="toc-number">2.3.</span> <span class="toc-text">创建 TopBarBaseActivity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把-TopBar-封装在-TopBarBaseActivity"><span class="toc-number">2.4.</span> <span class="toc-text">把 TopBar 封装在 TopBarBaseActivity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加标题"><span class="toc-number">2.5.</span> <span class="toc-text">实现一句话添加标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加左上角按钮"><span class="toc-number">2.6.</span> <span class="toc-text">实现一句话添加左上角按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加右上角按钮"><span class="toc-number">2.7.</span> <span class="toc-text">实现一句话添加右上角按钮</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-number">1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始"><span class="toc-number">2.</span> <span class="toc-text">开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖-appcompat-v7"><span class="toc-number">2.1.</span> <span class="toc-text">依赖 appcompat-v7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置-NoActionBar-主题"><span class="toc-number">2.2.</span> <span class="toc-text">设置 NoActionBar 主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建-TopBarBaseActivity"><span class="toc-number">2.3.</span> <span class="toc-text">创建 TopBarBaseActivity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把-TopBar-封装在-TopBarBaseActivity"><span class="toc-number">2.4.</span> <span class="toc-text">把 TopBar 封装在 TopBarBaseActivity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加标题"><span class="toc-number">2.5.</span> <span class="toc-text">实现一句话添加标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加左上角按钮"><span class="toc-number">2.6.</span> <span class="toc-text">实现一句话添加左上角按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一句话添加右上角按钮"><span class="toc-number">2.7.</span> <span class="toc-text">实现一句话添加右上角按钮</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">3.</span> <span class="toc-text">最后</span></a></li></ol>
  
   </div>
 
@@ -296,11 +284,11 @@ public class MainActivity extends TopBarBaseActivity &amp;#">
 			
 		
 			
-				<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
 			
 		
 			
