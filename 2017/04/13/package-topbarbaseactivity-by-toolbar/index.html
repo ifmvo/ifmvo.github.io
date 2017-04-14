@@ -1,0 +1,508 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Android 封装一个 TopBarBaseActivity by Toolbar | 陈序员</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="陈铭卓">
+    
+
+    
+    <meta name="description" content="效果什么是快速开发嘞，看这个效果
+
+然而我只用了这么几行代码：
+MainActivity.java
+public class MainActivity extends TopBarBaseActivity &amp;#123;    @Override    protected int getContentView() &amp;#123;        return R.layout.activity_main">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 封装一个 TopBarBaseActivity by Toolbar">
+<meta property="og:url" content="https://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/index.html">
+<meta property="og:site_name" content="陈序员">
+<meta property="og:description" content="效果什么是快速开发嘞，看这个效果
+
+然而我只用了这么几行代码：
+MainActivity.java
+public class MainActivity extends TopBarBaseActivity &amp;#123;    @Override    protected int getContentView() &amp;#123;        return R.layout.activity_main">
+<meta property="og:image" content="https://blog.ifmvo.cn/imgs/toolbar4.png">
+<meta property="og:image" content="https://blog.ifmvo.cn/imgs/toolbar1.jpg">
+<meta property="og:image" content="https://blog.ifmvo.cn/imgs/toolbar2.png">
+<meta property="og:image" content="https://blog.ifmvo.cn/imgs/toolbar3.png">
+<meta property="og:updated_time" content="2017-04-14T06:21:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 封装一个 TopBarBaseActivity by Toolbar">
+<meta name="twitter:description" content="效果什么是快速开发嘞，看这个效果
+
+然而我只用了这么几行代码：
+MainActivity.java
+public class MainActivity extends TopBarBaseActivity &amp;#123;    @Override    protected int getContentView() &amp;#123;        return R.layout.activity_main">
+<meta name="twitter:image" content="https://blog.ifmvo.cn/imgs/toolbar4.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="陈序员" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="陈序员">陈序员</a></h1>
+				<h2 class="blog-motto">懒惰使人进步</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/resume">简历</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:blog.ifmvo.cn">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/13/package-topbarbaseactivity-by-toolbar/" title="Android 封装一个 TopBarBaseActivity by Toolbar" itemprop="url">Android 封装一个 TopBarBaseActivity by Toolbar</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="陈铭卓" target="_blank" itemprop="author">陈铭卓</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-12T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-04-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-number">1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么用-ToolBar"><span class="toc-number">2.</span> <span class="toc-text">为什么用 ToolBar</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>什么是快速开发嘞，看这个效果</p>
+<p><img src="imgs/toolbar4.png" alt=""></p>
+<p>然而我只用了这么几行代码：</p>
+<p><strong><em>MainActivity.java</em></strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">TopBarBaseActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">getContentView</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> R.layout.activity_main;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        setTitle(<span class="string">"陈序员"</span>);</div><div class="line"></div><div class="line">        setTopLeftButton(R.drawable.ic_return_white_24dp, <span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">()</span> </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"陈序员点击了左上角按钮！"</span>, Toast.LENGTH_LONG).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        setTopRightButton(<span class="string">"Button"</span>, R.drawable.ic_mine_white_24dp, <span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">()</span> </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"点击了右上角按钮！"</span>, Toast.LENGTH_LONG).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>activity_main.xml</em></strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>使用姿势如下：</p>
+<figure class="highlight pf"><table><tr><td class="code"><pre><div class="line">//设置标题</div><div class="line"><span class="built_in">set</span>Title(<span class="string">"设置"</span>);</div><div class="line"></div><div class="line">//设置左上按钮</div><div class="line"><span class="built_in">set</span>TopLeftButton();</div><div class="line"><span class="built_in">set</span>TopLeftButton(int iconResId, OnClickListener <span class="keyword">on</span>ClickListener);</div><div class="line"></div><div class="line">//设置右上按钮</div><div class="line"><span class="built_in">set</span>TopRightButton(int iconResId, OnClickListener <span class="keyword">on</span>ClickListener);</div><div class="line"><span class="built_in">set</span>TopRightButton(String btnStr, OnClickListener <span class="keyword">on</span>ClickListener);</div><div class="line"><span class="built_in">set</span>TopRightButton(String btnStr, int iconResId, OnClickListener <span class="keyword">on</span>ClickListener);</div></pre></td></tr></table></figure>
+<h2 id="为什么用-ToolBar"><a href="#为什么用-ToolBar" class="headerlink" title="为什么用 ToolBar"></a>为什么用 ToolBar</h2><p>ToolBar 出现的目的就是替代 ActionBar，但是 Toolbar 它是个很有个性的妹纸，它通常面目是这样的：</p>
+<center><br><img src="imgs/toolbar1.jpg" alt=""><br></center><br>我们修改后的模样：<br><br><br><br>妈的！人家这么有个性的妹纸，长得那么好看，你为什么要给人家搞得破相了呢？<br><br>虽然妹纸长得不错，但是它不实用啊！<br>所以如果想好好的造娃的话，我们就只能自己动手给她整个容了。<br><br>有人又问了：那你找个别的姑娘不就好了吗？<br><br>NO、NO，毕竟 Toolbar 这妹纸还有一些优质的品德的：<br><br>1. 官方提供，符合标准，界面统一。<br>2. 自带点击效果。<br>3. 自带点击热区。<br><br>所以，且看老衲怎么挥一挥刀就实现两全其美的。<br><br><br>### 开始封装<br><br>下面跟着我一步一步的实现我们想要的妹纸。<br><br><strong><em>1. 依赖 appcompat-v7</em></strong><br><br>新建一个项目，因为 Toolbar 是在 appcompat-v7 包下，所以确保已经依赖 appcompat-v7。如果没有请加上，例如：<br><br><figure class="highlight gradle"><table><tr><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:25.3.0'</span></div></pre></td></tr></table></figure><br><br><strong><em>2. 设置 NoActionBar 主题</em></strong><br><br>由于我们使用 Toolbar 代替 ActionBar，所以先把 ActionBar 去掉，我们通过设置 Application 的 theme 来隐藏，这样项目中所有的界面的 ActionBar 就都隐藏了。<br>先修改 style.xml 中的 AppTheme 继承自 Theme.AppCompat.Light.NoActionBar<br><br><figure class="highlight applescript"><table><tr><td class="code"><pre><div class="line">&lt;style <span class="built_in">name</span>=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</div><div class="line">    &lt;<span class="built_in">item</span> <span class="built_in">name</span>=<span class="string">"colorPrimary"</span>&gt;@color/colorPrimary&lt;/<span class="built_in">item</span>&gt;</div><div class="line">    &lt;<span class="built_in">item</span> <span class="built_in">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;@color/colorPrimaryDark&lt;/<span class="built_in">item</span>&gt;</div><div class="line">    &lt;<span class="built_in">item</span> <span class="built_in">name</span>=<span class="string">"colorAccent"</span>&gt;@color/colorAccent&lt;/<span class="built_in">item</span>&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure><br><br>AndroidManifest.xml 文件中默认就会设置主题的<br><br><figure class="highlight perl"><table><tr><td class="code"><pre><div class="line">&lt;application</div><div class="line">    android:allowBackup=<span class="string">"true"</span></div><div class="line">    android:icon=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">    android:label=<span class="string">"@string/app_name"</span></div><div class="line">    android:theme=<span class="string">"@style/AppTheme"</span>&gt;</div><div class="line"></div><div class="line">    ...</div><div class="line"></div><div class="line">&lt;<span class="regexp">/application&gt;</span></div></pre></td></tr></table></figure><br><br><strong><em>3. 创建 TopBarBaseActivity</em></strong><br><br>new 一个项目之后会默认创建一个 MainActivity.java 和 activity_main.xml ，然后我们再自己新建两个文件 TopBarBaseActivity.java 和 activity_base_top_bar.xml<br><br><center><br><img src="imgs/toolbar2.png" alt=""><br></center>
+
+
+<p>然后 TopBarBaseActivity 继承 AppCompatActivity<br>MainActivity 继承 TopBarBaseActivity  </p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">TopBarBaseActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(<span class="type">R</span>.layout.activity_base_top_bar);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">TopBarBaseActivity</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(<span class="type">R</span>.layout.activity_main);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>4. 把 TopBar 封装在 TopBarBaseActivity</em></strong></p>
+<p>首先我们在 activity_base_top_bar.xml 中 添加 Toolbar 布局</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span>  </span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@color/colorPrimary"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">android.support.v7.widget.Toolbar</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>然后在 TopBarBaseActivity 中获取并初始化设置 Toolbar</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">TopBarBaseActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="type">Toolbar</span> toolbar;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(<span class="type">R</span>.layout.activity_base_top_bar);</div><div class="line"></div><div class="line">        toolbar = (<span class="type">Toolbar</span>) findViewById(<span class="type">R</span>.id.toolbar);</div><div class="line"></div><div class="line">        setSupportActionBar(toolbar);</div><div class="line">        <span class="comment">//设置不显示自带的 Title</span></div><div class="line">        getSupportActionBar().setDisplayShowTitleEnabled(<span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在为止，还是 MainActivity 和 TopBarBaseActivity 显示它们自己的布局，所以我们要实现让 MainActivity 的布局 显示在 TopBarBaseActivity 的布局中，<br>我们先在 activity_base_top_bar.xml 中添加一个 FrameLayout ，这样我们就可以把 MainActivity 的布局解析到 FrameLayout 里面</p>
+<figure class="highlight django"><table><tr><td class="code"><pre><div class="line"><span class="xml"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">...</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">          <span class="attr">...</span></div><div class="line">    &lt;/<span class="attr">android.support.v7.widget.Toolbar</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">FrameLayout</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/viewContent"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>然后我们修改下 TopBarBaseActivity  </p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">public <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">TopBarBaseActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="type">Toolbar</span> toolbar;</div><div class="line">    <span class="type">FrameLayout</span> viewContent;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(<span class="type">R</span>.layout.activity_base_top_bar);</div><div class="line"></div><div class="line">        toolbar = (<span class="type">Toolbar</span>) findViewById(<span class="type">R</span>.id.toolbar);</div><div class="line">        viewContent = (<span class="type">FrameLayout</span>) findViewById(<span class="type">R</span>.id.viewContent);</div><div class="line"></div><div class="line">        <span class="comment">//初始化设置 Toolbar</span></div><div class="line">        setSupportActionBar(toolbar);</div><div class="line">        getSupportActionBar().setDisplayShowTitleEnabled(<span class="literal">false</span>);</div><div class="line"></div><div class="line">        <span class="comment">//将继承 TopBarBaseActivity 的布局解析到 FrameLayout 里面</span></div><div class="line">        <span class="type">LayoutInflater</span>.from(<span class="type">TopBarBaseActivity</span>.<span class="keyword">this</span>).inflate(getContentView(), viewContent);</div><div class="line">        init(savedInstanceState);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> <span class="keyword">abstract</span> int getContentView();</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">abstract</span> void init(<span class="type">Bundle</span> savedInstanceState);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：为了设置两个抽象方法，我们将 TopBarBaseActivity 设置成了抽象类。</p>
+</blockquote>
+<p>接下来看我们的 MainActivity 自动实现两个父类的抽象方法，并通过 getContentView 方法返回布局 activity_main 的 id。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">TopBarBaseActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> int getContentView() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">R</span>.layout.activity_main;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> void init(<span class="type">Bundle</span> savedInstanceState) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在你运行一下项目，我们并没有在 MainActivity 的布局中添加 ToolBar,但是运行出来的效果是 Toolbar 已经存在了。<br><img src="imgs/toolbar3.png" alt=""></p>
+<p><strong><em>5. 实现一句话添加标题</em></strong></p>
+<p>接下来我们要实现在 MainActivity 里面 <code>setTitle(&quot;标题&quot;);</code>一句话设置标题。</p>
+<p>首先我们修改 activity_base_top_bar.xml 布局文件，在 Toolbar 中添加一个 TextView 用来显示标题</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">...</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">          <span class="attr">...</span></div><div class="line">          <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</div><div class="line"></div><div class="line">          <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/tvTitle"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">style</span>=<span class="string">"@style/TextAppearance.AppCompat.Widget.ActionBar.Title"</span></div><div class="line">            <span class="attr">android:textColor</span>=<span class="string">"@android:color/white"</span></div><div class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">android.support.v7.widget.Toolbar</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">FrameLayout</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/viewContent"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>再修改 TopBarBaseActivity 添加一个 setTitle 方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">TopBarBaseActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    Toolbar toolbar;</div><div class="line">    FrameLayout viewContent;</div><div class="line">    TextView tvTitle;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_base_top_bar);</div><div class="line"></div><div class="line">        toolbar = (Toolbar) findViewById(R.id.toolbar);</div><div class="line">        viewContent = (FrameLayout) findViewById(R.id.viewContent);</div><div class="line">        tvTitle = (TextView) findViewById(R.id.tvTitle);</div><div class="line"></div><div class="line">        <span class="comment">//初始化设置 Toolbar</span></div><div class="line">        setSupportActionBar(toolbar);</div><div class="line">        getSupportActionBar().setDisplayShowTitleEnabled(<span class="keyword">false</span>);</div><div class="line"></div><div class="line">        <span class="comment">//将继承 TopBarBaseActivity 的布局解析到 FrameLayout 里面</span></div><div class="line">        LayoutInflater.from(TopBarBaseActivity.<span class="keyword">this</span>).inflate(getContentView(), viewContent);</div><div class="line">        init(savedInstanceState);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">setTitle</span><span class="params">(String title)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (!TextUtils.isEmpty(title))&#123;</div><div class="line">            tvTitle.setText(title);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">getContentView</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Bundle savedInstanceState)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后我们就可以在 MainActivity 中调用了 setTitle 方法了</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">TopBarBaseActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> int getContentView() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">R</span>.layout.activity_main;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> void init(<span class="type">Bundle</span> savedInstanceState) &#123;</div><div class="line">        setTitle(<span class="string">"陈序员"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果图：</p>
+<p><img src="" alt=""></p>
+<p><strong><em>6. 实现一句话添加左上角按钮</em></strong></p>
+<p>接下来我们的目标是通过在 MainActivity 中 <code>一句话</code> 实现自定义 TopBar 左上角的 <code>图标</code> 和 <code>点击监听</code>  </p>
+<p>首先修改 TopBarBaseActivity, 我们需要造一个接口并声明</p>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line">OnClickListener onClickListenerTopLeft;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">OnClickListener</span>&#123;</div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">onClick</span>(<span class="params"></span>)</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后重写 方法并处理点击事件</p>
+<figure class="highlight aspectj"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (item.getItemId() == android.R.id.home)&#123;</div><div class="line">            onClickListenerTopLeft.onClick();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">// true 告诉系统我们自己处理了点击事件</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>再设置一个方法用于设置图标资源 id 和 监听器</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">setTopLeft</span><span class="params">(<span class="keyword">int</span> iconResId, OnClickListener onClickListener)</span></span>&#123;</div><div class="line">    toolbar.setNavigationIcon(iconResId);</div><div class="line">    <span class="keyword">this</span>.onClickListenerTopLeft = onClickListener;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来我们就可以在 MainActivity 中这样写</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">TopBarBaseActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> int getContentView() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">R</span>.layout.activity_main;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> void init(<span class="type">Bundle</span> savedInstanceState) &#123;</div><div class="line">        setTitle(<span class="string">"陈序员"</span>);</div><div class="line"></div><div class="line">        setTopLeft(<span class="type">R</span>.mipmap.ic_launcher_round, <span class="keyword">new</span> <span class="type">OnClickListener</span>() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            public void onClick() &#123;</div><div class="line">                <span class="type">Toast</span>.makeText(<span class="type">MainActivity</span>.<span class="keyword">this</span>, <span class="string">"陈序员"</span>, <span class="type">Toast</span>.<span class="type">LENGTH_LONG</span>).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行一下试试是不是只需一句话就设置了 TopBar 左按钮的 <code>图标</code> 和 <code>点击事件</code> ！</p>
+<p><strong><em>7. 实现一句话添加右上角按钮</em></strong></p>
+<p>最后一步，将<br>先创建一个 menu 文件夹和一个 menu 资源文件</p>
+<p><img src="" alt=""></p>
+<p>内容是这样的：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/menu_1"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">""</span></div><div class="line">        <span class="attr">app:showAsAction</span>=<span class="string">"always"</span> /&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>继续修改 TopBarBaseActivity ，添加如下代码：</p>
+<figure class="highlight aspectj"><table><tr><td class="code"><pre><div class="line"></div><div class="line">OnClickListener onClickListenerTopRight;</div><div class="line">    </div><div class="line"><span class="keyword">int</span> menuResId;</div><div class="line">String menuStr;</div><div class="line"></div><div class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">setTopRightButton</span><span class="params">(String menuStr, <span class="keyword">int</span> menuResId, OnClickListener onClickListener)</span></span>&#123;</div><div class="line">    <span class="keyword">this</span>.menuResId = menuResId;</div><div class="line">    <span class="keyword">this</span>.menuStr = menuStr;</div><div class="line">    <span class="keyword">this</span>.onClickListenerTopRight = onClickListener;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (menuResId != <span class="number">0</span> || !TextUtils.isEmpty(menuStr))&#123;</div><div class="line">        getMenuInflater().inflate(R.menu.menu_activity_base_top_bar, menu);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onPrepareOptionsMenu</span><span class="params">(Menu menu)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (menuResId != <span class="number">0</span>) &#123;</div><div class="line">        menu.findItem(R.id.menu_1).setIcon(menuResId);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (!TextUtils.isEmpty(menuStr))&#123;</div><div class="line">        menu.findItem(R.id.menu_1).setTitle(menuStr);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onPrepareOptionsMenu</span><span class="params">(menu)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在我们的 MainActivity 再调用 setTopRightButton 方法，</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">TopBarBaseActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">getContentView</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> R.layout.activity_main;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        setTitle(<span class="string">"陈序员"</span>);</div><div class="line"></div><div class="line">        setTopLeftButton(R.mipmap.ic_launcher_round, <span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">()</span> </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"陈序员点击了左上角按钮！"</span>, Toast.LENGTH_LONG).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        setTopRightButton(<span class="string">"Button"</span>, R.mipmap.ic_launcher_round, <span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">()</span> </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"点击了右上角按钮！"</span>, Toast.LENGTH_LONG).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在运行看下效果</p>
+<p><img src="" alt=""></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Android/">Android</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/" data-title="Android 封装一个 TopBarBaseActivity by Toolbar | 陈序员" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/04/13/avoid-memory-leak-ways/" title="Andorid 常见的内存泄露及解决办法">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Andorid 常见的内存泄露及解决办法</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/03/17/beautiful/"  title="你说的对啊">
+ <strong>下一篇：</strong><br/> 
+ <span>你说的对啊
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/04/13/package-topbarbaseactivity-by-toolbar/" data-title="Android 封装一个 TopBarBaseActivity by Toolbar" data-url="https://blog.ifmvo.cn/2017/04/13/package-topbarbaseactivity-by-toolbar/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-number">1.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么用-ToolBar"><span class="toc-number">2.</span> <span class="toc-text">为什么用 ToolBar</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/https://github.com/ifmvo" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:Matthew_Chen_1994@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="陈铭卓">陈铭卓</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"ifmvo"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

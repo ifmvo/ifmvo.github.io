@@ -73,12 +73,13 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2017/04/13/ToolBar/" title="Android ToolBar 最佳实践" itemprop="url">
+    <a href="/2017/04/13/avoid-memory-leak-ways/" title="Andorid 常见的内存泄露及解决办法" itemprop="url">
   
-    <h1 itemprop="name">Android ToolBar 最佳实践</h1>
+    <h1 itemprop="name">Andorid 常见的内存泄露及解决办法</h1>
     
      
-           <p itemprop="description" ></p>
+           <p itemprop="description" >单例造成的内存泄漏当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。
+public class CommUtil &amp;#123;    p</p>
         
     
     <time datetime="2017-04-12T16:00:00.000Z" itemprop="datePublished">2017-04-13</time>
@@ -93,13 +94,16 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2017/04/13/avoid-memory-leak-ways/" title="Andorid 常见的内存泄露及解决办法" itemprop="url">
+    <a href="/2017/04/13/package-topbarbaseactivity-by-toolbar/" title="Android 封装一个 TopBarBaseActivity by Toolbar" itemprop="url">
   
-    <h1 itemprop="name">Andorid 常见的内存泄露及解决办法</h1>
+    <h1 itemprop="name">Android 封装一个 TopBarBaseActivity by Toolbar</h1>
     
      
-           <p itemprop="description" >单例造成的内存泄漏当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。
-public class CommUtil &amp;#123;    p</p>
+           <p itemprop="description" >效果什么是快速开发嘞，看这个效果
+
+然而我只用了这么几行代码：
+MainActivity.java
+public class MainActivity extends TopBarBaseActivity &amp;#123;    @Override    protected int </p>
         
     
     <time datetime="2017-04-12T16:00:00.000Z" itemprop="datePublished">2017-04-13</time>
