@@ -1,0 +1,567 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Android 快速开发（二），封装一个 BottomTabBaseActivity | 陈序员</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="陈铭卓">
+    
+
+    
+    <meta name="description" content="前言面对大量的任务和需求，我们作为程序员怎样减少加班时间呢，来一起跟我快速开发。上一篇我们详细介绍了 Android 快速开发（一），封装一个 TopBarBaseActivity 效果是显而易见的。接下来我们进行 Android 快速开发（二）。
+效果什么是快速开发嘞，看这个效果
+    
+
+
+然而实现 BottomTab + ViewPager 的效果我只用了这么几行代码：
+123456789">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 快速开发（二），封装一个 BottomTabBaseActivity">
+<meta property="og:url" content="https://blog.ifmvo.cn/2017/05/03/package-bottomtabbaseactivity/index.html">
+<meta property="og:site_name" content="陈序员">
+<meta property="og:description" content="前言面对大量的任务和需求，我们作为程序员怎样减少加班时间呢，来一起跟我快速开发。上一篇我们详细介绍了 Android 快速开发（一），封装一个 TopBarBaseActivity 效果是显而易见的。接下来我们进行 Android 快速开发（二）。
+效果什么是快速开发嘞，看这个效果
+    
+
+
+然而实现 BottomTab + ViewPager 的效果我只用了这么几行代码：
+123456789">
+<meta property="og:image" content="https://blog.ifmvo.cn/img/bottom_tab/bottomtabview1.gif">
+<meta property="og:image" content="https://blog.ifmvo.cn/img/bottom_tab/bottomtabview2.gif">
+<meta property="og:image" content="https://blog.ifmvo.cn/img/bottom_tab/bottomtabview4.gif">
+<meta property="og:image" content="https://blog.ifmvo.cn/img/bottom_tab/bottomtabview3.png">
+<meta property="og:image" content="https://blog.ifmvo.cn/img/bottom_tab/bottomtabview5.gif">
+<meta property="og:image" content="https://blog.ifmvo.cn/img/bottom_tab/bottomtabview1.gif">
+<meta property="og:image" content="https://blog.ifmvo.cn/img/bottom_tab/bottomtabview7.png">
+<meta property="og:image" content="https://blog.ifmvo.cn/img/bottom_tab/bottomtabview8.png">
+<meta property="og:image" content="https://blog.ifmvo.cn/img/blog/huba.png">
+<meta property="og:updated_time" content="2017-05-04T07:12:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 快速开发（二），封装一个 BottomTabBaseActivity">
+<meta name="twitter:description" content="前言面对大量的任务和需求，我们作为程序员怎样减少加班时间呢，来一起跟我快速开发。上一篇我们详细介绍了 Android 快速开发（一），封装一个 TopBarBaseActivity 效果是显而易见的。接下来我们进行 Android 快速开发（二）。
+效果什么是快速开发嘞，看这个效果
+    
+
+
+然而实现 BottomTab + ViewPager 的效果我只用了这么几行代码：
+123456789">
+<meta name="twitter:image" content="https://blog.ifmvo.cn/img/bottom_tab/bottomtabview1.gif">
+
+    
+    <link rel="alternative" href="/atom.xml" title="陈序员" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="陈序员">陈序员</a></h1>
+				<h2 class="blog-motto">懒惰使人进步</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/resume">简历</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="https://blog.ifmvo.cn" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= bdcsMain ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/05/03/package-bottomtabbaseactivity/" title="Android 快速开发（二），封装一个 BottomTabBaseActivity" itemprop="url">Android 快速开发（二），封装一个 BottomTabBaseActivity</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="陈铭卓" target="_blank" itemprop="author">陈铭卓</a>
+		
+  <p class="article-time">
+    <time datetime="2017-05-03T06:41:08.000Z" itemprop="datePublished"> 发表于 2017-05-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-number">2.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BottomTabView"><span class="toc-number">3.</span> <span class="toc-text">BottomTabView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始"><span class="toc-number">4.</span> <span class="toc-text">开始</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>面对大量的任务和需求，我们作为程序员怎样减少加班时间呢，来一起跟我快速开发。<br>上一篇我们详细介绍了 <a href="/2017/04/14/package-topbarbaseactivity-by-toolbar/">Android 快速开发（一），封装一个 TopBarBaseActivity</a> 效果是显而易见的。接下来我们进行 Android 快速开发（二）。</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>什么是快速开发嘞，看这个效果</p>
+<center><br><img src="/img/bottom_tab/bottomtabview1.gif" alt="">    <img src="/img/bottom_tab/bottomtabview2.gif" alt=""><br></center>
+
+
+<p>然而实现 BottomTab + ViewPager 的效果我只用了这么几行代码：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> class TestBottomTabBaseActivity extends BottomTabBaseActivity &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    <span class="keyword">protected</span> List&lt;BottomTabView.TabItemView&gt; getTabViews() &#123;</div><div class="line">        List&lt;BottomTabView.TabItemView&gt; tabItemViews = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        tabItemViews.<span class="built_in">add</span>(<span class="keyword">new</span> BottomTabView.TabItemView(<span class="keyword">this</span>, <span class="string">"标题1"</span>, R.<span class="built_in">color</span>.colorPrimary,</div><div class="line">                R.<span class="built_in">color</span>.colorAccent, R.mipmap.ic_launcher, R.mipmap.ic_launcher_round));</div><div class="line">        tabItemViews.<span class="built_in">add</span>(<span class="keyword">new</span> BottomTabView.TabItemView(<span class="keyword">this</span>, <span class="string">"标题2"</span>, R.<span class="built_in">color</span>.colorPrimary,</div><div class="line">                R.<span class="built_in">color</span>.colorAccent, R.mipmap.ic_launcher, R.mipmap.ic_launcher_round));</div><div class="line">        tabItemViews.<span class="built_in">add</span>(<span class="keyword">new</span> BottomTabView.TabItemView(<span class="keyword">this</span>, <span class="string">"标题3"</span>, R.<span class="built_in">color</span>.colorPrimary,</div><div class="line">                R.<span class="built_in">color</span>.colorAccent, R.mipmap.ic_launcher, R.mipmap.ic_launcher_round));</div><div class="line">        tabItemViews.<span class="built_in">add</span>(<span class="keyword">new</span> BottomTabView.TabItemView(<span class="keyword">this</span>, <span class="string">"标题4"</span>, R.<span class="built_in">color</span>.colorPrimary,</div><div class="line">                R.<span class="built_in">color</span>.colorAccent, R.mipmap.ic_launcher, R.mipmap.ic_launcher_round));</div><div class="line">        <span class="keyword">return</span> tabItemViews;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    <span class="keyword">protected</span> List&lt;Fragment&gt; getFragments() &#123;</div><div class="line">        List&lt;Fragment&gt; fragments = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        fragments.<span class="built_in">add</span>(<span class="keyword">new</span> TabFragment1());</div><div class="line">        fragments.<span class="built_in">add</span>(<span class="keyword">new</span> TabFragment2());</div><div class="line">        fragments.<span class="built_in">add</span>(<span class="keyword">new</span> TabFragment3());</div><div class="line">        fragments.<span class="built_in">add</span>(<span class="keyword">new</span> TabFragment4());</div><div class="line">        <span class="keyword">return</span> fragments;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>添加 CenterView 也很简单，只需重写 getCenterView 方法并返回你想添加的 View。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> <span class="function">View <span class="title">getCenterView</span><span class="params">()</span> </span>&#123;</div><div class="line">        ImageView centerView = <span class="keyword">new</span> ImageView(<span class="keyword">this</span>);</div><div class="line">        centerView.setImageResource(R.mipmap.ic_launcher_round);</div><div class="line">        </div><div class="line">        centerView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                <span class="comment">//Toast 一个 "centerView 点击了";</span></div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> centerView;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>为什么会这么简单呢，因为我把重复性的代码都封装在 <code>父类</code> BottomTabBaseActivity 里面，这样的话，我们想实现 BottomTab + ViewPager 的效果只需实现三个方法，这样就可以大大提高我们的效率。爽YY~~~ 接下来我们一起实现这个 BottomTabBaseActivity。</p>
+<h2 id="BottomTabView"><a href="#BottomTabView" class="headerlink" title="BottomTabView"></a>BottomTabView</h2><p>首先我介绍一下我自定义一个 <a href="https://github.com/ifmvo/BottomTabView" target="_blank" rel="external">BottomTabView</a>，用于实现 Tab 效果</p>
+<center><br><img src="/img/bottom_tab/bottomtabview4.gif" alt=""><br></center>
+
+<ul>
+<li><p>它提供两个 setTabItemViews 方法，用于初始化 TabItem 的数据和 CenterView</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setTabItemViews(<span class="name">List&lt;TabItemView&gt;</span> tabItemViews)<span class="comment">;</span></div><div class="line">setTabItemViews(<span class="name">List&lt;TabItemView&gt;</span> tabItemViews, View centerView)<span class="comment">;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>提供 setOnTabItemSelectListener 方法，用于设置 TabItem 的选择监听，可以实现 ViewPager 的页面切换或者 Fragment 切换。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">bottomTabView.setOnTabItemSelectListener(<span class="keyword">new</span> BottomTabView.OnTabItemSelectListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onTabItemSelect</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        <span class="comment">//viewPager.setCurrentItem(position, true);</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>还提供 setOnSecondSelectListener ，当 TabItemView 已经被选择并再次点击时，会出发此监听，用于实现某些 App 二次点击 TabItemView 刷新功能。</p>
+</li>
+</ul>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">bottomTabView.setOnSecondSelectListener(<span class="keyword">new</span> BottomTabView.OnSecondSelectListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onSecondSelect</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        <span class="comment">//refresh();</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>你可以直接粘贴项目中这两个文件即可<br><code>BottomTabView.java</code><br><code>view_tab_item.xml</code></p>
+<p><strong><em>GitHub 地址</em></strong></p>
+<blockquote>
+<p><a href="https://github.com/ifmvo/BottomTabView" target="_blank" rel="external">https://github.com/ifmvo/BottomTabView</a></p>
+</blockquote>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>下面利用 BottomTabView 实现我们想要的 BottomTabBaseActivity</p>
+<p>我们新建两个文件 BottomTabBaseActivity.java 和 activity_base_bottom_tab.xml，并把 BottomTabView.java 和 view_tab_item.xml 复制到我们的项目中</p>
+<center><br><img src="/img/bottom_tab/bottomtabview3.png" alt=""><br></center>
+
+<p>activity_base_bottom_tab.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.v4.view.ViewPager</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/viewPager"</span></div><div class="line">        <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">View</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"#c7c7c7"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"0.1dp"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">cn.ifmvo.bottomtab.BottomTabView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/bottomTabView"</span></div><div class="line">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"50dp"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>BottomTabBaseActivity 设置成抽象类，并添加三个方法<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BottomTabBaseActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> void onCreate(<span class="meta">@Nullable</span> <span class="type">Bundle</span> savedInstanceState) &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line"></div><div class="line">        setContentView(<span class="type">R</span>.layout.activity_base_bottom_tab);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="type">List</span>&lt;<span class="type">BottomTabView</span>.<span class="type">TabItemView</span>&gt; getTabViews();</div><div class="line"></div><div class="line"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="type">List</span>&lt;<span class="type">Fragment</span>&gt; getFragments();</div><div class="line"></div><div class="line"><span class="keyword">protected</span> <span class="type">View</span> getCenterView()&#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们为什么写两个 abstract 类型的方法呢，我们的思路是这样的：  </p>
+<ul>
+<li>可变的东西（底部菜单的 Item、Fragment）放在子类去实现</li>
+<li>父类 BottomTabBaseActivity 实现不变的、重复性的代码</li>
+</ul>
+<p>所以声明两个抽象方法 getTabViews、getFragments ，并在子类去实现，至于 getCenterView 方法可以自行定制，如果需要 CenterView 在子类实现方法即可。</p>
+<p>MainActivity 继承自 BottomTabBaseActivity，只需实现两个方法，其他的什么也不需要做。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">BottomTabBaseActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> <span class="type">List</span>&lt;<span class="type">BottomTabView</span>.<span class="type">TabItemView</span>&gt; getTabViews() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> <span class="type">List</span>&lt;<span class="type">Fragment</span>&gt; getFragments() &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>到这里，整体的布局已经搭建完毕，下面我们来实现功能.  </p>
+<p>在 BottomTabBaseActivity 中添加：<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (getCenterView() == null)&#123;</div><div class="line">    bottomTabView.setTabItemViews(getTabViews());</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">    bottomTabView.setTabItemViews(getTabViews(), getCenterView());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在 MainActivity 中实现 getTabView 方法</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line"><span class="keyword">protected</span> List&lt;BottomTabView.TabItemView&gt; getTabViews() &#123;</div><div class="line">    List&lt;BottomTabView.TabItemView&gt; tabItemViews = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    tabItemViews.<span class="built_in">add</span>(<span class="keyword">new</span> BottomTabView.TabItemView(<span class="keyword">this</span>, <span class="string">"标题1"</span>, R.<span class="built_in">color</span>.colorPrimary,</div><div class="line">            R.<span class="built_in">color</span>.colorAccent, R.mipmap.ic_launcher, R.mipmap.ic_launcher_round));</div><div class="line">    tabItemViews.<span class="built_in">add</span>(<span class="keyword">new</span> BottomTabView.TabItemView(<span class="keyword">this</span>, <span class="string">"标题2"</span>, R.<span class="built_in">color</span>.colorPrimary,</div><div class="line">            R.<span class="built_in">color</span>.colorAccent, R.mipmap.ic_launcher, R.mipmap.ic_launcher_round));</div><div class="line">    tabItemViews.<span class="built_in">add</span>(<span class="keyword">new</span> BottomTabView.TabItemView(<span class="keyword">this</span>, <span class="string">"标题3"</span>, R.<span class="built_in">color</span>.colorPrimary,</div><div class="line">            R.<span class="built_in">color</span>.colorAccent, R.mipmap.ic_launcher, R.mipmap.ic_launcher_round));</div><div class="line">    tabItemViews.<span class="built_in">add</span>(<span class="keyword">new</span> BottomTabView.TabItemView(<span class="keyword">this</span>, <span class="string">"标题4"</span>, R.<span class="built_in">color</span>.colorPrimary,</div><div class="line">            R.<span class="built_in">color</span>.colorAccent, R.mipmap.ic_launcher, R.mipmap.ic_launcher_round));</div><div class="line">    <span class="keyword">return</span> tabItemViews;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>TabItemView 构造方法的参数含义<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * <span class="doctag">@param</span> title 标题</div><div class="line"> * <span class="doctag">@param</span> colorDef 标题默认的颜色</div><div class="line"> * <span class="doctag">@param</span> colorPress 标题被选中时的颜色</div><div class="line"> * <span class="doctag">@param</span> iconResDef 默认的图标</div><div class="line"> * <span class="doctag">@param</span> iconResPress 被选中时的图标</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">TabItemView</span><span class="params">(Context context, String title, <span class="keyword">int</span> colorDef, <span class="keyword">int</span> colorPress, <span class="keyword">int</span> iconResDef, <span class="keyword">int</span> iconResPress)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>现在你可以运行一下你的 MainActivity，是不是已经实现了 底部 Tab 的效果。</p>
+<center><br><img src="/img/bottom_tab/bottomtabview5.gif" alt=""><br></center>
+
+<p>我们继续。接下来我们将 BottomTabView 和 ViewPager 进行连接，并切换 ViewPager 的页面，以显示不同的 Fragment。  </p>
+<p>声明、初始化一个 Adapter，并设置到 ViewPager 里面<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">FragmentPagerAdapter adapter;</div><div class="line"></div><div class="line">adapter = <span class="keyword">new</span> FragmentPagerAdapter(getSupportFragmentManager()) &#123;</div><div class="line">    @Override</div><div class="line">    <span class="keyword">public</span> Fragment getItem(<span class="keyword">int</span> <span class="built_in">position</span>) &#123;</div><div class="line">        <span class="built_in">return</span> getFragments().<span class="built_in">get</span>(<span class="built_in">position</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> getCount() &#123;</div><div class="line">        <span class="built_in">return</span> getFragments().<span class="built_in">size</span>();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">viewPager.setAdapter(adapter);</div></pre></td></tr></table></figure></p>
+<p>利用 setOnTabItemSelectListener 方法设置 BottomTabView 的监听器，来切换 ViewPager<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">bottomTabView.setOnTabItemSelectListener(<span class="keyword">new</span> BottomTabView.OnTabItemSelectListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onTabItemSelect</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        viewPager.setCurrentItem(position, <span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>用 ViewPager 的 addOnPageChangeListener 方法，使 ViewPager 切换的时候，也同步切换 BottomTabView 的选中位置。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">viewPager.addOnPageChangeListener(<span class="keyword">new</span> ViewPager.OnPageChangeListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onPageScrolled</span><span class="params">(<span class="keyword">int</span> position, <span class="keyword">float</span> positionOffset, <span class="keyword">int</span> positionOffsetPixels)</span> </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onPageSelected</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        bottomTabView.updatePosition(position);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onPageScrollStateChanged</span><span class="params">(<span class="keyword">int</span> state)</span> </span>&#123;&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>最后一步：实现 getFragments 方法 返回一个 List<fragment><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@<span class="function">Override</span></div><div class="line"><span class="keyword">protected</span> List&lt;Fragment&gt; <span class="title">getFragments</span>(<span class="params"></span>) &#123;</div><div class="line">    List&lt;Fragment&gt; fragments = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    fragments.<span class="keyword">add</span>(<span class="keyword">new</span> TabFragment1());</div><div class="line">    fragments.<span class="keyword">add</span>(<span class="keyword">new</span> TabFragment2());</div><div class="line">    fragments.<span class="keyword">add</span>(<span class="keyword">new</span> TabFragment3());</div><div class="line">    fragments.<span class="keyword">add</span>(<span class="keyword">new</span> TabFragment4());</div><div class="line">    <span class="keyword">return</span> fragments;</div><div class="line">&#125;</div></pre></td></tr></table></figure></fragment></p>
+<p>当然 TabFragment 需要你自己去实现。 现在你再运行一下你的 MainActivity，是不是已经实现了。  </p>
+<center><br><img src="/img/bottom_tab/bottomtabview1.gif" alt=""><br></center>
+
+<p>你想一想，以后每个 BottomTab + ViewPager 的界面，只需 让你的 XXActivity extends BottomTabBaseActivity，再实现两个方法就可以了，多爽啊！  </p>
+<p>如果你想添加一个 CenterView 的话，你可以实现 getCenterView </p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="keyword">protected</span> <span class="function">View <span class="title">getCenterView</span><span class="params">()</span> </span>&#123;</div><div class="line">    ImageView centerView = <span class="keyword">new</span> ImageView(<span class="keyword">this</span>);</div><div class="line">    centerView.setImageResource(R.mipmap.ic_launcher_round);</div><div class="line">    LinearLayout.LayoutParams layoutParams = <span class="keyword">new</span> LinearLayout.LayoutParams(<span class="number">200</span>, <span class="number">200</span>);</div><div class="line">    layoutParams.leftMargin = <span class="number">60</span>;</div><div class="line">    layoutParams.rightMargin = <span class="number">60</span>;</div><div class="line">    layoutParams.bottomMargin = <span class="number">0</span>;</div><div class="line">    centerView.setLayoutParams(layoutParams);</div><div class="line">    centerView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> centerView;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>或者这样写比较灵活：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="keyword">protected</span> <span class="function">View <span class="title">getCenterView</span><span class="params">()</span> </span>&#123;</div><div class="line">    View centerView = LayoutInflater.from(<span class="keyword">this</span>).inflate(R.layout.centerview, <span class="keyword">null</span>);</div><div class="line">    centerView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> centerView;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<center><br><img src="/img/bottom_tab/bottomtabview7.png" alt=""><br></center>
+
+<p>如果你想让 CenterView 的上边界暴露在 BottomTabView 的外面的话，只需修改两处代码：</p>
+<ul>
+<li>将 BottomTabView 内部的 View 设置成 底部对齐</li>
+<li>在最外层布局添加属性并设置成 false</li>
+</ul>
+<blockquote>
+<p>前提是你要保证 BottomTabView 内部的 CenterView 足够大。</p>
+</blockquote>
+<p><strong><em>activity_base_bottom_tab.xml</em></strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">...</span></div><div class="line">    <span class="attr">android:clipChildren</span>=<span class="string">"false"</span></div><div class="line">    <span class="attr">...</span>&gt;</div><div class="line">	</div><div class="line">	...</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">cn.ifmvo.bottomtab.BottomTabView</span></span></div><div class="line">        <span class="attr">...</span></div><div class="line">        <span class="attr">android:gravity</span>=<span class="string">"bottom"</span></div><div class="line">        <span class="attr">...</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<center><br><img src="/img/bottom_tab/bottomtabview8.png" alt=""><br></center>
+
+<p>Prefect !~~</p>
+<p><strong><em>GitHub 地址</em></strong></p>
+<blockquote>
+<p><a href="https://github.com/ifmvo/MatthewBases" target="_blank" rel="external">https://github.com/ifmvo/MatthewBases</a></p>
+</blockquote>
+<p><strong><em>本文出自 陈序员 的博客，转载必须注明出处。</em></strong></p>
+<blockquote>
+<p><a href="https://blog.ifmvo.cn/2017/05/03/package-bottomtabbaseactivity/">https://blog.ifmvo.cn/2017/05/03/package-bottomtabbaseactivity/</a></p>
+</blockquote>
+<center><br><img src="/img/blog/huba.png" alt=""><br><p><strong>陈序员</strong></p><br><p><a href="https://blog.ifmvo.cn">https://blog.ifmvo.cn</a></p><br></center>
+
+
+
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Android/">Android</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://blog.ifmvo.cn/2017/05/03/package-bottomtabbaseactivity/" data-title="Android 快速开发（二），封装一个 BottomTabBaseActivity | 陈序员" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/04/14/package-topbarbaseactivity-by-toolbar/"  title="Android 快速开发（一），封装一个 TopBarBaseActivity">
+ <strong>下一篇：</strong><br/> 
+ <span>Android 快速开发（一），封装一个 TopBarBaseActivity
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/05/03/package-bottomtabbaseactivity/" data-title="Android 快速开发（二），封装一个 BottomTabBaseActivity" data-url="https://blog.ifmvo.cn/2017/05/03/package-bottomtabbaseactivity/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#效果"><span class="toc-number">2.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BottomTabView"><span class="toc-number">3.</span> <span class="toc-text">BottomTabView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始"><span class="toc-number">4.</span> <span class="toc-text">开始</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="tagslist">
+	<p class="asidetitle">广告</p>
+</div>
+<div>
+	<img style="padding-top: 10px; width: 100%" src="/img/blog/lydeuv.png"></img>
+</div>
+<div>
+<p style="width: 100%; text-align: center"><strong>《旅得水》</strong></p>
+</div>
+<div>
+<p style="width: 100%; text-align: center">旅行天下，如鱼得水。</p>
+</div>
+
+
+<div>
+<p style="padding-top: 20px; width: 100%; text-align: center; font-size: 20px;"><a style="color: #FF0000;" href = "/monetising/" target="_blank">点击购买广告位</a></p>
+</div>
+
+
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/https://github.com/ifmvo" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:Matthew_Chen_1994@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="陈铭卓">陈铭卓</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"ifmvo"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-97412600-1', 'blog.ifmvo.cn');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
