@@ -2,16 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.ifmvo.cn/2017/05/03/package-bottomtabbaseactivity/</loc>
+    <loc>https://blog.ifmvo.cn/2016/12/25/git/</loc>
     
-    <lastmod>2017-05-04T07:39:55.000Z</lastmod>
+    <lastmod>2017-05-04T08:45:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/03/16/ice_network/</loc>
+    
+    <lastmod>2017-05-04T08:44:23.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/</loc>
     
-    <lastmod>2017-05-04T07:15:08.000Z</lastmod>
+    <lastmod>2017-05-04T08:44:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/05/03/package-bottomtabbaseactivity/</loc>
+    
+    <lastmod>2017-05-04T08:43:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/03/16/thinking_in_java/</loc>
+    
+    <lastmod>2017-05-04T08:43:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/</loc>
+    
+    <lastmod>2017-05-04T08:42:04.000Z</lastmod>
     
   </url>
   
@@ -44,37 +72,9 @@
   </url>
   
   <url>
-    <loc>https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/</loc>
-    
-    <lastmod>2017-04-13T05:44:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ifmvo.cn/2017/03/16/ice_network/</loc>
-    
-    <lastmod>2017-03-29T06:50:33.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.ifmvo.cn/2017/03/17/beautiful/</loc>
     
     <lastmod>2017-03-29T02:32:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ifmvo.cn/2017/03/16/thinking_in_java/</loc>
-    
-    <lastmod>2017-03-22T13:43:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ifmvo.cn/2016/12/25/git/</loc>
-    
-    <lastmod>2017-03-17T12:21:15.000Z</lastmod>
     
   </url>
   
