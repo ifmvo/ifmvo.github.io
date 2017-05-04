@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[Android 快速开发（二），封装一个 BottomTabBaseActivity]]></title>
       <url>https://blog.ifmvo.cn/2017/05/03/package-bottomtabbaseactivity/</url>
-      <content type="html"><![CDATA[<p>生命不息，奋斗不止，万事起于忽微，量变引起质变。  —— 张鸿洋<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>生命不息，奋斗不止，万事起于忽微，量变引起质变。  —— 鸿洋<br><a id="more"></a></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇我们详细介绍了 <a href="/2017/04/14/package-topbarbaseactivity-by-toolbar/">Android 快速开发（一），封装一个 TopBarBaseActivity</a> 效果是显而易见的。接下来我们进行 Android 快速开发（二）。</p>
 <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>什么是快速开发嘞，看这个效果</p>
 <center><br><img src="/img/bottom_tab/bottomtabview1.gif" alt="">    <img src="/img/bottom_tab/bottomtabview2.gif" alt=""><br></center>
