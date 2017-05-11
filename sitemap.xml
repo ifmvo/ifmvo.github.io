@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ifmvo.cn/resume/index.html</loc>
+    
+    <lastmod>2017-05-11T06:34:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ifmvo.cn/monetising/index.html</loc>
     
     <lastmod>2017-05-05T02:34:46.000Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://blog.ifmvo.cn/about/index.html</loc>
     
     <lastmod>2017-04-20T05:19:33.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ifmvo.cn/resume/index.html</loc>
-    
-    <lastmod>2017-04-13T06:04:51.000Z</lastmod>
     
   </url>
   
