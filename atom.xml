@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.ifmvo.cn/"/>
-  <updated>2017-05-04T09:08:34.000Z</updated>
+  <updated>2017-07-17T14:12:58.000Z</updated>
   <id>https://blog.ifmvo.cn/</id>
   
   <author>
@@ -14,6 +14,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>财富自由</title>
+    <link href="https://blog.ifmvo.cn/2017/07/17/money-freedom/"/>
+    <id>https://blog.ifmvo.cn/2017/07/17/money-freedom/</id>
+    <published>2017-07-17T14:07:50.000Z</published>
+    <updated>2017-07-17T14:12:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>入职前闲得慌，吃完饭去公园跑了一圈，回来睡觉前听了一个关于财富自由的语音，作者对财富自由的定义是这样的：不用为生活必需品而贩卖自己时间的一个状态。我觉得如果是这样定义的话，为什么叫财富自由呢，还不如叫：“生活自由”比较准确可能这是一个深层次的定义吧。如果是我定义的话，从字面来讲，就是有很多钱随便花，想买啥就买啥。<br>但是听了这个语音的内容，主要讲的是每个人都想财富自由，但是很少有人去思考财富自由的意义。作者对听众关于这个意义进行洗脑。<br>我听后也进入了沉思：我到底想要什么呢？我孤身一人来到深圳为了什么呢？未来的规划可以变，但是要基于一些东西去规划，这些东西是什么呢？<br>我的思考是这样的<br>我想我的这些东西包括，一是对亲戚，爱人，朋友的心不能变，二是乐观，积极，努力的心态不能变。其他的比如人生规划我觉得没有不变的，跟着自己的心走就行了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;入职前闲得慌，吃完饭去公园跑了一圈，回来睡觉前听了一个关于财富自由的语音，作者对财富自由的定义是这样的：不用为生活必需品而贩卖自己时间的一个状态。我觉得如果是这样定义的话，为什么叫财富自由呢，还不如叫：“生活自由”比较准确可能这是一个深层次的定义吧。如果是我定义的话，从字面
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Android 快速开发（二），封装一个 BottomTabBaseActivity</title>
