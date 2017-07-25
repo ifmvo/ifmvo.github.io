@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ifmvo.cn/2017/05/03/package-bottomtabbaseactivity/</loc>
+    
+    <lastmod>2017-07-25T14:13:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ifmvo.cn/2017/03/16/thinking_in_java/</loc>
     
     <lastmod>2017-07-25T13:59:35.000Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>https://blog.ifmvo.cn/monetising/index.html</loc>
     
     <lastmod>2017-05-05T02:34:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ifmvo.cn/2017/05/03/package-bottomtabbaseactivity/</loc>
-    
-    <lastmod>2017-05-04T09:08:34.000Z</lastmod>
     
   </url>
   
