@@ -11,16 +11,19 @@
     
 
     
-    <meta name="description" content="懒惰使人进步 —— 陈序员">
+    <meta name="description" content="单例造成的内存泄漏当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。
+1234567891011121314public class CommUtil &amp;#123;    private static CommUtil instance;    priva">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Andorid 常见的内存泄露及解决办法">
 <meta property="og:url" content="https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/index.html">
 <meta property="og:site_name" content="陈序员">
-<meta property="og:description" content="懒惰使人进步 —— 陈序员">
-<meta property="og:updated_time" content="2017-05-04T08:42:04.000Z">
+<meta property="og:description" content="单例造成的内存泄漏当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。
+1234567891011121314public class CommUtil &amp;#123;    private static CommUtil instance;    priva">
+<meta property="og:updated_time" content="2017-07-25T13:58:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Andorid 常见的内存泄露及解决办法">
-<meta name="twitter:description" content="懒惰使人进步 —— 陈序员">
+<meta name="twitter:description" content="单例造成的内存泄漏当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。
+1234567891011121314public class CommUtil &amp;#123;    private static CommUtil instance;    priva">
 
     
     <link rel="alternative" href="/atom.xml" title="陈序员" type="application/atom+xml">
@@ -99,8 +102,7 @@
 		
 		</div>
 		
-		<p>懒惰使人进步 —— 陈序员<br><a id="more"></a></p>
-<h2 id="单例造成的内存泄漏"><a href="#单例造成的内存泄漏" class="headerlink" title="单例造成的内存泄漏"></a>单例造成的内存泄漏</h2><p>当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。</p>
+		<h2 id="单例造成的内存泄漏"><a href="#单例造成的内存泄漏" class="headerlink" title="单例造成的内存泄漏"></a>单例造成的内存泄漏</h2><p>当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class CommUtil &#123;</div><div class="line">   <span class="keyword"> private</span><span class="keyword"> static</span> CommUtil instance;</div><div class="line">   <span class="keyword"> private</span> Context context;</div><div class="line">   <span class="keyword"> private</span> CommUtil(Context context)&#123;</div><div class="line">        this.context = context;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   <span class="keyword"> public</span><span class="keyword"> static</span> CommUtil getInstance(Context mcontext)&#123;</div><div class="line">        if(instance == null)&#123;</div><div class="line">           <span class="built_in"> instance </span>=<span class="built_in"> new </span>CommUtil(mcontext);</div><div class="line">        &#125;</div><div class="line">       <span class="built_in"> return </span>instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>解决方案：能使用Application的Context就不要使用Activity的Content，Application的生命周期伴随着整个进程的周期</p>
@@ -256,11 +258,11 @@
 			
 		
 			
-				<li><a href="/tags/译文/" title="译文">译文<sup>1</sup></a></li>
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/译文/" title="译文">译文<sup>1</sup></a></li>
 			
 		
 			

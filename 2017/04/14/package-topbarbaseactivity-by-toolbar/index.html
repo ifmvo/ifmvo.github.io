@@ -11,12 +11,22 @@
     
 
     
-    <meta name="description" content="每当你在感叹，如果有这样一个东西就好了的时候，请注意，其实这是你的机会.  —— 郭霖">
+    <meta name="description" content="效果什么是快速开发嘞，看这个效果
+
+
+然而我只用了这么几行代码：
+MainActivity.java
+1234567891011121314151617181920212223242526public class MainActivity extends TopBarBaseActivity &amp;#123;    @Override    protected int getContentView()">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 快速开发（一），封装一个 TopBarBaseActivity">
 <meta property="og:url" content="https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/index.html">
 <meta property="og:site_name" content="陈序员">
-<meta property="og:description" content="每当你在感叹，如果有这样一个东西就好了的时候，请注意，其实这是你的机会.  —— 郭霖">
+<meta property="og:description" content="效果什么是快速开发嘞，看这个效果
+
+
+然而我只用了这么几行代码：
+MainActivity.java
+1234567891011121314151617181920212223242526public class MainActivity extends TopBarBaseActivity &amp;#123;    @Override    protected int getContentView()">
 <meta property="og:image" content="https://blog.ifmvo.cn/img/toolbar1.png">
 <meta property="og:image" content="https://blog.ifmvo.cn/img/toolbar2.png">
 <meta property="og:image" content="https://blog.ifmvo.cn/img/toolbar3.png">
@@ -25,10 +35,15 @@
 <meta property="og:image" content="https://blog.ifmvo.cn/img/toolbar6.png">
 <meta property="og:image" content="https://blog.ifmvo.cn/img/toolbar7.png">
 <meta property="og:image" content="https://blog.ifmvo.cn/img/blog/huba.png">
-<meta property="og:updated_time" content="2017-05-04T08:44:10.000Z">
+<meta property="og:updated_time" content="2017-07-25T13:59:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 快速开发（一），封装一个 TopBarBaseActivity">
-<meta name="twitter:description" content="每当你在感叹，如果有这样一个东西就好了的时候，请注意，其实这是你的机会.  —— 郭霖">
+<meta name="twitter:description" content="效果什么是快速开发嘞，看这个效果
+
+
+然而我只用了这么几行代码：
+MainActivity.java
+1234567891011121314151617181920212223242526public class MainActivity extends TopBarBaseActivity &amp;#123;    @Override    protected int getContentView()">
 <meta name="twitter:image" content="https://blog.ifmvo.cn/img/toolbar1.png">
 
     
@@ -108,15 +123,14 @@
 		
 		</div>
 		
-		<p>每当你在感叹，如果有这样一个东西就好了的时候，请注意，其实这是你的机会.  —— 郭霖<br><a id="more"></a></p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>什么是快速开发嘞，看这个效果</p>
+		<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>什么是快速开发嘞，看这个效果</p>
 <center><br><img src="/img/toolbar1.png" alt=""><br></center>
 
 <p>然而我只用了这么几行代码：</p>
 <p><strong><em>MainActivity.java</em></strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">TopBarBaseActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">getContentView</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> R.layout.activity_main;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        setTitle(<span class="string">"陈序员"</span>);</div><div class="line"></div><div class="line">        setTopLeftButton(R.drawable.ic_return_white_24dp, <span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">()</span> </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"陈序员点击了左上角按钮！"</span>, Toast.LENGTH_LONG).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        setTopRightButton(<span class="string">"Button"</span>, R.drawable.ic_mine_white_24dp, <span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">()</span> </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"点击了右上角按钮！"</span>, Toast.LENGTH_LONG).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong><em>activity_main.xml 里面什么也没有！</em></strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> </span></div><div class="line"><span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> </div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line"><span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>其实说白了哈，就是我把 TopBar 封装在 TopBarBaseActivity 里面，然后 MainActivity 只需 继承 TopBarBaseActivity 即可。 你想一想，以后每个上面有 TopBar 的界面，只需 让你的 XXActivity extends TopBarBaseActivity，就可以随意的设置你的 TopBar 了，多爽啊！。下面跟着我一步一步的实现我们想要的 TopBarBaseActivity。</p>
 <h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="依赖-appcompat-v7"><a href="#依赖-appcompat-v7" class="headerlink" title="依赖 appcompat-v7"></a>依赖 appcompat-v7</h3><p>新建一个项目，因为 Toolbar 是在 appcompat-v7 包下，所以确保已经依赖 appcompat-v7。如果没有请加上，例如：</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:25.3.0'</span></div></pre></td></tr></table></figure>
@@ -199,7 +213,6 @@
 <p><a href="https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/">https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/</a></p>
 </blockquote>
 <center><br><img src="/img/blog/huba.png" alt=""><br><p><strong>陈序员</strong></p><br><p><a href="https://blog.ifmvo.cn">https://blog.ifmvo.cn</a></p><br></center>
-
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -304,11 +317,11 @@
 			
 		
 			
-				<li><a href="/tags/译文/" title="译文">译文<sup>1</sup></a></li>
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/译文/" title="译文">译文<sup>1</sup></a></li>
 			
 		
 			

@@ -267,17 +267,16 @@
     <link href="https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/"/>
     <id>https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/</id>
     <published>2017-04-14T06:44:28.000Z</published>
-    <updated>2017-05-04T08:44:10.000Z</updated>
+    <updated>2017-07-25T13:59:28.000Z</updated>
     
-    <content type="html"><![CDATA[<p>每当你在感叹，如果有这样一个东西就好了的时候，请注意，其实这是你的机会.  —— 郭霖<br><a id="more"></a></p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>什么是快速开发嘞，看这个效果</p>
+    <content type="html"><![CDATA[<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>什么是快速开发嘞，看这个效果</p>
 <center><br><img src="/img/toolbar1.png" alt=""><br></center>
 
 <p>然而我只用了这么几行代码：</p>
 <p><strong><em>MainActivity.java</em></strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">TopBarBaseActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">getContentView</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> R.layout.activity_main;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        setTitle(<span class="string">"陈序员"</span>);</div><div class="line"></div><div class="line">        setTopLeftButton(R.drawable.ic_return_white_24dp, <span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">()</span> </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"陈序员点击了左上角按钮！"</span>, Toast.LENGTH_LONG).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        setTopRightButton(<span class="string">"Button"</span>, R.drawable.ic_mine_white_24dp, <span class="keyword">new</span> OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">()</span> </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"点击了右上角按钮！"</span>, Toast.LENGTH_LONG).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong><em>activity_main.xml 里面什么也没有！</em></strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> </span></div><div class="line"><span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> </div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line"><span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>其实说白了哈，就是我把 TopBar 封装在 TopBarBaseActivity 里面，然后 MainActivity 只需 继承 TopBarBaseActivity 即可。 你想一想，以后每个上面有 TopBar 的界面，只需 让你的 XXActivity extends TopBarBaseActivity，就可以随意的设置你的 TopBar 了，多爽啊！。下面跟着我一步一步的实现我们想要的 TopBarBaseActivity。</p>
 <h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="依赖-appcompat-v7"><a href="#依赖-appcompat-v7" class="headerlink" title="依赖 appcompat-v7"></a>依赖 appcompat-v7</h3><p>新建一个项目，因为 Toolbar 是在 appcompat-v7 包下，所以确保已经依赖 appcompat-v7。如果没有请加上，例如：</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:25.3.0'</span></div></pre></td></tr></table></figure>
@@ -360,12 +359,12 @@
 <p><a href="https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/">https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/</a></p>
 </blockquote>
 <center><br><img src="/img/blog/huba.png" alt=""><br><p><strong>陈序员</strong></p><br><p><a href="https://blog.ifmvo.cn">https://blog.ifmvo.cn</a></p><br></center>
-
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;每当你在感叹，如果有这样一个东西就好了的时候，请注意，其实这是你的机会.  —— 郭霖&lt;br&gt;
+      &lt;h2 id=&quot;效果&quot;&gt;&lt;a href=&quot;#效果&quot; class=&quot;headerlink&quot; title=&quot;效果&quot;&gt;&lt;/a&gt;效果&lt;/h2&gt;&lt;p&gt;什么是快速开发嘞，看这个效果&lt;/p&gt;
+&lt;center&gt;&lt;br&gt;&lt;img src=&quot;/img/toolbar1.png&quot; alt=&quot;&quot;&gt;&lt;br
     
     </summary>
     
@@ -379,10 +378,9 @@
     <link href="https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/"/>
     <id>https://blog.ifmvo.cn/2017/04/13/avoid-memory-leak-ways/</id>
     <published>2017-04-12T16:00:00.000Z</published>
-    <updated>2017-05-04T08:42:04.000Z</updated>
+    <updated>2017-07-25T13:58:55.000Z</updated>
     
-    <content type="html"><![CDATA[<p>懒惰使人进步 —— 陈序员<br><a id="more"></a></p>
-<h2 id="单例造成的内存泄漏"><a href="#单例造成的内存泄漏" class="headerlink" title="单例造成的内存泄漏"></a>单例造成的内存泄漏</h2><p>当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。</p>
+    <content type="html"><![CDATA[<h2 id="单例造成的内存泄漏"><a href="#单例造成的内存泄漏" class="headerlink" title="单例造成的内存泄漏"></a>单例造成的内存泄漏</h2><p>当调用 getInstance 时，如果传入的 context 是 Activity 的 context。只要这个单例没有被释放，那么这个 Activity 也不会被释放一直到进程退出才会释放。</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class CommUtil &#123;</div><div class="line">   <span class="keyword"> private</span><span class="keyword"> static</span> CommUtil instance;</div><div class="line">   <span class="keyword"> private</span> Context context;</div><div class="line">   <span class="keyword"> private</span> CommUtil(Context context)&#123;</div><div class="line">        this.context = context;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   <span class="keyword"> public</span><span class="keyword"> static</span> CommUtil getInstance(Context mcontext)&#123;</div><div class="line">        if(instance == null)&#123;</div><div class="line">           <span class="built_in"> instance </span>=<span class="built_in"> new </span>CommUtil(mcontext);</div><div class="line">        &#125;</div><div class="line">       <span class="built_in"> return </span>instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>解决方案：能使用Application的Context就不要使用Activity的Content，Application的生命周期伴随着整个进程的周期</p>
@@ -438,7 +436,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;懒惰使人进步 —— 陈序员&lt;br&gt;
+      &lt;h2 id=&quot;单例造成的内存泄漏&quot;&gt;&lt;a href=&quot;#单例造成的内存泄漏&quot; class=&quot;headerlink&quot; title=&quot;单例造成的内存泄漏&quot;&gt;&lt;/a&gt;单例造成的内存泄漏&lt;/h2&gt;&lt;p&gt;当调用 getInstance 时，如果传入的 context 是 Activity
     
     </summary>
     
@@ -476,10 +474,9 @@
     <link href="https://blog.ifmvo.cn/2017/03/16/ice_network/"/>
     <id>https://blog.ifmvo.cn/2017/03/16/ice_network/</id>
     <published>2017-03-15T16:00:00.000Z</published>
-    <updated>2017-05-04T08:44:23.000Z</updated>
+    <updated>2017-07-25T13:59:18.000Z</updated>
     
-    <content type="html"><![CDATA[<p>上联：这风，真猛，刮丢了，咋整。<br>下联：活该，倒霉，太瘦了，赖谁。<br><a id="more"></a></p>
-<p>由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。</p>
+    <content type="html"><![CDATA[<p>由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。</p>
 <p>其实我之前也没有听说个 ICE 这个东西，Google 后发现 ICE 在 Android 方面的资料极少，有的话也是一个简单的 Demo，而且官方 Github 上面提供的 Demo 也只是告诉你如何使用，并没有为你提供什么封装好的网络请求库，所以完全由自己从零开始一步一步进行封装，这对于一个刚刚入门的我来说着实不易。</p>
 <hr>
 <h2 id="ICE为何物？"><a href="#ICE为何物？" class="headerlink" title="ICE为何物？"></a>ICE为何物？</h2><p><code>ZeroC ICE</code> 是 <code>ZeroC</code> 公司的 <code>ICE（Internet Communications Engine）</code>中间件平台。对于客户端和服务端程序的开发提供了很大的便利。</p>
@@ -501,7 +498,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;上联：这风，真猛，刮丢了，咋整。&lt;br&gt;下联：活该，倒霉，太瘦了，赖谁。&lt;br&gt;
+      &lt;p&gt;由于公司启动一个新项目，使用 ICE 作为项目系统的中间件，包括后台、移动端iOS、Android 还有 Web 端都使用 ICE，而 Android 端的网络请求部分就是使用 ICE 来实现。&lt;/p&gt;
+&lt;p&gt;其实我之前也没有听说个 ICE 这个东西，Google 后发现 
     
     </summary>
     
@@ -515,10 +513,9 @@
     <link href="https://blog.ifmvo.cn/2017/03/16/thinking_in_java/"/>
     <id>https://blog.ifmvo.cn/2017/03/16/thinking_in_java/</id>
     <published>2017-03-15T16:00:00.000Z</published>
-    <updated>2017-05-04T08:43:30.000Z</updated>
+    <updated>2017-07-25T13:59:35.000Z</updated>
     
-    <content type="html"><![CDATA[<p>只要相信，就一定会实现。—— 陈序员<br><a id="more"></a></p>
-<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
+    <content type="html"><![CDATA[<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
 <li><p>“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的 CPU 时间片。但由于轮换速度非常快,使得所有程序好象是在“同时”运行一样。“线程”<br>是进程内部单一的一个顺序控制流。因此,一个进程可能容纳了多个同时执行的线程。</p>
 </li>
 <li><p>事实上,多线程最主要的一个用途就是构建一个“反应灵敏”的用户界面。</p>
@@ -594,7 +591,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;只要相信，就一定会实现。—— 陈序员&lt;br&gt;
+      &lt;h1 id=&quot;多线程&quot;&gt;&lt;a href=&quot;#多线程&quot; class=&quot;headerlink&quot; title=&quot;多线程&quot;&gt;&lt;/a&gt;多线程&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“多任务”操作系统能同时运行多个进程(程序)——但实际是由于 CPU 分时机制的作用,使每个进程都能循环获得自己的
     
     </summary>
     
@@ -608,10 +606,9 @@
     <link href="https://blog.ifmvo.cn/2016/12/25/git/"/>
     <id>https://blog.ifmvo.cn/2016/12/25/git/</id>
     <published>2016-12-24T16:00:00.000Z</published>
-    <updated>2017-07-25T12:54:24.000Z</updated>
+    <updated>2017-07-25T13:59:04.000Z</updated>
     
-    <content type="html"><![CDATA[<p>今天和几个同学在路边发现一个“五行理发店”，好奇就走了进去。进去也没发现什么不同，一直在想为什么叫五行，后来发现理发师手中的剪刀不就是金吗，木梳子不就是木吗，洗头不就是水吗，吹风机的热风不就是火吗，可是土，我一直想不明白，直到理完后这帮同学都TM说我：这发型好土啊！！！<br><a id="more"></a></p>
-<table>
+    <content type="html"><![CDATA[<table>
 <thead>
 <tr>
 <th style="text-align:left">命令</th>
@@ -723,7 +720,16 @@
     
     <summary type="html">
     
-      &lt;p&gt;今天和几个同学在路边发现一个“五行理发店”，好奇就走了进去。进去也没发现什么不同，一直在想为什么叫五行，后来发现理发师手中的剪刀不就是金吗，木梳子不就是木吗，洗头不就是水吗，吹风机的热风不就是火吗，可是土，我一直想不明白，直到理完后这帮同学都TM说我：这发型好土啊！！！&lt;br&gt;
+      &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;命令&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-a
     
     </summary>
     
