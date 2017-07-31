@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ifmvo.cn/2017/07/30/kotlin-overview/</loc>
+    
+    <lastmod>2017-07-31T13:57:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ifmvo.cn/2017/07/31/kotlin-import-flow/</loc>
     
     <lastmod>2017-07-31T13:55:04.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://blog.ifmvo.cn/2017/07/30/kotlin-basic-types/</loc>
     
     <lastmod>2017-07-31T13:48:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ifmvo.cn/2017/07/30/kotlin-overview/</loc>
-    
-    <lastmod>2017-07-30T03:48:20.000Z</lastmod>
     
   </url>
   

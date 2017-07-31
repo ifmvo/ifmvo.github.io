@@ -141,16 +141,16 @@
     <link href="https://blog.ifmvo.cn/2017/07/30/kotlin-overview/"/>
     <id>https://blog.ifmvo.cn/2017/07/30/kotlin-overview/</id>
     <published>2017-07-30T03:35:31.000Z</published>
-    <updated>2017-07-30T03:48:20.000Z</updated>
+    <updated>2017-07-31T13:57:05.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="kotlin的优势"><a href="#kotlin的优势" class="headerlink" title="kotlin的优势"></a>kotlin的优势</h1><h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>Kotlin 与 JDK 6 完全兼容，在 Android 版本较低的设备也兼容，AndroidStudio 完美支持。</p>
-<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>kotlin 和 Java 有非常相似的字节码结构，所以性能类似，使用 lambda 表达式时，要比 Java 性能好。</p>
-<h2 id="占用"><a href="#占用" class="headerlink" title="占用"></a>占用</h2><p>Kotlin 运行时只增加几百个方法以及 .apk 文件不到 100K 大小</p>
+    <content type="html"><![CDATA[<h2 id="kotlin的优势"><a href="#kotlin的优势" class="headerlink" title="kotlin的优势"></a>kotlin的优势</h2><h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h3><p>Kotlin 与 JDK 6 完全兼容，在 Android 版本较低的设备也兼容，AndroidStudio 完美支持。</p>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>kotlin 和 Java 有非常相似的字节码结构，所以性能类似，使用 lambda 表达式时，要比 Java 性能好。</p>
+<h3 id="占用"><a href="#占用" class="headerlink" title="占用"></a>占用</h3><p>Kotlin 运行时只增加几百个方法以及 .apk 文件不到 100K 大小</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;kotlin的优势&quot;&gt;&lt;a href=&quot;#kotlin的优势&quot; class=&quot;headerlink&quot; title=&quot;kotlin的优势&quot;&gt;&lt;/a&gt;kotlin的优势&lt;/h1&gt;&lt;h2 id=&quot;兼容性&quot;&gt;&lt;a href=&quot;#兼容性&quot; class=&quot;headerlink
+      &lt;h2 id=&quot;kotlin的优势&quot;&gt;&lt;a href=&quot;#kotlin的优势&quot; class=&quot;headerlink&quot; title=&quot;kotlin的优势&quot;&gt;&lt;/a&gt;kotlin的优势&lt;/h2&gt;&lt;h3 id=&quot;兼容性&quot;&gt;&lt;a href=&quot;#兼容性&quot; class=&quot;headerlink
     
     </summary>
     
