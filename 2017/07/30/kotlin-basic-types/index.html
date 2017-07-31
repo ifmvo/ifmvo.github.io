@@ -1,0 +1,660 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>kotlin 基本类型 | 陈序员</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="陈铭卓">
+    
+
+    
+    <meta name="description" content="在 Kotlin 中，所有东西都是对象。  
+数字数字没有隐式拓宽转换（如 Java 中 int 可以隐式转换为long——译者注)，另外有些情况的字面值略有不同。
+
+
+
+Type
+Bit width
+
+
+
+
+Double
+64
+
+
+Float
+32
+
+
+Long
+64
+
+
+Int
+32
+
+
+Short
+16
+
+
+Byte
+8
+
+
+
+字面常量数值常量字面值有以下几种:
+十进制: 123Long 类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kotlin 基本类型">
+<meta property="og:url" content="https://blog.ifmvo.cn/2017/07/30/kotlin-basic-types/index.html">
+<meta property="og:site_name" content="陈序员">
+<meta property="og:description" content="在 Kotlin 中，所有东西都是对象。  
+数字数字没有隐式拓宽转换（如 Java 中 int 可以隐式转换为long——译者注)，另外有些情况的字面值略有不同。
+
+
+
+Type
+Bit width
+
+
+
+
+Double
+64
+
+
+Float
+32
+
+
+Long
+64
+
+
+Int
+32
+
+
+Short
+16
+
+
+Byte
+8
+
+
+
+字面常量数值常量字面值有以下几种:
+十进制: 123Long 类">
+<meta property="og:updated_time" content="2017-07-31T13:48:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kotlin 基本类型">
+<meta name="twitter:description" content="在 Kotlin 中，所有东西都是对象。  
+数字数字没有隐式拓宽转换（如 Java 中 int 可以隐式转换为long——译者注)，另外有些情况的字面值略有不同。
+
+
+
+Type
+Bit width
+
+
+
+
+Double
+64
+
+
+Float
+32
+
+
+Long
+64
+
+
+Int
+32
+
+
+Short
+16
+
+
+Byte
+8
+
+
+
+字面常量数值常量字面值有以下几种:
+十进制: 123Long 类">
+
+    
+    <link rel="alternative" href="/atom.xml" title="陈序员" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="陈序员">陈序员</a></h1>
+				<h2 class="blog-motto">懒惰使人进步</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/resource">相见恨晚</a></li>
+					
+						<li><a href="/resume">简历</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="https://blog.ifmvo.cn" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= bdcsMain ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/07/30/kotlin-basic-types/" title="kotlin 基本类型" itemprop="url">kotlin 基本类型</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="陈铭卓" target="_blank" itemprop="author">陈铭卓</a>
+		
+  <p class="article-time">
+    <time datetime="2017-07-30T03:49:24.000Z" itemprop="datePublished"> 发表于 2017-07-30</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数字"><span class="toc-number">1.</span> <span class="toc-text">数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字面常量"><span class="toc-number">2.</span> <span class="toc-text">字面常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字字面值中的下划线（自-1-1-起）"><span class="toc-number">3.</span> <span class="toc-text">数字字面值中的下划线（自 1.1 起）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表示方式"><span class="toc-number">4.</span> <span class="toc-text">表示方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显式转换"><span class="toc-number">5.</span> <span class="toc-text">显式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符"><span class="toc-number">6.</span> <span class="toc-text">字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-number">7.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串"><span class="toc-number">8.</span> <span class="toc-text">字符串</span></a></li></ol>
+		
+		</div>
+		
+		<p>在 Kotlin 中，所有东西都是对象。  </p>
+<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><p>数字没有隐式拓宽转换（如 Java 中 int 可以隐式转换为long——译者注)，另外有些情况的字面值略有不同。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Type</th>
+<th style="text-align:center">Bit width</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Double</td>
+<td style="text-align:center">64</td>
+</tr>
+<tr>
+<td style="text-align:left">Float</td>
+<td style="text-align:center">32</td>
+</tr>
+<tr>
+<td style="text-align:left">Long</td>
+<td style="text-align:center">64</td>
+</tr>
+<tr>
+<td style="text-align:left">Int</td>
+<td style="text-align:center">32</td>
+</tr>
+<tr>
+<td style="text-align:left">Short</td>
+<td style="text-align:center">16</td>
+</tr>
+<tr>
+<td style="text-align:left">Byte</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字面常量"><a href="#字面常量" class="headerlink" title="字面常量"></a>字面常量</h2><p>数值常量字面值有以下几种:</p>
+<p>十进制: 123<br>Long 类型用大写 L 标记: 123L<br>十六进制: 0x0F<br>二进制: 0b00001011</p>
+<blockquote>
+<p>注意: 不支持八进制</p>
+</blockquote>
+<p>Kotlin 同样支持浮点数的常规表示方法:</p>
+<p>默认 double：123.5、123.5e10<br>Float 用 f 或者 F 标记: 123.5f</p>
+<h2 id="数字字面值中的下划线（自-1-1-起）"><a href="#数字字面值中的下划线（自-1-1-起）" class="headerlink" title="数字字面值中的下划线（自 1.1 起）"></a>数字字面值中的下划线（自 1.1 起）</h2><p>你可以使用下划线使数字常量更易读：</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> oneMillion = <span class="number">1_000_000</span></div><div class="line"><span class="keyword">val</span> creditCardNumber = <span class="number">1234_5678_9012_3456L</span></div><div class="line"><span class="keyword">val</span> socialSecurityNumber = <span class="number">999_99_9999L</span></div><div class="line"><span class="keyword">val</span> hexBytes = <span class="number">0xFF_EC_DE_5E</span></div><div class="line"><span class="keyword">val</span> <span class="built_in">bytes</span> = <span class="number">0b11010010_01101001_10010100_10010010</span></div></pre></td></tr></table></figure>
+<h2 id="表示方式"><a href="#表示方式" class="headerlink" title="表示方式"></a>表示方式</h2><p>在 Java 平台数字是物理存储为 JVM 的原生类型，除非我们需要一个可空的引用（如 Int?）或泛型。 后者情况下会把数字装箱。</p>
+<p>注意数字装箱不必保留同一性:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> a: <span class="built_in">Int</span> = <span class="number">10000</span></div><div class="line">print(a === a) <span class="comment">// 输出“true”</span></div><div class="line"><span class="keyword">val</span> boxedA: <span class="built_in">Int</span>? = a</div><div class="line"><span class="keyword">val</span> anotherBoxedA: <span class="built_in">Int</span>? = a</div><div class="line">print(boxedA === anotherBoxedA) <span class="comment">// ！！！输出“false”！！！</span></div></pre></td></tr></table></figure>
+<p>对于数据相等的判断在kotlin中有===和==，它们的区别是什么呢？==判断是两个数据的值是否相等；但是===则判定的两个数据是否是同一个对象。也就是说===的判断条件更加苛刻一些。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">val a: <span class="keyword">Int</span> = <span class="number">10000</span></div><div class="line"><span class="keyword">print</span>(a == a) <span class="comment">// 输出“true”</span></div><div class="line">val boxedA: <span class="keyword">Int</span>? = a</div><div class="line">val anotherBoxedA: <span class="keyword">Int</span>? = a</div><div class="line"><span class="keyword">print</span>(boxedA == anotherBoxedA) <span class="comment">// 输出“true”</span></div><div class="line"><span class="keyword">print</span>(boxedA === anotherBoxedA) <span class="comment">// 输出“false”</span></div></pre></td></tr></table></figure>
+<h2 id="显式转换"><a href="#显式转换" class="headerlink" title="显式转换"></a>显式转换</h2><p>较小类型并不是较大类型的子类型，较小的类型不能隐式转换为较大的类型</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val <span class="selector-tag">b</span>: Byte = <span class="number">1</span> <span class="comment">// OK, 字面值是静态检测的</span></div><div class="line">val <span class="selector-tag">i</span>: Int = <span class="selector-tag">b</span> <span class="comment">// 错误</span></div></pre></td></tr></table></figure>
+<p>我们可以显式转换来拓宽数字</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val <span class="selector-tag">i</span>: Int = <span class="selector-tag">b</span>.toInt() <span class="comment">// OK: 显式拓宽</span></div></pre></td></tr></table></figure>
+<p>缺乏隐式类型转换并不显著，因为类型会从上下文推断出来，而算术运算会有重载做适当转换，例如：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val l = <span class="number">1</span>L + <span class="number">3</span> <span class="comment">// Long + Int =&gt; Long</span></div></pre></td></tr></table></figure>
+<h2 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h2><p>字符用 Char 类型表示。它们不能直接当作数字<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">check</span><span class="params">(c: <span class="type">Char</span>)</span></span> &#123;</div><div class="line">    <span class="keyword">if</span> (c == <span class="number">1</span>) &#123; <span class="comment">// 错误：类型不兼容</span></div><div class="line">        <span class="comment">// ……</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>字符字面值用单引号括起来: ‘1’。 特殊字符可以用反斜杠转义。 支持这几个转义序列：\t、 \b、\n、\r、\’、\”、\ 和 \$。 编码其他字符要用 Unicode 转义序列语法：’\uFF00’。</p>
+<p>我们可以显式把字符转换为 Int 数字：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">decimalDigitValue</span><span class="params">(c: <span class="type">Char</span>)</span></span>: <span class="built_in">Int</span> &#123;</div><div class="line">    <span class="keyword">if</span> (c !<span class="keyword">in</span> <span class="string">'0'</span>..<span class="string">'9'</span>)</div><div class="line">        <span class="keyword">throw</span> IllegalArgumentException(<span class="string">"Out of range"</span>)</div><div class="line">    <span class="keyword">return</span> c.toInt() - <span class="string">'0'</span>.toInt() <span class="comment">// 显式转换为数字</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当需要可空引用时，像数字、字符会被装箱。装箱操作不会保留同一性</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 创建一个 <span class="keyword">Array</span>&lt;<span class="keyword">String</span>&gt; 初始化为 [<span class="string">"0"</span>, <span class="string">"1"</span>, <span class="string">"4"</span>, <span class="string">"9"</span>, <span class="string">"16"</span>]</div><div class="line">val asc = <span class="keyword">Array</span>(<span class="number">5</span>, &#123; i -&gt; (i * i).toString() &#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: 与 Java 不同的是，Kotlin 中数组是不型变的（invariant）。这意味着 Kotlin 不让我们把 Array<string> 赋值给 Array<any>，以防止可能的运行时失败（但是你可以使用 Array<out any="">, 参见类型投影）。</out></any></string></p>
+</blockquote>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>字符串的元素——字符可以使用索引运算符访问: s[i]</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">c</span> <span class="keyword">in</span> str) &#123;</div><div class="line">    <span class="built_in">println</span>(<span class="built_in">c</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>原生字符串 使用三个引号（”””）分界符括起来，内部没有转义并且可以包含换行和任何其他字符:</p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">val</span> text = <span class="string">"""</span></div><div class="line">    for (c in "foo")</div><div class="line">        print(c)</div><div class="line">"""</div></pre></td></tr></table></figure>
+<p>你可以通过 trimMargin() 函数去除前导空格：</p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">val</span> text = <span class="string">"""</span></div><div class="line">    |Tell me and I forget.</div><div class="line">    |Teach me and I remember.</div><div class="line">    |Involve me and I learn.</div><div class="line">    |(Benjamin Franklin)</div><div class="line">    """.trimMargin()</div></pre></td></tr></table></figure>
+<p>默认 | 用作边界前缀，但你可以选择其他字符并作为参数传入，比如 trimMargin(“&gt;”)。</p>
+<p>原生字符串和转义字符串内部都支持模板。 如果你需要在原生字符串中表示字面值 $ 字符（它不支持反斜杠转义），你可以用下列语法：</p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">val</span> price = <span class="string">"""</span></div><div class="line">	$&#123;'$'&#125;9.99</div><div class="line">	"""</div></pre></td></tr></table></figure>
+<blockquote>
+<p>但是经过代码运行和下面结果一样都是 $9.99</p>
+</blockquote>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">val</span> price  = <span class="string">"""</span></div><div class="line">    $9.99</div><div class="line">    """</div></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/kotlin/">kotlin</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://blog.ifmvo.cn/2017/07/30/kotlin-basic-types/" data-title="kotlin 基本类型 | 陈序员" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/07/31/kotlin-import-flow/" title="kotlin 包和控制流">
+  <strong>上一篇：</strong><br/>
+  <span>
+  kotlin 包和控制流</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/07/30/kotlin-overview/"  title="kotlin 概述">
+ <strong>下一篇：</strong><br/> 
+ <span>kotlin 概述
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/07/30/kotlin-basic-types/" data-title="kotlin 基本类型" data-url="https://blog.ifmvo.cn/2017/07/30/kotlin-basic-types/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数字"><span class="toc-number">1.</span> <span class="toc-text">数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字面常量"><span class="toc-number">2.</span> <span class="toc-text">字面常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数字字面值中的下划线（自-1-1-起）"><span class="toc-number">3.</span> <span class="toc-text">数字字面值中的下划线（自 1.1 起）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表示方式"><span class="toc-number">4.</span> <span class="toc-text">表示方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显式转换"><span class="toc-number">5.</span> <span class="toc-text">显式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符"><span class="toc-number">6.</span> <span class="toc-text">字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-number">7.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串"><span class="toc-number">8.</span> <span class="toc-text">字符串</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="tagslist">
+	<p class="asidetitle">广告</p>
+</div>
+<div>
+	<img style="padding-top: 10px; width: 100%" src="/img/blog/lydeuv.png"></img>
+</div>
+<div>
+<p style="width: 100%; text-align: center"><strong>《旅得水》</strong></p>
+</div>
+<div>
+<p style="width: 100%; text-align: center">旅行天下，如鱼得水。</p>
+</div>
+
+
+<div>
+<p style="padding-top: 20px; width: 100%; text-align: center; font-size: 20px;"><a style="color: #FF0000;" href = "/monetising/" target="_blank">点击购买广告位</a></p>
+</div>
+
+
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/kotlin/" title="kotlin">kotlin<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/求职/" title="求职">求职<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/https://github.com/ifmvo" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:Matthew_Chen_1994@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="陈铭卓">陈铭卓</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"ifmvo"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-97412600-1', 'blog.ifmvo.cn');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

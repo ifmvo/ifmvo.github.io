@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.ifmvo.cn/2017/07/31/kotlin-import-flow/</loc>
+    
+    <lastmod>2017-07-31T13:55:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/07/30/kotlin-basic-types/</loc>
+    
+    <lastmod>2017-07-31T13:48:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/07/30/kotlin-overview/</loc>
+    
+    <lastmod>2017-07-30T03:48:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/</loc>
+    
+    <lastmod>2017-07-25T14:14:47.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.ifmvo.cn/2017/05/03/package-bottomtabbaseactivity/</loc>
     
     <lastmod>2017-07-25T14:13:36.000Z</lastmod>
@@ -12,13 +40,6 @@
     <loc>https://blog.ifmvo.cn/2017/03/16/thinking_in_java/</loc>
     
     <lastmod>2017-07-25T13:59:35.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.ifmvo.cn/2017/04/14/package-topbarbaseactivity-by-toolbar/</loc>
-    
-    <lastmod>2017-07-25T13:59:28.000Z</lastmod>
     
   </url>
   

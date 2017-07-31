@@ -4,6 +4,131 @@
   
     
     <entry>
+      <title><![CDATA[kotlin 包和控制流]]></title>
+      <url>https://blog.ifmvo.cn/2017/07/31/kotlin-import-flow/</url>
+      <content type="html"><![CDATA[<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>如果出现名字冲突，可以使用 as 关键字在本地重命名冲突项来消歧义：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import foo<span class="selector-class">.Bar</span> <span class="comment">// Bar 可访问</span></div><div class="line">import bar<span class="selector-class">.Bar</span> as bBar <span class="comment">// bBar 代表“bar.Bar”</span></div></pre></td></tr></table></figure></p>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="If表达式"><a href="#If表达式" class="headerlink" title="If表达式"></a>If表达式</h3><p>在 Kotlin 中， if 是一个表达式，即它会返回一个值。 因此就不需要三元运算符（条件 ? 然<br>后 : 否则），因为普通的 if 就能胜任这个角色。<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 传统用法</span></div><div class="line"><span class="built_in">var</span> <span class="keyword">max</span> = a</div><div class="line"><span class="keyword">if</span> (a &lt; b) <span class="keyword">max</span> = b</div><div class="line"><span class="comment">// With else</span></div><div class="line"><span class="built_in">var</span> <span class="keyword">max</span>: Int</div><div class="line"><span class="keyword">if</span> (a &gt; b) &#123;</div><div class="line"><span class="keyword">max</span> = a</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="keyword">max</span> = b</div><div class="line">&#125;</div><div class="line"><span class="comment">// 作为表达式</span></div><div class="line">*** val <span class="keyword">max</span> = <span class="keyword">if</span> (a &gt; b) a <span class="keyword">else</span> b ***</div></pre></td></tr></table></figure></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> kotlin </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[kotlin 基本类型]]></title>
+      <url>https://blog.ifmvo.cn/2017/07/30/kotlin-basic-types/</url>
+      <content type="html"><![CDATA[<p>在 Kotlin 中，所有东西都是对象。  </p>
+<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><p>数字没有隐式拓宽转换（如 Java 中 int 可以隐式转换为long——译者注)，另外有些情况的字面值略有不同。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Type</th>
+<th style="text-align:center">Bit width</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Double</td>
+<td style="text-align:center">64</td>
+</tr>
+<tr>
+<td style="text-align:left">Float</td>
+<td style="text-align:center">32</td>
+</tr>
+<tr>
+<td style="text-align:left">Long</td>
+<td style="text-align:center">64</td>
+</tr>
+<tr>
+<td style="text-align:left">Int</td>
+<td style="text-align:center">32</td>
+</tr>
+<tr>
+<td style="text-align:left">Short</td>
+<td style="text-align:center">16</td>
+</tr>
+<tr>
+<td style="text-align:left">Byte</td>
+<td style="text-align:center">8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字面常量"><a href="#字面常量" class="headerlink" title="字面常量"></a>字面常量</h2><p>数值常量字面值有以下几种:</p>
+<p>十进制: 123<br>Long 类型用大写 L 标记: 123L<br>十六进制: 0x0F<br>二进制: 0b00001011</p>
+<blockquote>
+<p>注意: 不支持八进制</p>
+</blockquote>
+<p>Kotlin 同样支持浮点数的常规表示方法:</p>
+<p>默认 double：123.5、123.5e10<br>Float 用 f 或者 F 标记: 123.5f</p>
+<h2 id="数字字面值中的下划线（自-1-1-起）"><a href="#数字字面值中的下划线（自-1-1-起）" class="headerlink" title="数字字面值中的下划线（自 1.1 起）"></a>数字字面值中的下划线（自 1.1 起）</h2><p>你可以使用下划线使数字常量更易读：</p>
+<figure class="highlight ocaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> oneMillion = <span class="number">1_000_000</span></div><div class="line"><span class="keyword">val</span> creditCardNumber = <span class="number">1234_5678_9012_3456L</span></div><div class="line"><span class="keyword">val</span> socialSecurityNumber = <span class="number">999_99_9999L</span></div><div class="line"><span class="keyword">val</span> hexBytes = <span class="number">0xFF_EC_DE_5E</span></div><div class="line"><span class="keyword">val</span> <span class="built_in">bytes</span> = <span class="number">0b11010010_01101001_10010100_10010010</span></div></pre></td></tr></table></figure>
+<h2 id="表示方式"><a href="#表示方式" class="headerlink" title="表示方式"></a>表示方式</h2><p>在 Java 平台数字是物理存储为 JVM 的原生类型，除非我们需要一个可空的引用（如 Int?）或泛型。 后者情况下会把数字装箱。</p>
+<p>注意数字装箱不必保留同一性:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> a: <span class="built_in">Int</span> = <span class="number">10000</span></div><div class="line">print(a === a) <span class="comment">// 输出“true”</span></div><div class="line"><span class="keyword">val</span> boxedA: <span class="built_in">Int</span>? = a</div><div class="line"><span class="keyword">val</span> anotherBoxedA: <span class="built_in">Int</span>? = a</div><div class="line">print(boxedA === anotherBoxedA) <span class="comment">// ！！！输出“false”！！！</span></div></pre></td></tr></table></figure>
+<p>对于数据相等的判断在kotlin中有===和==，它们的区别是什么呢？==判断是两个数据的值是否相等；但是===则判定的两个数据是否是同一个对象。也就是说===的判断条件更加苛刻一些。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">val a: <span class="keyword">Int</span> = <span class="number">10000</span></div><div class="line"><span class="keyword">print</span>(a == a) <span class="comment">// 输出“true”</span></div><div class="line">val boxedA: <span class="keyword">Int</span>? = a</div><div class="line">val anotherBoxedA: <span class="keyword">Int</span>? = a</div><div class="line"><span class="keyword">print</span>(boxedA == anotherBoxedA) <span class="comment">// 输出“true”</span></div><div class="line"><span class="keyword">print</span>(boxedA === anotherBoxedA) <span class="comment">// 输出“false”</span></div></pre></td></tr></table></figure>
+<h2 id="显式转换"><a href="#显式转换" class="headerlink" title="显式转换"></a>显式转换</h2><p>较小类型并不是较大类型的子类型，较小的类型不能隐式转换为较大的类型</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val <span class="selector-tag">b</span>: Byte = <span class="number">1</span> <span class="comment">// OK, 字面值是静态检测的</span></div><div class="line">val <span class="selector-tag">i</span>: Int = <span class="selector-tag">b</span> <span class="comment">// 错误</span></div></pre></td></tr></table></figure>
+<p>我们可以显式转换来拓宽数字</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val <span class="selector-tag">i</span>: Int = <span class="selector-tag">b</span>.toInt() <span class="comment">// OK: 显式拓宽</span></div></pre></td></tr></table></figure>
+<p>缺乏隐式类型转换并不显著，因为类型会从上下文推断出来，而算术运算会有重载做适当转换，例如：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val l = <span class="number">1</span>L + <span class="number">3</span> <span class="comment">// Long + Int =&gt; Long</span></div></pre></td></tr></table></figure>
+<h2 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h2><p>字符用 Char 类型表示。它们不能直接当作数字<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">check</span><span class="params">(c: <span class="type">Char</span>)</span></span> &#123;</div><div class="line">    <span class="keyword">if</span> (c == <span class="number">1</span>) &#123; <span class="comment">// 错误：类型不兼容</span></div><div class="line">        <span class="comment">// ……</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>字符字面值用单引号括起来: ‘1’。 特殊字符可以用反斜杠转义。 支持这几个转义序列：\t、 \b、\n、\r、\’、\”、\ 和 \$。 编码其他字符要用 Unicode 转义序列语法：’\uFF00’。</p>
+<p>我们可以显式把字符转换为 Int 数字：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">decimalDigitValue</span><span class="params">(c: <span class="type">Char</span>)</span></span>: <span class="built_in">Int</span> &#123;</div><div class="line">    <span class="keyword">if</span> (c !<span class="keyword">in</span> <span class="string">'0'</span>..<span class="string">'9'</span>)</div><div class="line">        <span class="keyword">throw</span> IllegalArgumentException(<span class="string">"Out of range"</span>)</div><div class="line">    <span class="keyword">return</span> c.toInt() - <span class="string">'0'</span>.toInt() <span class="comment">// 显式转换为数字</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当需要可空引用时，像数字、字符会被装箱。装箱操作不会保留同一性</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 创建一个 <span class="keyword">Array</span>&lt;<span class="keyword">String</span>&gt; 初始化为 [<span class="string">"0"</span>, <span class="string">"1"</span>, <span class="string">"4"</span>, <span class="string">"9"</span>, <span class="string">"16"</span>]</div><div class="line">val asc = <span class="keyword">Array</span>(<span class="number">5</span>, &#123; i -&gt; (i * i).toString() &#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: 与 Java 不同的是，Kotlin 中数组是不型变的（invariant）。这意味着 Kotlin 不让我们把 Array<string> 赋值给 Array<any>，以防止可能的运行时失败（但是你可以使用 Array<out any="">, 参见类型投影）。</out></any></string></p>
+</blockquote>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>字符串的元素——字符可以使用索引运算符访问: s[i]</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">c</span> <span class="keyword">in</span> str) &#123;</div><div class="line">    <span class="built_in">println</span>(<span class="built_in">c</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>原生字符串 使用三个引号（”””）分界符括起来，内部没有转义并且可以包含换行和任何其他字符:</p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">val</span> text = <span class="string">"""</span></div><div class="line">    for (c in "foo")</div><div class="line">        print(c)</div><div class="line">"""</div></pre></td></tr></table></figure>
+<p>你可以通过 trimMargin() 函数去除前导空格：</p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">val</span> text = <span class="string">"""</span></div><div class="line">    |Tell me and I forget.</div><div class="line">    |Teach me and I remember.</div><div class="line">    |Involve me and I learn.</div><div class="line">    |(Benjamin Franklin)</div><div class="line">    """.trimMargin()</div></pre></td></tr></table></figure>
+<p>默认 | 用作边界前缀，但你可以选择其他字符并作为参数传入，比如 trimMargin(“&gt;”)。</p>
+<p>原生字符串和转义字符串内部都支持模板。 如果你需要在原生字符串中表示字面值 $ 字符（它不支持反斜杠转义），你可以用下列语法：</p>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">val</span> price = <span class="string">"""</span></div><div class="line">	$&#123;'$'&#125;9.99</div><div class="line">	"""</div></pre></td></tr></table></figure>
+<blockquote>
+<p>但是经过代码运行和下面结果一样都是 $9.99</p>
+</blockquote>
+<figure class="highlight pony"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">val</span> price  = <span class="string">"""</span></div><div class="line">    $9.99</div><div class="line">    """</div></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> kotlin </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[kotlin 概述]]></title>
+      <url>https://blog.ifmvo.cn/2017/07/30/kotlin-overview/</url>
+      <content type="html"><![CDATA[<h1 id="kotlin的优势"><a href="#kotlin的优势" class="headerlink" title="kotlin的优势"></a>kotlin的优势</h1><h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>Kotlin 与 JDK 6 完全兼容，在 Android 版本较低的设备也兼容，AndroidStudio 完美支持。</p>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>kotlin 和 Java 有非常相似的字节码结构，所以性能类似，使用 lambda 表达式时，要比 Java 性能好。</p>
+<h2 id="占用"><a href="#占用" class="headerlink" title="占用"></a>占用</h2><p>Kotlin 运行时只增加几百个方法以及 .apk 文件不到 100K 大小</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> kotlin </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[《找工作之错过校招的应届毕业生》大剧终]]></title>
       <url>https://blog.ifmvo.cn/2017/07/25/first-job/</url>
       <content type="html"><![CDATA[<p>是时候总结一下为期26天的找工作经历了。</p>
