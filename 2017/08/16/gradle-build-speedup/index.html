@@ -4,26 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>相见恨晚 | 陈序员</title>
+    <title>Android Gradle 加速编译 | 陈序员</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="陈铭卓">
     
 
     
-    <meta name="description" content="不是广告，是我推荐的好网站！
-优达学城掘金匠心巨作谷歌开发者中文博客jakewharton 的 blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相见恨晚">
-<meta property="og:url" content="https://blog.ifmvo.cn/resource/index.html">
+    <meta name="description" content="优化前 rebuild project 2m 10s
+
+1. 项目根目录下的 gradle.properties 中添加1234org.gradle.daemon=trueorg.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8org.gradle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Gradle 加速编译">
+<meta property="og:url" content="https://blog.ifmvo.cn/2017/08/16/gradle-build-speedup/index.html">
 <meta property="og:site_name" content="陈序员">
-<meta property="og:description" content="不是广告，是我推荐的好网站！
-优达学城掘金匠心巨作谷歌开发者中文博客jakewharton 的 blog">
-<meta property="og:updated_time" content="2017-05-17T10:36:28.000Z">
+<meta property="og:description" content="优化前 rebuild project 2m 10s
+
+1. 项目根目录下的 gradle.properties 中添加1234org.gradle.daemon=trueorg.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8org.gradle">
+<meta property="og:updated_time" content="2017-08-15T23:10:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相见恨晚">
-<meta name="twitter:description" content="不是广告，是我推荐的好网站！
-优达学城掘金匠心巨作谷歌开发者中文博客jakewharton 的 blog">
+<meta name="twitter:title" content="Android Gradle 加速编译">
+<meta name="twitter:description" content="优化前 rebuild project 2m 10s
+
+1. 项目根目录下的 gradle.properties 中添加1234org.gradle.daemon=trueorg.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8org.gradle">
 
     
     <link rel="alternative" href="/atom.xml" title="陈序员" type="application/atom+xml">
@@ -82,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/resource/index.html" title="相见恨晚" itemprop="url">相见恨晚</a>
+      <a href="/2017/08/16/gradle-build-speedup/" title="Android Gradle 加速编译" itemprop="url">Android Gradle 加速编译</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="陈铭卓" target="_blank" itemprop="author">陈铭卓</a>
 		
   <p class="article-time">
-    <time datetime="2017-05-16T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-05-17</time>
+    <time datetime="2017-08-15T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-08-16</time>
     
   </p>
 </header>
@@ -98,16 +101,37 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#优达学城"><span class="toc-number">1.</span> <span class="toc-text">优达学城</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#掘金"><span class="toc-number">2.</span> <span class="toc-text">掘金</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匠心巨作"><span class="toc-number">3.</span> <span class="toc-text">匠心巨作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谷歌开发者中文博客"><span class="toc-number">4.</span> <span class="toc-text">谷歌开发者中文博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jakewharton-的-blog"><span class="toc-number">5.</span> <span class="toc-text">jakewharton 的 blog</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-项目根目录下的-gradle-properties-中添加"><span class="toc-number">1.</span> <span class="toc-text">1. 项目根目录下的 gradle.properties 中添加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Android-Studio-的配置-offline"><span class="toc-number">2.</span> <span class="toc-text">2. Android Studio 的配置 offline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Android-模块化编程之引用本地的-AAR"><span class="toc-number">3.</span> <span class="toc-text">3. Android 模块化编程之引用本地的 AAR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Android-秒级编译-Freeline"><span class="toc-number">4.</span> <span class="toc-text">4. Android 秒级编译 Freeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-加速-Android-Studio-的构建速度"><span class="toc-number">5.</span> <span class="toc-text">5. 加速 Android Studio 的构建速度</span></a></li></ol>
 		
 		</div>
 		
-		<p>不是广告，是我推荐的好网站！</p>
-<h3 id="优达学城"><a href="#优达学城" class="headerlink" title="优达学城"></a><a href="https://cn.udacity.com" target="_blank" rel="external">优达学城</a></h3><h3 id="掘金"><a href="#掘金" class="headerlink" title="掘金"></a><a href="http://e.xitu.io/" target="_blank" rel="external">掘金</a></h3><h3 id="匠心巨作"><a href="#匠心巨作" class="headerlink" title="匠心巨作"></a><a href="http://gank.io/post/published" target="_blank" rel="external">匠心巨作</a></h3><h3 id="谷歌开发者中文博客"><a href="#谷歌开发者中文博客" class="headerlink" title="谷歌开发者中文博客"></a><a href="http://developers.googleblog.cn/" target="_blank" rel="external">谷歌开发者中文博客</a></h3><h3 id="jakewharton-的-blog"><a href="#jakewharton-的-blog" class="headerlink" title="jakewharton 的 blog"></a><a href="http://jakewharton.com/" target="_blank" rel="external">jakewharton 的 blog</a></h3>  
+		<blockquote>
+<p>优化前 rebuild project 2m 10s</p>
+</blockquote>
+<h3 id="1-项目根目录下的-gradle-properties-中添加"><a href="#1-项目根目录下的-gradle-properties-中添加" class="headerlink" title="1. 项目根目录下的 gradle.properties 中添加"></a>1. 项目根目录下的 gradle.properties 中添加</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">org<span class="selector-class">.gradle</span><span class="selector-class">.daemon</span>=true</div><div class="line">org<span class="selector-class">.gradle</span><span class="selector-class">.jvmargs</span>=-Xmx2048m -XX:MaxPermSize=<span class="number">512</span>m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-<span class="number">8</span></div><div class="line">org<span class="selector-class">.gradle</span><span class="selector-class">.parallel</span>=true</div><div class="line">org<span class="selector-class">.gradle</span><span class="selector-class">.configureondemand</span>=true</div></pre></td></tr></table></figure>
+<blockquote>
+<p>此时 rebuild project 1m 14s</p>
+</blockquote>
+<h3 id="2-Android-Studio-的配置-offline"><a href="#2-Android-Studio-的配置-offline" class="headerlink" title="2. Android Studio 的配置 offline"></a>2. Android Studio 的配置 offline</h3><ul>
+<li>Settings -&gt; gradle -&gt; offline work 勾选</li>
+<li>Settings -&gt; compiler -&gt; Compile independent modules in parallel 勾选</li>
+<li>Settings -&gt; compiler -&gt; Make project automatically 勾选</li>
+<li>Settings -&gt; compiler -&gt; Command-line Options: 中填写 “–offine”</li>
+</ul>
+<blockquote>
+<p>此时 rebuild project 1m 4s</p>
+</blockquote>
+<p>网上大多说的就是这两点，当然还有一些高级的</p>
+<h3 id="3-Android-模块化编程之引用本地的-AAR"><a href="#3-Android-模块化编程之引用本地的-AAR" class="headerlink" title="3. Android 模块化编程之引用本地的 AAR"></a>3. <a href="http://stormzhang.com/android/2015/03/01/android-reference-local-aar/" target="_blank" rel="external">Android 模块化编程之引用本地的 AAR</a></h3><h3 id="4-Android-秒级编译-Freeline"><a href="#4-Android-秒级编译-Freeline" class="headerlink" title="4. Android 秒级编译 Freeline"></a>4. <a href="http://stormzhang.com/2016/12/02/android-seconds-build-freeline/" target="_blank" rel="external">Android 秒级编译 Freeline</a></h3><h3 id="5-加速-Android-Studio-的构建速度"><a href="#5-加速-Android-Studio-的构建速度" class="headerlink" title="5. 加速 Android Studio 的构建速度"></a>5. <a href="https://www.diycode.cc/topics/683" target="_blank" rel="external">加速 Android Studio 的构建速度</a></h3>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Android/">Android</a>
+  </div>
 
 </div>
 
@@ -115,7 +139,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://blog.ifmvo.cn/resource/index.html" data-title="相见恨晚 | 陈序员" data-tsina="undefined" class="share clearfix">
+	  <div data-url="https://blog.ifmvo.cn/2017/08/16/gradle-build-speedup/" data-title="Android Gradle 加速编译 | 陈序员" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -126,9 +150,22 @@
    	       
 	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/07/31/kotlin-import-flow/"  title="kotlin 包和控制流">
+ <strong>下一篇：</strong><br/> 
+ <span>kotlin 包和控制流
+</span>
+</a>
+</div>
+
+</nav>
+
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="resource/index.html" data-title="相见恨晚" data-url="https://blog.ifmvo.cn/resource/index.html"></div>
+	<div class="ds-thread" data-thread-key="2017/08/16/gradle-build-speedup/" data-title="Android Gradle 加速编译" data-url="https://blog.ifmvo.cn/2017/08/16/gradle-build-speedup/"></div>
 </section>
 
 
@@ -138,7 +175,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#优达学城"><span class="toc-number">1.</span> <span class="toc-text">优达学城</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#掘金"><span class="toc-number">2.</span> <span class="toc-text">掘金</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匠心巨作"><span class="toc-number">3.</span> <span class="toc-text">匠心巨作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谷歌开发者中文博客"><span class="toc-number">4.</span> <span class="toc-text">谷歌开发者中文博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jakewharton-的-blog"><span class="toc-number">5.</span> <span class="toc-text">jakewharton 的 blog</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-项目根目录下的-gradle-properties-中添加"><span class="toc-number">1.</span> <span class="toc-text">1. 项目根目录下的 gradle.properties 中添加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Android-Studio-的配置-offline"><span class="toc-number">2.</span> <span class="toc-text">2. Android Studio 的配置 offline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Android-模块化编程之引用本地的-AAR"><span class="toc-number">3.</span> <span class="toc-text">3. Android 模块化编程之引用本地的 AAR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Android-秒级编译-Freeline"><span class="toc-number">4.</span> <span class="toc-text">4. Android 秒级编译 Freeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-加速-Android-Studio-的构建速度"><span class="toc-number">5.</span> <span class="toc-text">5. 加速 Android Studio 的构建速度</span></a></li></ol>
  
   </div>
 
@@ -282,8 +319,36 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
   });
 });
 </script>
