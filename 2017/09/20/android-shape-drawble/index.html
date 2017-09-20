@@ -1,0 +1,463 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Andorid Shape 这一篇就够了 | 陈序员</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="陈铭卓">
+    
+
+    
+    <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;!--对应的实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Andorid Shape 这一篇就够了">
+<meta property="og:url" content="https://blog.ifmvo.cn/2017/09/20/android-shape-drawble/index.html">
+<meta property="og:site_name" content="陈序员">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;!--对应的实">
+<meta property="og:updated_time" content="2017-09-20T14:52:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Andorid Shape 这一篇就够了">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;!--对应的实">
+
+    
+    <link rel="alternative" href="/atom.xml" title="陈序员" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="陈序员">陈序员</a></h1>
+				<h2 class="blog-motto">懒惰使人进步</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/resource">相见恨晚</a></li>
+					
+						<li><a href="/resume">简历</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="https://blog.ifmvo.cn" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= bdcsMain ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/09/20/android-shape-drawble/" title="Andorid Shape 这一篇就够了" itemprop="url">Andorid Shape 这一篇就够了</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="陈铭卓" target="_blank" itemprop="author">陈铭卓</a>
+		
+  <p class="article-time">
+    <time datetime="2017-09-19T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-09-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="comment">&lt;!--对应的实体类：GradientDrawable--&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!--line oval rectangle ring 这四种shape 的类型--&gt;</span></div><div class="line"><span class="comment">&lt;!--</span></div><div class="line">    ring 有5个特殊的属性</div><div class="line">    1.innerRadius 圆的内半径和 innerRadiusRatio 同时存在的时候 以innerRadius为准</div><div class="line">    2.thickness 圆环的厚度，即外半径和内半径的差，和thicknessRatio 同时存在的时候，以thickness为准</div><div class="line">    3.innerRadiusRatio 内半径占整个宽度的比例 默认是9 例：内半径 = 宽度 / n</div><div class="line">    4.thicknessRatio 厚度占整个宽度的比例</div><div class="line">    5.useLevel 一般是false，true 的话 就可以当做LevelListDrawable 来使用</div><div class="line"></div><div class="line">--&gt;</div><div class="line"><span class="comment">&lt;!-- line 和 ring 必须要通过 stroke 标签来制定线的宽度和颜色，否则无法达到预期的效果--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">shape</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:shape</span>=<span class="string">"line"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">corners</span></span></div><div class="line">        <span class="attr">android:bottomLeftRadius</span>=<span class="string">"9dp"</span></div><div class="line">        <span class="attr">android:bottomRightRadius</span>=<span class="string">"9dp"</span></div><div class="line">        <span class="attr">android:topLeftRadius</span>=<span class="string">"9dp"</span></div><div class="line">        <span class="attr">android:topRightRadius</span>=<span class="string">"9dp"</span></div><div class="line">        <span class="attr">android:radius</span>=<span class="string">"9dp"</span>/&gt;<span class="comment">&lt;!-- 优先级最低会被其他的四个属性覆盖 --&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">&lt;!--</span></div><div class="line">        与solid 标签是排斥的，solid 表示的是纯色的填充，而gradient 表示的是渐变的效果</div><div class="line">        angle 指的是渐变的角度，默认是0 ， 值必须是45 的倍数，0表示从左到右，90表示从下到上</div><div class="line">        centerX 渐变的中心点的横坐标</div><div class="line">        centerY 渐变的中心点的纵坐标</div><div class="line">        startColor 渐变的起始色</div><div class="line">        centerColor 渐变的中间色</div><div class="line">        endColor 渐变的结束色</div><div class="line">        gradientRadius 渐变的半径 当type = radial时才有效</div><div class="line">        type = linear（线性） / radial（光圈） / sweep（雷达一样） 渐变类型</div><div class="line">     --&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">gradient</span></span></div><div class="line">        <span class="attr">android:centerX</span>=<span class="string">"9dp"</span></div><div class="line">        <span class="attr">android:centerColor</span>=<span class="string">""</span></div><div class="line">        <span class="attr">android:startColor</span>=<span class="string">""</span></div><div class="line">        <span class="attr">android:endColor</span>=<span class="string">""</span></div><div class="line">        <span class="attr">android:gradientRadius</span>=<span class="string">""</span></div><div class="line">        <span class="attr">android:type</span>=<span class="string">"sweep"</span></div><div class="line">        <span class="attr">android:angle</span>=<span class="string">"9dp"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="comment">&lt;!--与solid 标签是排斥的，solid 表示的是纯色的填充，而gradient 表示的是渐变的效果--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">""</span>/&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- line 和 ring 必须要通过 stroke 标签来制定线的宽度和颜色，否则无法达到预期的效果--&gt;</span></div><div class="line">    <span class="comment">&lt;!-- </span></div><div class="line">        描边</div><div class="line">        width 描边的宽度边缘线的宽度</div><div class="line">        dashGap 组成虚线的线段之间的间隔，间隔越大，虚线看起来空隙就越大</div><div class="line">        dashWidth 组成虚线的线段的宽度</div><div class="line">        color 描边的颜色</div><div class="line">        注：dashGap 和 dashWidth 任何一个为 0 就不是虚线的效果了</div><div class="line">     --&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">stroke</span></span></div><div class="line">        <span class="attr">android:width</span>=<span class="string">"50dp"</span></div><div class="line">        <span class="attr">android:dashGap</span>=<span class="string">"60dp"</span></div><div class="line">        <span class="attr">android:dashWidth</span>=<span class="string">"70dp"</span></div><div class="line">        <span class="attr">android:color</span>=<span class="string">"#5c1e1e"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="comment">&lt;!--表示的不是shape 的空白，而是包含它的view 的空白--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">padding</span> </span></div><div class="line">        <span class="attr">android:bottom</span>=<span class="string">"1dp"</span></div><div class="line">        <span class="attr">android:right</span>=<span class="string">"1dp"</span></div><div class="line">        <span class="attr">android:top</span>=<span class="string">"1dp"</span></div><div class="line">        <span class="attr">android:left</span>=<span class="string">"1dp"</span>/&gt;</div><div class="line">    </div><div class="line">    <span class="comment">&lt;!--Drawable 宽高--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">size</span> </span></div><div class="line">        <span class="attr">android:height</span>=<span class="string">"1dp"</span></div><div class="line">        <span class="attr">android:width</span>=<span class="string">"1dp"</span>/&gt;</div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></div></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Android/">Android</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://blog.ifmvo.cn/2017/09/20/android-shape-drawble/" data-title="Andorid Shape 这一篇就够了 | 陈序员" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/08/16/gradle-build-speedup/"  title="Android Gradle 加速编译">
+ <strong>下一篇：</strong><br/> 
+ <span>Android Gradle 加速编译
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/09/20/android-shape-drawble/" data-title="Andorid Shape 这一篇就够了" data-url="https://blog.ifmvo.cn/2017/09/20/android-shape-drawble/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="tagslist">
+	<p class="asidetitle">广告</p>
+</div>
+<div>
+	<img style="padding-top: 10px; width: 100%" src="/img/blog/lydeuv.png"></img>
+</div>
+<div>
+<p style="width: 100%; text-align: center"><strong>《旅得水》</strong></p>
+</div>
+<div>
+<p style="width: 100%; text-align: center">旅行天下，如鱼得水。</p>
+</div>
+
+
+<div>
+<p style="padding-top: 20px; width: 100%; text-align: center; font-size: 20px;"><a style="color: #FF0000;" href = "/monetising/" target="_blank">点击购买广告位</a></p>
+</div>
+
+
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Android/" title="Android">Android<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/kotlin/" title="kotlin">kotlin<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/求职/" title="求职">求职<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/译文/" title="译文">译文<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ICE/" title="ICE">ICE<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/https://github.com/ifmvo" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:Matthew_Chen_1994@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="陈铭卓">陈铭卓</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"ifmvo"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-97412600-1', 'blog.ifmvo.cn');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
